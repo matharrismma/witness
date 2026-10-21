@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "narrowhighway-org"
+name = "witness"
 version = "0.1.0"
 description = "The witness, record and experience layer of Narrow Highway — an application that calls the core engine over HTTP. One engine, one corpus, two surfaces."
 requires-python = ">=3.10"

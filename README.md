@@ -1,4 +1,4 @@
-# narrowhighway-org
+# witness
 
 The **witness, record and experience layer** of Narrow Highway — the `.org` side, split out from
 the core engine in V3 (2026-10-20).

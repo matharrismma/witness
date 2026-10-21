@@ -1,4 +1,4 @@
-"""narrowhighway-org — the witness / record / experience layer of Narrow Highway (V3).
+"""witness — the witness / record / experience layer of Narrow Highway (V3).
 
 This package is an APPLICATION that sits on top of the Narrow Highway core engine. It holds
 surfaces and orchestration (the Scribe first; the witness record, community and coach to follow)
