@@ -31,7 +31,17 @@ primitive doors it composes.
 | 6w | Study **writes** | mastery, create/export/import a study, save a trajectory, submit a playbook entry — the learner's own record | **seam** — docs/STUDY.md |
 | 7 | **Web server** | `nh_org/serve.py` — serves `.org`: the landing ask box, `/book?q=` (a still page), `/console` (JSON), `/health`, and the read surfaces | **done** |
 | 8 | **Deploy + flip** | `nh-org.service` on the box (:8010); `narrowhighway.org` flipped to it, verified live; core kept as rollback | **LIVE** (2026-10-21) |
-| 8c | Per-piece **core cleanup** | remove the core's now-dead witness serving + replaced modules, one at a time | **gated** — docs/DEPLOY.md §3, do with eyes on the site |
+| 8c | Per-piece **core cleanup** | — | **not needed** — nothing is dead (see below) |
+
+**Step 8c resolved (2026-10-21): there is nothing to remove.** The analysis before cutting showed
+every "migrated" module still backs live doors the app calls, and `.com` serves the same Console
+experience directly — so deleting any of it would break `.com` or the app. The app is a thin **.org
+front**: it owns the enriched Console surfaces and **passes every other path through to the core**
+(`serve.handle` → `core_client.passthrough`), so the full witness site stays whole. V3's shape is
+settled: **one engine (the core) serving `.com` directly and backing the `.org` app; the app adds
+the experience and proxies the rest.** The only thing that would create removable code is a product
+decision to narrow `.com` to a lean library (dropping the shared Console) — that reverses the recent
+"unified hero" choice, so it is explicitly the operator's call, not cleanup.
 
 ## How each piece moves (the safe cut-over)
 

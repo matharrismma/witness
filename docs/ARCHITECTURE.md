@@ -86,11 +86,16 @@ the coach's overview and next unit, the playbook — composing `/teachings`, `/d
 `/playbook`. Mastery, studies and submissions are the learner's own writes, a seam. See
 [STUDY.md](STUDY.md).
 
-All of it is served by the **web server** (`nh_org/serve.py`): `.org`'s landing ask box, `/book?q=`
-(the answer as a still page), `/console` (the payload as JSON), `/health`, and the read surfaces as
-JSON. Deploying it beside the core and cutting `narrowhighway.org` over to it — then removing the
-dead core code per piece — is the runbook in [DEPLOY.md](DEPLOY.md); it is gated on a human, because
-flipping a live domain and deleting serving code is the one irreversible-feeling step.
+All of it is served by the **web server** (`nh_org/serve.py`), which is the **complete `.org`
+front**: it owns the enriched surfaces (the landing ask box, `/book?q=` as a still page, `/console`
+JSON, `/health`, the read surfaces) and **passes every other path through to the core verbatim**
+(`core_client.passthrough`), so the full witness site — `/bible`, `/passage`, `/search`, every
+endpoint — stays whole. `narrowhighway.org` is served by this app as of 2026-10-21; see
+[DEPLOY.md](DEPLOY.md).
+
+No core code was removed, and none needs to be: the core serves `.com` directly and backs every
+door the app calls and proxies. V3 is one engine (the core) with two fronts — `.com` served by the
+core, `.org` by this app over it.
 
 The Console now also **speaks** (`console.speak()` over the core `/speak` ceiling — audio with
 ElevenLabs credits, the honest 503 floor without) and **keeps** every exchange in the **Palace**
