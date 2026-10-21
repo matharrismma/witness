@@ -56,6 +56,16 @@ def test_secular_console_leaves_the_gate_closed(client):
     assert out["word"] is None
 
 
+def test_keep_places_the_exchange_in_the_palace(client, tmp_path):
+    """keep=True files the exchange in the palace at a locus; a plain dispatch keeps nothing."""
+    from nh_org.palace import Palace
+    p = Palace(path=str(tmp_path / "palace.jsonl"))
+    out = console.dispatch("how many ounces in a pound", client=client, keep=True, palace=p)
+    assert out["kept"] and out["kept"]["room"] is not None
+    assert len(p.items) == 1
+    assert console.dispatch("how many ounces in a pound", client=client)["kept"] is None
+
+
 @pytest.mark.skipif(os.environ.get("NH_CORE_LIVE") != "1", reason="set NH_CORE_LIVE=1 to hit the real core")
 def test_live_console_answers_a_lookup():
     out = console.dispatch("how many ounces in a pound")

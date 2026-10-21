@@ -18,7 +18,8 @@ from ..core_client import CoreClient
 
 
 def dispatch(text: str, *, client: Optional[CoreClient] = None,
-             thread_id: Optional[str] = None, gate_open: bool = False) -> Dict[str, Any]:
+             thread_id: Optional[str] = None, gate_open: bool = False,
+             keep: bool = False, palace: Any = None) -> Dict[str, Any]:
     """Take one ask, compose the core's /ask door, and shape the Console front-door payload.
 
     `gate_open` follows the surface: the .org/witness face opens the Gate (the Word, the shepherd
@@ -30,7 +31,7 @@ def dispatch(text: str, *, client: Optional[CoreClient] = None,
     house = r.get("house") or {}
     verify = r.get("verify") if isinstance(r.get("verify"), dict) else None
     path = r.get("path") if isinstance(r.get("path"), dict) else None
-    return {
+    out = {
         "answer": r.get("message"),
         "kind": r.get("kind"),
         "verify": verify,
@@ -44,10 +45,24 @@ def dispatch(text: str, *, client: Optional[CoreClient] = None,
         "gate_open": r.get("gate_open"),
         "thread_id": r.get("thread_id"),
         "generated": r.get("generated", False),
-        # RADIO: the answer spoken in the cloned voice via the core /speak door — a declared seam,
-        # gated on ElevenLabs credits + explicit go, so not wired here (docs/MIGRATION.md).
+        # RADIO: filled by speak() on demand (the core /speak ceiling, else the browser floor) — never
+        # auto-synthesized here, so a plain dispatch spends no voice; see speak() below.
         "voice": None,
+        "kept": None,
     }
+    if keep and palace is not None:
+        rec = palace.keep(text=text, answer=out["answer"], kind=out["kind"], word=out["word"],
+                          cite=(verify or {}).get("receipt"), theme=text)
+        out["kept"] = rec["locus"]                 # where in the palace this exchange now lives
+    return out
+
+
+def speak(text: str, *, client: Optional[CoreClient] = None) -> Dict[str, Any]:
+    """RADIO: the answer spoken in the cloned voice through the core's /speak ceiling. Returns
+    {spoken, floor, mime, audio}; when the ceiling is unavailable (no credits) it reports the floor
+    (spoken=False) so the caller drops to the browser voice or plain text — never fabricated audio."""
+    client = client or CoreClient()
+    return client.speak(text)
 
 
 def _main(argv):

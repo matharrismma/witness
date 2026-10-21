@@ -69,5 +69,10 @@ Boundary carved, app scaffolded. Landed and proven against the core:
   keep are app-side UI still to come — see [MIGRATION.md](MIGRATION.md).
 
 The `core_client` door allowlist (`CORE_DOORS`) is pinned by `tests/test_boundary.py`. Next: the
-Console book render + keep, then the witness record and community, then the `.org` deployment. The
-order is in [MIGRATION.md](MIGRATION.md).
+Console book render, then the witness record and community, then the `.org` deployment. The order
+is in [MIGRATION.md](MIGRATION.md).
+
+The Console now also **speaks** (`console.speak()` over the core `/speak` ceiling — audio with
+ElevenLabs credits, the honest 503 floor without) and **keeps** every exchange in the **Palace**
+(`nh_org/palace.py`): a memory palace of `(room, position)` loci on a tensor, recalled by a sort.
+See [PALACE.md](PALACE.md).

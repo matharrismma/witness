@@ -27,7 +27,7 @@ DEFAULT_CORE = "https://api.narrowhighway.com"
 # engine already exposes; the app COMPOSES them (e.g. the Console) but reimplements none. Adding a
 # door here is a reviewed decision (tests/test_boundary.py pins the set); a direct `import concordance`
 # is never allowed. Read-only doors (GET) carry no side effect; /verify?seal=1 is the only write.
-CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study")
+CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study", "/speak")
 
 
 def request_key(path: str, body: Dict[str, Any], query: str = "") -> str:
@@ -73,6 +73,32 @@ class HttpTransport:
                     continue
                 raise CoreUnavailable(f"{url}: {e}") from e
         raise CoreUnavailable(f"{url}: {last}")
+
+    def post_raw(self, path: str, body: Dict[str, Any], query: str = ""):
+        """POST expecting a raw (possibly binary) response. Returns (status, bytes, content_type).
+        Used by the voice door (/speak returns audio/mpeg, or 503 when the ceiling is unavailable —
+        that 503 is the engine's documented FLOOR, returned here as status 503, not raised)."""
+        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        data = json.dumps(body).encode("utf-8")
+        req = urllib.request.Request(
+            url, data=data, headers={"content-type": "application/json"}, method="POST")
+        for attempt in range(self.retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    return resp.status, resp.read(), resp.headers.get("content-type", "")
+            except urllib.error.HTTPError as e:
+                if e.code == 503:
+                    return 503, b"", e.headers.get("content-type", "")  # the floor, not a failure
+                if e.code == 429 and attempt < self.retries:
+                    time.sleep(min(float(e.headers.get("Retry-After") or 0) or (2 ** attempt), 30.0))
+                    continue
+                raise CoreUnavailable(f"{url}: {e}") from e
+            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                if attempt < self.retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise CoreUnavailable(f"{url}: {e}") from e
+        raise CoreUnavailable(url)
 
 
 class RecordedTransport:
@@ -138,6 +164,20 @@ class CoreClient:
         if gate_open:
             body["gate_open"] = True
         return self.t.post("/ask", body)
+
+    def speak(self, text: str) -> Dict[str, Any]:
+        """The voice ceiling: ask the core to speak `text` (audio/mpeg). Returns
+        {spoken, floor, mime, audio}. When the ceiling is unavailable (no ElevenLabs credits) the
+        core returns its 503 FLOOR and this reports spoken=False, floor=True with no audio — the
+        caller then falls back to the browser floor (NHSpeak) or plain text. Never fabricates audio.
+        A transport without raw support (e.g. a recorded JSON transport) also yields the floor."""
+        raw = getattr(self.t, "post_raw", None)
+        if raw is None:
+            return {"spoken": False, "floor": True, "mime": None, "audio": None}
+        status, audio, mime = raw("/speak", {"text": text})
+        if status == 200 and audio:
+            return {"spoken": True, "floor": False, "mime": mime or "audio/mpeg", "audio": audio}
+        return {"spoken": False, "floor": True, "mime": None, "audio": None}
 
     @staticmethod
     def seal_of(result: Dict[str, Any]) -> Dict[str, Any]:
