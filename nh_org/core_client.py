@@ -96,6 +96,37 @@ class HttpTransport:
                 raise CoreUnavailable(f"{url}: {e}") from e
         raise CoreUnavailable(url)
 
+    def passthrough(self, method: str, path: str, query: str = "",
+                    body: Optional[Dict[str, Any]] = None):
+        """Forward a request to the core verbatim and return (status, content_type, bytes).
+
+        The transparent .org front: the app owns a few enriched surfaces (the Console) and hands
+        EVERYTHING ELSE to the core — the full witness site and its endpoints (/bible, /passage,
+        /search, …) — so .org stays whole. The core's own status (incl. 404) is returned as-is, never
+        raised. This is a transparent proxy, not a composed door, so it carries no fixed path."""
+        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        data = None
+        headers = {}
+        if method == "POST":
+            data = json.dumps(body or {}).encode("utf-8")
+            headers["content-type"] = "application/json"
+        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        for attempt in range(self.retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    return resp.status, resp.headers.get("content-type", ""), resp.read()
+            except urllib.error.HTTPError as e:
+                if e.code == 429 and attempt < self.retries:
+                    time.sleep(min(float(e.headers.get("Retry-After") or 0) or (2 ** attempt), 30.0))
+                    continue
+                return e.code, e.headers.get("content-type", ""), (e.read() or b"")  # forward the core's status
+            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                if attempt < self.retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise CoreUnavailable(f"{url}: {e}") from e
+        raise CoreUnavailable(url)
+
     def post_raw(self, path: str, body: Dict[str, Any], query: str = ""):
         """POST expecting a raw (possibly binary) response. Returns (status, bytes, content_type).
         Used by the voice door (/speak returns audio/mpeg, or 503 when the ceiling is unavailable —
@@ -184,6 +215,12 @@ class CoreClient:
     def verify_text(self, claim: str, *, seal: bool = False) -> Dict[str, Any]:
         """Hand the core a plain-language claim; it finds + verifies the checkable parts."""
         return self.t.post("/verify", {"claim": claim}, "seal=1" if seal else "seal=0")
+
+    def passthrough(self, method: str, path: str, query: str = "",
+                    body: Optional[Dict[str, Any]] = None):
+        """Forward a request to the core verbatim → (status, content_type, bytes). The .org front
+        hands the core every path it does not own, so the full witness site stays reachable."""
+        return self.t.passthrough(method, path, query, body)
 
     def ask(self, text: str, *, thread_id: Optional[str] = None,
             gate_open: bool = False) -> Dict[str, Any]:

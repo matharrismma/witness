@@ -27,9 +27,24 @@ def test_landing_is_a_still_page_with_an_ask_box():
     assert "<script" not in h
 
 
-def test_unknown_door_is_404_json():
-    status, _c, data = serve.handle("GET", "/nope")
-    assert status == 404 and "no such door" in json.loads(data)["error"]
+class _ProxyFake:
+    """A transport that records the proxied request and returns a stand-in core response."""
+
+    def __init__(self):
+        self.seen = None
+
+    def passthrough(self, method, path, query="", body=None):
+        self.seen = (method, path, query)
+        return 200, "text/html; charset=utf-8", f"<core witness page for {path}>".encode()
+
+
+def test_unowned_paths_pass_through_to_the_core():
+    """The .org front: a path the app does not own (e.g. /bible.html) is served by the core verbatim,
+    so the full witness site stays whole after the flip — not a 404."""
+    t = _ProxyFake()
+    status, ctype, data = serve.handle("GET", "/bible.html", client=CoreClient(t))
+    assert status == 200 and b"core witness page for /bible.html" in data
+    assert t.seen == ("GET", "/bible.html", "")
 
 
 def test_console_requires_text():

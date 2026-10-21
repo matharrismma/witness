@@ -85,7 +85,11 @@ def handle(method: str, path: str, query: str = "", body: Optional[Dict[str, Any
             return _json(200, study.teachings(client=client))
         if method == "GET" and path == "/decks":
             return _json(200, study.decks(client=client))
-        return _json(404, {"error": "no such door", "try": ["/", "/book?q=", "/console", "/health"]})
+        # THE .ORG FRONT: the app owns the enriched surfaces above; everything else is the core's —
+        # the full witness site and its endpoints (/bible, /passage, /search, …) — passed through
+        # verbatim so .org stays whole. Not a composed door; a transparent proxy to the one engine.
+        status, ctype, data = client.passthrough(method, path, query, body)
+        return status, ctype or "application/octet-stream", data
     except CoreUnavailable as e:
         return _json(503, {"error": "the core is unavailable; nothing was fabricated", "detail": str(e)})
 
