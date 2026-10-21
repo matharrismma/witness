@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7"]
+dev = ["pytest>=7", "ruff>=0.5"]
 
 [project.scripts]
 nh-scribe = "nh_org.scribe.orchestrate:_main"
