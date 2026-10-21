@@ -28,7 +28,7 @@ DEFAULT_CORE = "https://api.narrowhighway.com"
 # door here is a reviewed decision (tests/test_boundary.py pins the set); a direct `import concordance`
 # is never allowed. Read-only doors (GET) carry no side effect; /verify?seal=1 is the only write.
 CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study", "/speak",
-              "/seal", "/seals", "/badges")
+              "/seal", "/seals", "/badges", "/mesh", "/mesh/map", "/groups")
 
 
 def request_key(path: str, body: Dict[str, Any], query: str = "") -> str:
@@ -227,6 +227,23 @@ class CoreClient:
     def seals(self, *, limit: int = 20) -> Dict[str, Any]:
         """The ledger of sealed records — {note, seals:[...]}."""
         return self.t.get("/seals", f"limit={int(limit)}")
+
+    def mesh(self) -> Dict[str, Any]:
+        """The Fellowship Mesh overview — what it is, its duty, its roles (doctrine, public read)."""
+        return self.t.get("/mesh")
+
+    def mesh_map(self, fp: str = "", *, hops: int = 2) -> Dict[str, Any]:
+        """The map around a node (by fingerprint). With no fp the mesh is hidden: the core returns
+        the gated invitation (Ask/Seek/Knock), not the map — the app surfaces whichever came back."""
+        import urllib.parse
+        q = f"hops={int(hops)}"
+        if fp:
+            q += "&fp=" + urllib.parse.quote(fp)
+        return self.t.get("/mesh/map", q)
+
+    def groups(self) -> Dict[str, Any]:
+        """The study groups — {groups, total} (public read)."""
+        return self.t.get("/groups")
 
     def badge(self, seal_hashes: List[str], *, title: str = "",
               subject_id: Optional[str] = None) -> Dict[str, Any]:

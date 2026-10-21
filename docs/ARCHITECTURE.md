@@ -76,6 +76,11 @@ tally, compose an unsigned evidence badge — composing the core's `/seal`, `/se
 The signed writes (professions, self-attest, binding a badge) are a declared seam the holder signs on
 their own device; the app never holds a key or signs. See [RECORD.md](RECORD.md).
 
+The **Community** surface (`nh_org/community.py`) shows the fellowship — the mesh overview, the map
+around a node (or the gated invitation without one), and the study groups — composing `/mesh`,
+`/mesh/map`, `/groups`. Joining, posting, group contributions and the rest are the member's own
+authorized (mostly signed) acts, a seam the app never performs. See [COMMUNITY.md](COMMUNITY.md).
+
 The Console now also **speaks** (`console.speak()` over the core `/speak` ceiling — audio with
 ElevenLabs credits, the honest 503 floor without) and **keeps** every exchange in the **Palace**
 (`nh_org/palace.py`): a memory palace of `(room, position)` loci on a tensor, recalled by a sort.

@@ -25,8 +25,9 @@ primitive doors it composes.
 | 3r | Console **book render** | `nh_org/console/book.py` — a still, standalone E-Ink page of the answer (the Word, a static trail, the cloud, one next step); escaped, themed, no script | **done** |
 | 4 | Witness **record** (read) | `nh_org/record.py` — fetch a sealed receipt (`/seal`), the ledger tally (`/seals`), compose an unsigned evidence badge (`/badges`) | **done** |
 | 4w | Record **signed writes** | professions (`/mesh/node`), self-attest, bind-a-badge (`/attest`) — the holder's OWN signed request; the app never holds a key or signs | **seam** — docs/RECORD.md; identity model required |
-| 5 | **Community** | mesh, groups, formation, flock, push, lighthouse node | next |
-| 6 | Study / coach | coach, trajectory, decks, playbook, teachings & parable surfaces | planned |
+| 5 | **Community** (read) | `nh_org/community.py` — the mesh overview (`/mesh`), the map around a node / the gated invite (`/mesh/map`), the study groups (`/groups`) | **done** |
+| 5w | Community **writes** | join (`/mesh/node`), post (`/mesh/post`), a door blessing (`/mesh/door`), link/tend/invite/redeem, group join/contribute — the member's own authorized (mostly signed) act | **seam** — docs/COMMUNITY.md |
+| 6 | Study / coach | coach, trajectory, decks, playbook, teachings & parable surfaces | next |
 
 ## How each piece moves (the safe cut-over)
 

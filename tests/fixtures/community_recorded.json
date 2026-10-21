@@ -1,0 +1,371 @@
+{
+"36aede8e0e4765a9fd4ff7b34c14f19e9663910c4457e2020195708f0960cb0f": {
+"groups": [
+{
+"card_count": 0,
+"created_at": 1782959586,
+"description": "",
+"generated": false,
+"id": "grp_666da73a9651",
+"member_count": 3,
+"members": [
+{
+"handle": "Paul",
+"role": "founder"
+},
+{
+"handle": "Phoebe",
+"role": "member"
+},
+{
+"handle": "anon",
+"role": "member"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Grace & the Epistles",
+"topic": "Grace & the Epistles",
+"updated_at": 1789933538
+},
+{
+"card_count": 0,
+"created_at": 1789764000,
+"description": "Neighborhood tutoring co-op fractions and math fundamentals group",
+"generated": false,
+"id": "grp_7edd22245079",
+"member_count": 1,
+"members": [
+{
+"handle": "math-fundamentals",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Math Fundamentals",
+"topic": "math-fundamentals",
+"updated_at": 1789764000
+},
+{
+"card_count": 2,
+"created_at": 1785229105,
+"description": "",
+"generated": false,
+"id": "grp_31eb35f78a1a",
+"member_count": 1,
+"members": [
+{
+"handle": "anon",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Acts 17",
+"topic": "Acts 17",
+"updated_at": 1785229107
+},
+{
+"card_count": 1,
+"created_at": 1785226490,
+"description": "",
+"generated": false,
+"id": "grp_f3b2e43b52fe",
+"member_count": 1,
+"members": [
+{
+"handle": "anon",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "x",
+"topic": "x",
+"updated_at": 1785226491
+},
+{
+"card_count": 2,
+"created_at": 1785226469,
+"description": "",
+"generated": false,
+"id": "grp_3a47b002981c",
+"member_count": 1,
+"members": [
+{
+"handle": "anon",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Acts 17",
+"topic": "Acts 17",
+"updated_at": 1785226473
+},
+{
+"card_count": 0,
+"created_at": 1785025383,
+"description": "",
+"generated": false,
+"id": "grp_85670cb1ad46",
+"member_count": 1,
+"members": [
+{
+"handle": "anon",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "test",
+"topic": "test",
+"updated_at": 1785025383
+},
+{
+"card_count": 0,
+"created_at": 1784397619,
+"description": "",
+"generated": false,
+"id": "grp_625486a6a364",
+"member_count": 1,
+"members": [
+{
+"handle": "anon",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "test",
+"topic": "test",
+"updated_at": 1784397619
+},
+{
+"card_count": 0,
+"created_at": 1782991824,
+"description": "",
+"generated": false,
+"id": "grp_d5aad1569252",
+"member_count": 1,
+"members": [
+{
+"handle": "Paul",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Grace and the Epistles",
+"topic": "Grace and the Epistles",
+"updated_at": 1782991824
+},
+{
+"card_count": 1,
+"created_at": 1782959846,
+"description": "",
+"generated": false,
+"id": "grp_f44f8cac652a",
+"member_count": 1,
+"members": [
+{
+"handle": "A",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Verify flow",
+"topic": "Verify flow",
+"updated_at": 1782959847
+},
+{
+"card_count": 0,
+"created_at": 1782959802,
+"description": "",
+"generated": false,
+"id": "grp_28484a7bfd96",
+"member_count": 1,
+"members": [
+{
+"handle": "Seeker",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "The Beatitudes",
+"topic": "The Beatitudes",
+"updated_at": 1782959802
+},
+{
+"card_count": 1,
+"created_at": 1782959644,
+"description": "",
+"generated": false,
+"id": "grp_35942006551b",
+"member_count": 1,
+"members": [
+{
+"handle": "Tester",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "Diag group",
+"topic": "Diag group",
+"updated_at": 1782959644
+},
+{
+"card_count": 0,
+"created_at": 1782959546,
+"description": "",
+"generated": false,
+"id": "grp_06e76c94636f",
+"member_count": 1,
+"members": [
+{
+"handle": "Founder",
+"role": "founder"
+}
+],
+"note": "A shared study group. Members are pseudonymous \u2014 a handle, no personal information. Contributions are members' own words, attributed; they are not engine-verified.",
+"title": "The Gospel of John",
+"topic": "The Gospel of John",
+"updated_at": 1782959546
+}
+],
+"total": 12
+},
+"e660b08fe1d436d5e61c89048af520bfb754f6998ec08dc1666d6bed118cd894": {
+"danger_rule": "For immediate danger, the authorities and professionals come FIRST \u2014 call local emergency services (911) now. The fold COORDINATES help; it never replaces them, and it never sends the untrained into harm. Protection with wisdom (Matthew 10:16).",
+"duty": "Above all: PROTECT these people and SERVE them. No PII, no directory, no exposure \u2014 protection is the architecture, not a feature. Serving is the whole point (Galatians 5:13; John 13).",
+"flock": "This is the flock. The gate is the door of the sheep (John 10:7,9); it keeps the fold and holds off the wolves (John 10:12). We shepherd, we do not lord over (1 Peter 5:2-3) \u2014 a foot-washer's watch.",
+"gated": "The inner court opens by confession: Jesus Christ is Lord and Messiah (Romans 10:9). The path with gates unfolds as you walk it; we do not show the full deck. See guidance().path for the way.",
+"growing_toward": "The social model is presence with text as the floor \u2014 group bulletin boards, and a whiteboard on your door where others leave a word or an encouragement. Ahead: pooled group buys and food shipped to your door, and a real way to be sent out to serve. Text works when nothing else will.",
+"hidden": "The path is hidden until a seeker reaches the gate. You find it by ASKING, SEEKING, KNOCKING (Matthew 7:7) \u2014 with eyes to see and ears to hear (Matthew 13:16). It is not advertised.",
+"identity": "The Fellowship Mesh \u2014 a network of believers who serve each other. Each of you is a node; you message the nodes around you, pool resources, collaborate, and create.",
+"incarnate": "The mesh reaches off the screen. A need posted here draws the nodes around you to SHOW UP \u2014 build the ramp, mow the yard, sit with the grieving; and in time, a Guardian may help bring someone in danger to safety. Faith works with the hands (James 2:15-16; 1 John 3:18).",
+"is": [
+"a place to SERVE each other \u2014 offer what you have, ask for what you need, work together, make and share",
+"offering-based: everything is a gift freely given; no obligation, no money moves through the mesh",
+"sovereign: the key on your drive is your node \u2014 no account, no password, no email",
+"pseudonymous: a callsign, never personal information; no directory of persons to browse",
+"consent-based: you link only to believers (or a church) who hand you their node id",
+"hop-limited like a LoRa mesh: a post reaches the nodes within your TTL, and relays onward",
+"houses and hotels: a node develops as it links up and serves \u2014 a lone believer grows toward a hub",
+"verifiable offline: every post's id is its own hash (unaltered), and may be signed (authentic)"
+],
+"is_not": [
+"a church \u2014 we support the churches, we do not replace them (a church that serves here is just another node)",
+"a tithe \u2014 nothing here is owed; giving is an offering, not a duty",
+"a directory of people, a database of who-believes-what, or an authority over anyone's walk"
+],
+"note": "A door toward the body of Christ, not a replacement for it (John 3:30). Crisis reaches real people first.",
+"offline": "Online today; the same signed post rides Reticulum/LoRa when the grid is down \u2014 the AI lives behind the radio.",
+"path": {
+"center": "At the center, a community that shares as Acts 2 shared \u2014 offering-based, so that there is not a needy person among them (Acts 4:34); a place where, together, you would not need to pay bills to live. Not a promise, not a scheme, and no money moves through us \u2014 the aspiration of a body that truly loves its own.",
+"gates": [
+{
+"gate": "none \u2014 this court is for everyone",
+"opens": "the open tool \u2014 the Word, the corpus, verification, the Coach",
+"scripture": "Matthew 11:28",
+"stage": "threshold"
+},
+{
+"gate": "you come, and you ask, seek, knock",
+"opens": "the shape of the path, and the confession that opens the door",
+"scripture": "Matthew 7:7-8",
+"stage": "seeker"
+},
+{
+"gate": "confess Jesus Christ as Lord and Messiah",
+"opens": "a node of your own, and the believers immediately around you",
+"scripture": "Romans 10:9",
+"stage": "confessor"
+},
+{
+"gate": "be known: vouched by believers, and serving",
+"opens": "your fellowship and their neighbors \u2014 the offers and needs, to serve and be served",
+"scripture": "1 John 3:18",
+"stage": "joined"
+},
+{
+"gate": "a life shared with the body over time",
+"opens": "the woven center \u2014 where the body provides for its own, so no one is in need",
+"scripture": "Acts 2:44-45; Acts 4:34",
+"stage": "community"
+},
+{
+"gate": "you have been discipled; now you are sent (the block unlocks with discipleship + further understanding)",
+"locked": true,
+"opens": "a commission \u2014 to go into the world to serve, make disciples, and plant new nodes",
+"scripture": "Matthew 28:19-20; John 20:21",
+"stage": "sent"
+}
+],
+"hidden": "The path is hidden until a seeker reaches the gate \u2014 treasure hidden in a field (Matthew 13:44). It is not advertised; it is found. Seek, and you will find (Matthew 7:7).",
+"identity": "A path with gates. We do not show the full deck at once \u2014 the way opens as you walk it.",
+"turns_outward": "The way does not end at the center. It draws you in to be formed, then sends you OUT \u2014 as the Father sent the Son, so He sends you (John 20:21). The discipled become the disciplers; a sent one plants new nodes, and the mesh grows outward."
+},
+"purpose": "So many have no one to serve \u2014 and to serve, to provide value with one's gift, is what a person is made for. Here everyone may, whatever their gift; we work to find where it is needed and connect it (1 Corinthians 12; Ephesians 4:11-12; 1 Peter 4:10). No gift is too small, no one is surplus.",
+"representative": "A node stands WITH you and FOR you \u2014 your advocate in a situation. In our day: the one who drives you home or fixes your tire, and also negotiates with the insurance company or has a word with the bully. One called alongside (Galatians 6:2).",
+"roles": {
+"guardian": "a real-world protector \u2014 police, military, or any who guard \u2014 who can PHYSICALLY DEPLOY when someone is in need (the sheepdog \u2014 John 10:12); never a wolf itself",
+"guide": "leads, feeds, and shows the way (the shepherd \u2014 Acts 20:28); conferred, never self-claimed",
+"how": "roles are raised up by a Guide (tend), not appointed by oneself; the first Guide is the founding foot-washer",
+"member": "one of the flock \u2014 the default; everyone who confesses and enters"
+},
+"will_not": [
+"store personal information or a location, ever",
+"expose a global list of people (you see only the nodes around you)",
+"present a member's post as an engine-verified verdict",
+"send anything on your behalf, or move any money \u2014 you post your own words, you give your own gifts"
+],
+"worst_case": "Built for the worst case, to serve the most innocent. When the grid and the world fail, the same sovereign, offline mesh gathers the remnant of the church (Revelation 12:17) \u2014 an Emergency Broadcast used in daily life, growing toward group buys and food shipped to those in need. Resilience is love with foresight (Proverbs 22:3)."
+},
+"e9e084c74a2efca3a5b77922afbf4270bee354c5e258c14d8ada1b9afb5df565": {
+"confession": "Jesus Christ is Lord and Messiah",
+"gated": true,
+"message": "The fellowship of believers opens to those who confess Jesus Christ as Lord and Messiah (Romans 10:9). The rest of the tool is already yours; this inner court is kept for His own. Whoever confesses Him, He confesses before the Father (Matthew 10:32). Confess, and enter.",
+"ok": false,
+"path": {
+"center": "At the center, a community that shares as Acts 2 shared \u2014 offering-based, so that there is not a needy person among them (Acts 4:34); a place where, together, you would not need to pay bills to live. Not a promise, not a scheme, and no money moves through us \u2014 the aspiration of a body that truly loves its own.",
+"gates": [
+{
+"gate": "none \u2014 this court is for everyone",
+"opens": "the open tool \u2014 the Word, the corpus, verification, the Coach",
+"scripture": "Matthew 11:28",
+"stage": "threshold"
+},
+{
+"gate": "you come, and you ask, seek, knock",
+"opens": "the shape of the path, and the confession that opens the door",
+"scripture": "Matthew 7:7-8",
+"stage": "seeker"
+},
+{
+"gate": "confess Jesus Christ as Lord and Messiah",
+"opens": "a node of your own, and the believers immediately around you",
+"scripture": "Romans 10:9",
+"stage": "confessor"
+},
+{
+"gate": "be known: vouched by believers, and serving",
+"opens": "your fellowship and their neighbors \u2014 the offers and needs, to serve and be served",
+"scripture": "1 John 3:18",
+"stage": "joined"
+},
+{
+"gate": "a life shared with the body over time",
+"opens": "the woven center \u2014 where the body provides for its own, so no one is in need",
+"scripture": "Acts 2:44-45; Acts 4:34",
+"stage": "community"
+},
+{
+"gate": "you have been discipled; now you are sent (the block unlocks with discipleship + further understanding)",
+"locked": true,
+"opens": "a commission \u2014 to go into the world to serve, make disciples, and plant new nodes",
+"scripture": "Matthew 28:19-20; John 20:21",
+"stage": "sent"
+}
+],
+"hidden": "The path is hidden until a seeker reaches the gate \u2014 treasure hidden in a field (Matthew 13:44). It is not advertised; it is found. Seek, and you will find (Matthew 7:7).",
+"identity": "A path with gates. We do not show the full deck at once \u2014 the way opens as you walk it.",
+"turns_outward": "The way does not end at the center. It draws you in to be formed, then sends you OUT \u2014 as the Father sent the Son, so He sends you (John 20:21). The discipled become the disciplers; a sent one plants new nodes, and the mesh grows outward."
+},
+"scripture": "Romans 10:9-10; 1 Corinthians 12:3; Matthew 16:16",
+"stage": "seeker"
+}
+}
