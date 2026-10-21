@@ -30,7 +30,8 @@ primitive doors it composes.
 | 6 | **Study / coach** (read) | `nh_org/study.py` — the Words in Red (`/teachings`), the decks (`/decks`), the coach overview/next (`/coach/overview`, `/coach/next`), the playbook (`/playbook`) | **done** |
 | 6w | Study **writes** | mastery, create/export/import a study, save a trajectory, submit a playbook entry — the learner's own record | **seam** — docs/STUDY.md |
 | 7 | **Web server** | `nh_org/serve.py` — serves `.org`: the landing ask box, `/book?q=` (a still page), `/console` (JSON), `/health`, and the read surfaces | **done** |
-| 8 | **Deploy + cut over** | run the app beside the core, flip `narrowhighway.org`, remove dead core code per piece | runbook in docs/DEPLOY.md — **gated** (live-site, do with eyes on it) |
+| 8 | **Deploy + flip** | `nh-org.service` on the box (:8010); `narrowhighway.org` flipped to it, verified live; core kept as rollback | **LIVE** (2026-10-21) |
+| 8c | Per-piece **core cleanup** | remove the core's now-dead witness serving + replaced modules, one at a time | **gated** — docs/DEPLOY.md §3, do with eyes on the site |
 
 ## How each piece moves (the safe cut-over)
 

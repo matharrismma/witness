@@ -4,6 +4,11 @@ The witness app is a client of the core. It runs as its own service and serves `
 by composing the core's doors over HTTP. The core (concordance-2) keeps serving `.com` + the `api.`
 door throughout; nothing here touches the engine.
 
+**Status: LIVE as of 2026-10-21.** Steps 1–2 are done — `narrowhighway.org` is served by
+`nh-org.service` on `:8010`, verified live, with the core's `:8001` kept as the rollback target.
+Step 3 (removing dead core code) is not done; it stays gated. The commands below are the record of
+how it was done and how to roll back or redo it.
+
 **Principle: never leave the site unable to answer.** Deploy *alongside* first, prove it in
 production, flip the domain with the old path one line away, and remove core code only afterward.
 Every step has a rollback.
