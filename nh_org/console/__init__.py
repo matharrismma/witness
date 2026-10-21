@@ -18,24 +18,35 @@ from ..core_client import CoreClient
 
 
 def dispatch(text: str, *, client: Optional[CoreClient] = None,
-             thread_id: Optional[str] = None) -> Dict[str, Any]:
-    """Take one ask, compose the core's /ask door, and shape the Console front-door payload."""
+             thread_id: Optional[str] = None, gate_open: bool = False) -> Dict[str, Any]:
+    """Take one ask, compose the core's /ask door, and shape the Console front-door payload.
+
+    `gate_open` follows the surface: the .org/witness face opens the Gate (the Word, the shepherd
+    step and the witness cloud come woven in); the .com/secular face leaves it closed. Every field
+    here is the core's — found, verified, cited — never generated. The only piece not wired is the
+    cloned voice (audio via the core /speak door), which is gated on ElevenLabs credits."""
     client = client or CoreClient()
-    r = client.ask(text, thread_id=thread_id)
+    r = client.ask(text, thread_id=thread_id, gate_open=gate_open)
     house = r.get("house") or {}
     verify = r.get("verify") if isinstance(r.get("verify"), dict) else None
+    path = r.get("path") if isinstance(r.get("path"), dict) else None
     return {
         "answer": r.get("message"),
         "kind": r.get("kind"),
         "verify": verify,
         "trail": (verify or {}).get("trail"),
+        "lead": r.get("lead"),                     # the card the situation is an instance of
+        # enrichments the core weaves when the Gate is open — found/verified, never generated:
+        "word": (path or {}).get("anchor"),        # the verse, verbatim + cited ({ref, text})
+        "coach": ({"framing": path.get("framing"), "step": path.get("step")} if path else None),
+        "cloud": r.get("cloud"),                   # the public-domain witness cloud fit to the theme
         "next_step": house.get("next_step"),
         "gate_open": r.get("gate_open"),
         "thread_id": r.get("thread_id"),
         "generated": r.get("generated", False),
-        # app-side enrichments, staged (docs/MIGRATION.md) — never generated, always found/verified:
-        "voice": None,   # RADIO: the answer spoken in the cloned voice (box-side personal content)
-        "cloud": None,   # the public-domain witness cloud fit to the theme
+        # RADIO: the answer spoken in the cloned voice via the core /speak door — a declared seam,
+        # gated on ElevenLabs credits + explicit go, so not wired here (docs/MIGRATION.md).
+        "voice": None,
     }
 
 

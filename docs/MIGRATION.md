@@ -19,7 +19,9 @@ primitive doors it composes.
 |---|---|---|---|
 | 1 | **Scribe** | a loop over `/verify` (+ seal) | **done** |
 | 2 | **Console spine** | a composition over `/ask` | **done** |
-| 3 | Console enrichments | voice (RADIO), witness cloud, coach weave, book render, keep — wired app-side; each found/verified, never generated | next |
+| 3 | Console enrichments | the Word (`path.anchor`), the shepherd step (`path`) and the witness **cloud** — composed from `/ask` with the Gate open; found/verified, never generated | **done** (voice below) |
+| 3v | Console **voice** (RADIO) | the answer spoken in the cloned voice via the core `/speak` door | **gated** — ElevenLabs credits + explicit go; a declared seam, not wired |
+| 3b | Console book render + keep | render the answer as a page; keep the exchange (scribe) | app-side UI, next |
 | 4 | Witness **record** | professions, self-attest, witnesses, badges — compose the core's seal/record doors | planned |
 | 5 | **Community** | mesh, groups, formation, flock, push, lighthouse node | planned |
 | 6 | Study / coach | coach, trajectory, decks, playbook, teachings & parable surfaces | planned |

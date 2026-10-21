@@ -477,10 +477,230 @@
 ],
 "verify": null
 },
-"thread_id": "504c6586a8b2caf332ef2f45e687baa5",
+"thread_id": "9dc5a5da4bb00db8ac3dc99f55e799ec",
 "volume": {
 "id": "water-safe",
 "name": "When the water isn't safe to drink"
+}
+},
+"61ed7166bcff91e02f9b185d6dcda0ca64762bd9a7ea26182ee7be4f94a6eeed": {
+"cloud": {
+"around": "Map projections (why no flat map is honest)",
+"witnesses": [
+{
+"id": "card_spine_theories",
+"shares": "a theory the sciences and math run on, calibrated",
+"title": "The theories the sciences and math run on"
+},
+{
+"id": "card_theory_differential_geometry",
+"shares": "NO FLAT MAP OF A SPHERE PRESERVES BOTH SHAPE AND AREA, and this is not a cartographer's failing -- it is Gauss's Theorema Egregium as a practical impossibility. Curvature is intrinsic and cannot be removed by bending. Every world map is a lie and the only choice is WHICH; a map that does not state its projection is withholding the shape of its own error",
+"title": "Differential geometry (curvature measured from inside)"
+},
+{
+"id": "card_theory_shannon_information_theory",
+"shares": "A PROJECTION IS A LOSSY ENCODING AND THE CHOICE IS WHICH LOSS TO ACCEPT. Mercator keeps angles exactly and pays the whole cost in area (sec^2 phi -- 10.5x at Greenland's latitude); an equal-area projection keeps area and pays it in shape. Neither can keep both, exactly as a lossy code cannot beat the rate-distortion bound: below a rate you MUST distort, and engineering consists of declaring WHERE. The honest map and the honest codec do the same thing -- name the quantity they destroyed. A map that omits its projection is withholding the shape of its own error, which is a channel with an undeclared noise model",
+"title": "Shannon information theory (entropy, channel capacity)"
+}
+]
+},
+"eldership": {
+"elders": 0,
+"means": "no enduring witness yet \u2014 this rests on recent testimony; weigh it as such",
+"witnesses": 1
+},
+"gate_open": true,
+"generated": false,
+"house": {
+"door": "WALK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "path",
+"next_step": {
+"do": "Read Colossians 3:23 in its own words, then the commentary beside it.",
+"door": "WORD",
+"params": {
+"ref": "Colossians 3:23"
+},
+"tool": "read_passage"
+},
+"seal": null,
+"trail": "path"
+},
+"inhibition": {
+"committed": "Map projections (why no flat map is honest)",
+"inhibited": "Kolmogorov probability axioms",
+"means": "committed to the lead over a competing answer on a different subject \u2014 'Kolmogorov probability axioms' (cross-inhibition, the swarm's stop signal); if you meant that instead, ask for it by name"
+},
+"kind": "found",
+"lead": {
+"excerpt": "Map projections (why no flat map is honest) \u2014 an engine domain that can touch it: geography. Calibration: seals \u2014 projected coordinates and distortion factors compute exactly. NO FLAT MAP OF A SPHERE CAN PRESERVE BOTH SHAPE AND AREA. This is not a limit of cartographers' skill; it is Gauss's Theorema Egregium. A sphere has intrinsic curvature and a plane has none, and curvature cannot be changed by bending without stretching. Every world map is therefore a lie, and the only choice is WHICH lie.",
+"id": "card_theory_map_projections",
+"shelf": "theories",
+"source": {
+"authority_tier": "reference",
+"label": "The Theory Assay \u2014 calibrated, not judged (docs/THEORY_CATALOG.md)",
+"url": ""
+},
+"title": "Map projections (why no flat map is honest)"
+},
+"message": "Here's the clearest thing the keeping holds on this \u2014 in its own words, with its source:",
+"next": [
+{
+"label": "What connects to this?",
+"prompt": "what connects to scripture say honest work"
+},
+{
+"label": "See it in the keeping",
+"prompt": "scripture say honest work"
+}
+],
+"note": "This finds and verifies; it does not generate the answer. A window, not a wall \u2014 the wisdom is in Christ, not this tool.",
+"path": {
+"anchor": {
+"ref": "Colossians 3:23",
+"text": "And whatever you do, work heartily, as for the Lord and not for men,"
+},
+"framing": "This is a question about the Word.",
+"step": "Read Colossians 3:23 in its own words, then the commentary beside it.",
+"type": "doctrine"
+},
+"quorum": {
+"established": false,
+"means": "a single witness \u2014 hold this as one testimony, not settled; seek corroboration",
+"quorum": 2,
+"witnesses": 1
+},
+"resources": [
+{
+"label": "The free libraries & references",
+"ref": "/corpus.html"
+},
+{
+"label": "Check a specific claim, verified",
+"ref": "/check.html"
+}
+],
+"results": [
+{
+"call": "theories.theory",
+"facets": {
+"place": [
+"calibration",
+"conformal",
+"distortion",
+"equal area",
+"gauss",
+"gnomonic",
+"great circle",
+"map projection",
+"mercator",
+"navigation",
+"seals",
+"theorema egregium"
+]
+},
+"id": "card_theory_map_projections",
+"shelf": "theories",
+"snippet": "Map projections (why no flat map is honest) \u2014 an engine domain that can touch it: geography. Calibration: seals \u2014 projected coordinates and distortion factors compute exactly. NO FLAT MAP OF A SPHERE ",
+"surface": "secular",
+"title": "Map projections (why no flat map is honest)"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"calibration",
+"formal",
+"mathematics",
+"probability",
+"reasoning",
+"seals"
+]
+},
+"id": "card_theory_kolmogorov_probability_axioms",
+"shelf": "theories",
+"snippet": "Kolmogorov probability axioms \u2014 an engine domain that can touch it: probability. Calibration: seals. Three axioms (1933): probabilities are non-negative, the whole sample space has probability 1, and ",
+"surface": "secular",
+"title": "Kolmogorov probability axioms"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"calibration",
+"genetics",
+"life",
+"sciences",
+"seals"
+]
+},
+"id": "card_theory_mendelian_inheritance",
+"shelf": "theories",
+"snippet": "Mendelian inheritance \u2014 an engine domain that can touch it: genetics. Calibration: seals \u2014 ratios and Punnett squares compute exactly. Traits are carried by discrete factors, one inherited from each p",
+"surface": "secular",
+"title": "Mendelian inheritance"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"calibration",
+"energy",
+"partial",
+"physics"
+]
+},
+"id": "card_theory_quantum_mechanics",
+"shelf": "theories",
+"snippet": "Quantum mechanics (Schr\u00f6dinger equation) \u2014 an engine domain that can touch it: physics. Calibration: partial \u2014 energy levels and specific relations verify; interpretation is map-only. A system is desc",
+"surface": "secular",
+"title": "Quantum mechanics (Schr\u00f6dinger equation)"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"astronomy",
+"calibration",
+"earth",
+"partial",
+"space"
+]
+},
+"id": "card_theory_big_bang_cosmology_expansion",
+"shelf": "theories",
+"snippet": "Big Bang cosmology & expansion (Hubble's law) \u2014 an engine domain that can touch it: astronomy. Calibration: partial \u2014 the Hubble relation verifies; the origin claim is map-only (RESONANCE). v = H\u2080d: r",
+"surface": "secular",
+"title": "Big Bang cosmology & expansion (Hubble's law)"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"applied",
+"calibration",
+"cybersecurity",
+"human",
+"seals",
+"systems"
+]
+},
+"id": "card_theory_cryptographic_security",
+"shelf": "theories",
+"snippet": "Cryptographic security (hashing, checksums, PKI) \u2014 an engine domain that can touch it: cybersecurity. Calibration: seals \u2014 digests and signatures verify exactly. Three different things people routinel",
+"surface": "secular",
+"title": "Cryptographic security (hashing, checksums, PKI)"
+}
+],
+"thread_id": "e5b1b4fa9274f8f6f1b4dfbdb6518865",
+"threshold": {
+"note": "You knocked. The door is open \u2014 and His word stays with you now.",
+"ref": "Matthew 7:7-8",
+"text": "Ask, and it will be given you. Seek, and you will find. Knock, and it will be opened for you. For everyone who asks receives. He who seeks finds. To him who knocks it will be opened."
+},
+"volume": {
+"id": "scripture-original",
+"name": "Scripture in the Original Tongues \u2014 verse by verse"
 }
 },
 "adad0e50bc7ebf0fadd5ab24f0a6bab3dc587435dff92d6bb1a331fd9dcfe689": {
@@ -504,7 +724,7 @@
 "kind": "compute",
 "message": "1 pound = 16 ounces",
 "note": "Computed exactly, and sealed so anyone can re-check it.",
-"thread_id": "c45066ac469c00479fe4f65422a5a378",
+"thread_id": "4cd291ea2f39f73badcdca2e08d638fb",
 "verify": {
 "confirmed_steps": 1,
 "detail": "1 pound = 16 ounces",

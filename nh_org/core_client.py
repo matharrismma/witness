@@ -124,14 +124,19 @@ class CoreClient:
         """Hand the core a plain-language claim; it finds + verifies the checkable parts."""
         return self.t.post("/verify", {"claim": claim}, "seal=1" if seal else "seal=0")
 
-    def ask(self, text: str, *, thread_id: Optional[str] = None) -> Dict[str, Any]:
+    def ask(self, text: str, *, thread_id: Optional[str] = None,
+            gate_open: bool = False) -> Dict[str, Any]:
         """The WALK door: a situation or question in, one next step out. The engine finds + verifies
-        + cites, never generates. Returns {kind, message, verify, house:{next_step}, gate_open, ...}.
-        This is the primitive the Console composes — the Console's experience lives in the app, the
-        finding and the verdict live in the core."""
+        + cites, never generates. Returns {kind, message, verify, house:{next_step}, gate_open, ...},
+        and when the Gate is open also the Word (`path.anchor`), the shepherd step (`path`) and the
+        public-domain witness `cloud`. `gate_open` follows the surface: the .org/witness face opens
+        it, the .com/secular face leaves it closed (Ask/Seek/Knock — the person's seeking opens it).
+        This is the primitive the Console composes."""
         body: Dict[str, Any] = {"text": text}
         if thread_id:
             body["thread_id"] = thread_id
+        if gate_open:
+            body["gate_open"] = True
         return self.t.post("/ask", body)
 
     @staticmethod

@@ -60,12 +60,14 @@ they produce.
 Boundary carved, app scaffolded. Landed and proven against the core:
 
 - **Scribe** — a loop over `/verify` (+ seal); consensus is not truth, the verifier is.
-- **Console spine** — a composition over `/ask` (`nh_org/console`). The Console was evaluated for the
-  core and did not fit: its spine is engine-shaped but it was welded to the ancillary voice/witness/
-  coach/scribe layer, so it moves here and composes the core doors instead. Its experience
-  enrichments (voice/RADIO, witness cloud, coach weave, book render, keep) are stubbed and land
-  incrementally — see [MIGRATION.md](MIGRATION.md).
+- **Console** — a composition over `/ask` (`nh_org/console`). The Console was evaluated for the core
+  and did not fit: its spine is engine-shaped but it was welded to the ancillary voice/witness/coach/
+  scribe layer, so it moves here and composes the core doors instead. With the Gate open (the
+  `.org`/witness face), it now surfaces the Word (`path.anchor`, verbatim + cited), the shepherd step
+  and the public-domain witness **cloud** — all composed from `/ask`, never generated. The cloned
+  **voice** (audio via `/speak`) is a declared seam, gated on ElevenLabs credits; the book render and
+  keep are app-side UI still to come — see [MIGRATION.md](MIGRATION.md).
 
 The `core_client` door allowlist (`CORE_DOORS`) is pinned by `tests/test_boundary.py`. Next: the
-Console enrichments, then the witness record and community, then the `.org` deployment. The order is
-in [MIGRATION.md](MIGRATION.md).
+Console book render + keep, then the witness record and community, then the `.org` deployment. The
+order is in [MIGRATION.md](MIGRATION.md).
