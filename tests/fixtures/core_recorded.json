@@ -1,0 +1,1894 @@
+{
+"02b6b78bf5fa820bf60642ba5da02200222fb5e991b453f9021f8bbd747da504": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+9000000*0.4)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "9945ac831b60771d885d47820b95b5160beb83921ea81409256df5bcb0ce36fd",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"07ef7c191d3703232742d7a334a0e39b59321e660e3edb278fc0e96d526dd55c": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*45918.75+216*82815.95-12245000 = 6745295.2 \u2014 the claim 6745295.2 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "627f89da892e1abc7745967d3a6357753a70249ad068e974347b122e06e81486",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"0f57bf2451aec855b17b1f72b5aae0eb1c80eb28a838ad585eea5644b0b7bdf6": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)",
+"domain": "real_estate",
+"id": "re",
+"link_ok": true,
+"spec_hash": "6b07dde79d26b76ebc07b84bc85674daf499144a658d12cfdc2d63aa9a024d42",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"1122d7824b840cf34ac5410e81ae34afe9fb7015d3f16d2414aa7ab84bc48e45": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.55 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "4126499eb88c12b8ad91706f83e85def19952f791dd8003f07d4e58060e0b6c0",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"15c1df1d2478261297457608f6e1357c8d82d656fb66cdb033ded0aa2c5791ad": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+1800000)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "b3f83f6871f70f7a4611a55c3f64a7d270f7aef187909db2995064b1f26a19fa",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"2bad0dfb8da24582321c8d4b7971299c06eb1fcee24ff49209b08c073c61f23d": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.99 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "19922411ecf5f4a924a6b57f5e31e04463ecc23bd3874e32095661698b50c79b",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"3a7f5bf888a5aca4174768c833a5177fbcad97385c59da7a5792b0738dad3f95": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "50f272e8a1470cd5b28f6a7dc855e4a5e0158b46c75368e4505ed28d27a6cb4d",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"3b9e4628dd207f101ebb5db49113954ca92512602d660b37485291c6f57b616e": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(24*45918.75+216*82815.99)-12245000 = 6745303.84 \u2014 the claim 6745303.84 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "1f685fe8415a0e744cd22cb850d2d1040f62978dbd114b3069e7de9230238016",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"42b992e2946e9b2ea40eea8eb47e7a3975fc799004d82acbb7a1a453340e30fa": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*45918.75+216*82815.94-12245000 = 6745293.04 \u2014 the claim 6745293.04 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "4d66ce0e607bc1e45374da45c28dc2823d100e2dbff6d6605a596647ab9e1ec6",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"43efbc06b7186b08c1d0c5c5715a91c38f109663d5dcc1316ada8461b466767c": {
+"broken_at": null,
+"confirmed_steps": 12,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 12,
+"trail": [
+{
+"claim": "",
+"detail": "12245000 = 12245000 \u2014 the claim 12245000.0 is exact.",
+"domain": "mathematics",
+"id": "par",
+"link_ok": true,
+"spec_hash": "e70248958a28cdc0a8a010bd022e57c85d88835cec8e0047af2152f9803ab2e2",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.",
+"domain": "mathematics",
+"id": "monthly_io",
+"link_ok": true,
+"spec_hash": "80798b6e9d95eb178e55188afd59c554b398f7db0c96683851584d6d0f7206c7",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.948 is exact.",
+"domain": "mathematics",
+"id": "monthly_pi",
+"link_ok": true,
+"spec_hash": "e443375f9b3424212d9d4f061785b722781912f571a3d07ce0208755fc5427c0",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745294.8 is exact.",
+"domain": "mathematics",
+"id": "total_interest",
+"link_ok": true,
+"spec_hash": "3a77a4deadffc3d8cea875a285f87d4617ceb6c974f5ae34e0cbf3e27f65eda0",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)",
+"domain": "real_estate",
+"id": "dscr_amort",
+"link_ok": true,
+"spec_hash": "6b07dde79d26b76ebc07b84bc85674daf499144a658d12cfdc2d63aa9a024d42",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.",
+"domain": "mathematics",
+"id": "equip_val_y3",
+"link_ok": true,
+"spec_hash": "1917e760718c825a36ceaeeb73d072bbe99114f5997a7c1f7b9101656eceee03",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "(18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.",
+"domain": "mathematics",
+"id": "full_tax_y1",
+"link_ok": true,
+"spec_hash": "50f272e8a1470cd5b28f6a7dc855e4a5e0158b46c75368e4505ed28d27a6cb4d",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "(18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.",
+"domain": "mathematics",
+"id": "full_tax_y8",
+"link_ok": true,
+"spec_hash": "dd8ec983305b9023fb7b1c51fb42ad09ee60bf4e7f3a8ffcaa97d8728ef1d6f9",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.",
+"domain": "mathematics",
+"id": "pilot_y6",
+"link_ok": true,
+"spec_hash": "81d1da8bf71ed41504a64aa8fe06ce35d730457ae90084f0e53765b630a6a229",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.",
+"domain": "mathematics",
+"id": "total_abated_10",
+"link_ok": true,
+"spec_hash": "5d1a64ef461caa5e92715b145e3e01e766d884bd78eeb84d1920050780fc3791",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.55 is exact.",
+"domain": "mathematics",
+"id": "npv_abated",
+"link_ok": true,
+"spec_hash": "d54880738e982e5af9aa1efdf72abb6984e0aea74c2476011528c11059af8468",
+"status": "CONFIRMED",
+"uses": []
+},
+{
+"claim": "",
+"detail": "1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.",
+"domain": "mathematics",
+"id": "abated_per_job",
+"link_ok": true,
+"spec_hash": "f333b4d048e965f8ae9ca9e82611edc17608a76d2fb01316c19193535a6ff621",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"44c957aef7650fe316d8ee1f50ffe7ec47e27a476d3b4765f3d29a7de4ff2d96": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.55 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "d54880738e982e5af9aa1efdf72abb6984e0aea74c2476011528c11059af8468",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"4df856397e0a5adf3da05d534c1ffb0d42fec09ca467bdbc0c0e22c1c41f3a1a": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "5d1a64ef461caa5e92715b145e3e01e766d884bd78eeb84d1920050780fc3791",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"5128bed90a24a0616c2afa9b4696cddb159d9ba957a61c46948d3e3c2cfe3766": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+9000000*0.9)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "9783c29174a59e9d685c012b06f1b0f97eec00778ca7658a0ded22556c3f1595",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"54fa8f785f22c9c60a44c8d456fafedefc7629890209d631d420f20dc49de232": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276+253108.8+216950.4+182800.8+150660+123120+94392+67716+45144+22572 = 1447740 \u2014 the claim 1447740.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "e95b21184c81d40e095bc065997d3380eb1752da7c39d9663e09661b8261c3b3",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"55cd820bd0923ed63684fa436107cfacf61d466eb5c1adf6fa11f8c079098c72": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "f333b4d048e965f8ae9ca9e82611edc17608a76d2fb01316c19193535a6ff621",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"583f2cc516c4759d1f23e313a61d2f941f99b59efac471d92dfc110c7b4c7715": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375/(1-1/1.00375^216) = 82815.94814 \u2014 the claim 82815.99 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "5982bf44b9c004f4d4145a5f36306a452dc5863124ddfe90fb1cfb1e43c1b101",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"5b05f0401da7c689237bb9098e46fdc5663ba7781f95b36e222d6b05aa83ff13": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.95 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "128427d683674a790043d2dfbea82e94151024c19a078c2d4f41f07e8867a484",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"5c4dca211eb683d331840ce4c2d1cce1e18a81d39bc1692748826ce038951187": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276*1+281232*0.9+271188*0.8+261144*0.7+251100*0.6+246240*0.5+235980*0.4+225720*0.3+225720*0.2+225720*0.1 = 1447740 \u2014 the claim 1447740.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "013257c74203d7a40a27aa909e06f61cb59cc09596f3b584394c2c780a8044ab",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"5d6923053d036586265fa8230e929ceb11997617dde1812a9f5a09c34cae0c60": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.94 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "d978177722e68792270bfcf48c471dcca7fb771231aa61b7d987aebc449a871f",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"5e105b7e01ab6a5bd4b60050beec136942d17caa76b8b01b15e5c8917c99d17d": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745295.2 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "28f3cbf7360bdfbb11dc0004631a7452e175ad9f1241fd3dddd879c7d8bb78c3",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"600ab95b6d64c3ade5967c6b0846e98da5789289a155b221f9f7a6c45628d727": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745294.8 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "3a77a4deadffc3d8cea875a285f87d4617ceb6c974f5ae34e0cbf3e27f65eda0",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"626a2f3b65591b9301fe7d9fac5377a2d1576787c504fab2145caa3fbcf7d18d": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(24*45918.75+216*12245000*0.00676324607)-12245000 = 6745294.795 \u2014 the claim 6745294.8 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "cf69ae2cedd6e6d3805ea4bd2d0edf03a6424ced01dd3b6626704ebaa1d4afdc",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"68229a5c7c768c7d810f081aab8eb8b23db8fb44d166014b6e6ca0c2c3d0e854": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1500000/(12*82815.95) = 1.509371081 \u2014 the claim 1.50937 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "7917e7ec666206939b7c38a0400ce6e4fe4e894f7b138a3f2c453e915e31dced",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"687b9c910ce30eb39c5bb3d7f0dbe17b4cb2aa0d48031742add794531de6e3b3": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.045/12 = 45918.75 \u2014 the claim 45918.75 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "3cb74b528e13372636281e75b5c2ffd2a4b7d7c07d95bb389b7931101c1f53eb",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"6a4bb0e898bb2284dec41cbdfff6493a76e5396d0a647afcf9248b8a7766290a": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375 = 45918.75 \u2014 the claim 45918.75 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "f6fce889ae51252dbaa7221e9e5197cd0e4ea1396e9a79c9356036afb3b2428a",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"6d3bb8549ef8fef5656fdb06594834452195899a0fc58b947f4e1d5959879ed7": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)",
+"domain": "real_estate",
+"id": "re",
+"link_ok": true,
+"spec_hash": "fd3623a3e8caaabab3d9c9664097ab8fbf14f941a9a99a4312cfc48faa981357",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"6efbbfdb6e2bb5655895bf059e337da9cf2e2ffc8ab63a3deaa82a46c3898b68": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375/(1-1.00375^(-216)) = 82815.94814 \u2014 the claim 82815.95 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "b2fe2457e58c4204cac7cbf6074e89bcd0fc0a500e9fee5ecdf3786e4c85c779",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"7026165d92e293d66325c70bcfb6ceaa698d2abf6625b1d5ef9fc2ca62702a0c": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "81bb966ecf558c2006b7d4b807718b9c4d198ddbc84ed4f910fb01181db7cae8",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"7542d93a9bf22354df6360767d26e01fe598bf160a5d975c58ce1e67686ca1d2": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375/(1-(1+0.00375)^(-216)) = 82815.94814 \u2014 the claim 82815.95 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "8d497571f2e4b472d5d51a8d304fa3eba73b8861b68ce9811b9202ef79668028",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"79306cfa55c0b0997bd0c79eeedb9229948ed2ff5a4d72b84b3e7cecbf308953": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000 = 12245000 \u2014 the claim 12245000.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "e70248958a28cdc0a8a010bd022e57c85d88835cec8e0047af2152f9803ab2e2",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"83a33985b747bcbb23a84a2be17961ef57e2d3b2dfdc977df3eb063a9e3b42b9": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "80798b6e9d95eb178e55188afd59c554b398f7db0c96683851584d6d0f7206c7",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"889ddd424220086c6ae7310c70a4db439e1f1b740eece0ef0f9557e8e23068b1": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1500000/(12*82815.94) = 1.509371264 \u2014 the claim 1.50937 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "88f3f6063994900b8b469f59302a320431fdd1f5f7b0633f91905ea762f8d521",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"90208be3880672d8cf192b667e88450260b8414dd3bf8a45e0b6f0e649dbf87f": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000 = 12245000 \u2014 the claim 12245000.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "e70248958a28cdc0a8a010bd022e57c85d88835cec8e0047af2152f9803ab2e2",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"949e78a8479668764479e535118198d20c6bcb7de91123234a0f09869e31817d": {
+"broken_at": "re",
+"confirmed_steps": 0,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "open the step that broke (re), correct that claim, verify again",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798, claimed 6745303.84 \u2014 off by 9.042.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "ecf4cf058bc8770254c481e6ade448eb36f1fb56ef2a1a9af973e3c47a6d4e54",
+"status": "MISMATCH",
+"uses": []
+}
+],
+"verdict": "BROKEN"
+},
+"988768eb321992787fa6d4abf981d79eb5f05d7c60600c031ead8229a0514fb0": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "9000000*0.7 = 6300000 \u2014 the claim 6300000.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "297b6cbe7acfd94a4af512f5f09db5604f207d47d72411aad11e0eaa2656acea",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"98a1d406e562cd603f8552e8a87d593d72638cf0594f9e822c058752eadc8c16": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "b82d7c6c127ba9262c8ae946dbcd97ee6f38c06e4ecb883f02802538ff51e235",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"98df2ae148c4f73aae8a89f8de74e440ad49a1bb631b8299788d669133897808": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745293.04 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "d0238d9c3d9ab3d0972bbf1edb8c3474a6a3a7c3cac0100a3c7c37aca596cf10",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"a6b8f4c30d6964fc60f1364c7939860779cb6f1c1dc785a5247e3e3e4966ffea": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1500000/(12*82815.95) = 1.509371081 \u2014 the claim 1.509371 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "78283ace411c57e50a87df943447b0dcf1a901bf4d113a35f86934087d417ece",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"a71c01e8c49fb6828814f536265b4e59973081cc068b5bbfbf537bb61e750497": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210577.5 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "f87cd2ac5679b902487f319ada48d687b5fe5338ea6d99bb6ca618251946f830",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"b27e4bac70f4d0441b55cd330a2ac1fe29f91ece793a08f44117f1919ed0eed1": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1500000/(12*82815.99) = 1.509370352 \u2014 the claim 1.50937 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "022d5709a5d30786e2e7f64fce91921d7560aac0fa27d7e50250b72a3a056fcd",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"bde6b63dd23ed43cc90c8af456df1405f834ce517df37f7140806353bf80ce6c": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375/(1-1/(1.00375^216)) = 82815.94814 \u2014 the claim 82815.94 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "c5133eda5ff912897317b85ca7c2c332f3cbb61d9396ecb9360e8b0be9c3decb",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"c3928130854d49718c26373567293606790a8ddc173f190686b96d0ead86c19f": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+9000000*0.2)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "5821d5d3f33715f1481b4496e315c1f72835802bc28fca77bd9a3621e83dec42",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"c80cb2fe2ef8f28902a139094710f717ab8ade4d44cebe2fcbf7cdbd389619af": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "81d1da8bf71ed41504a64aa8fe06ce35d730457ae90084f0e53765b630a6a229",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"d1fbf6200c2ae416bcec1edb731a276b5b5ea7eed6cde0f6675b3bd791747423": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "5000*2449 = 12245000 \u2014 the claim 12245000.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "64321e908f47363f4d00515a8f21e3af44c159157a0728c66412c1fca5cd7959",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"d30f71df2a9adfdd449cf2fce105413f02b05a8ebe0cb70e6b31bb2528267c7a": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "1917e760718c825a36ceaeeb73d072bbe99114f5997a7c1f7b9101656eceee03",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"d3ee7f1281af789a9a64341b984d2f838ee84551e0ff84df69bff4d040cfadf5": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+8100000)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "7a7accb68a21f56235fc3c2cb3de190fb2743ac2e266b40dc5c2515f7ededd55",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"df73671dd5480867d8d0f53eeacd0049cb51de7b5170e75096490bc00829dd2b": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.948 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "e443375f9b3424212d9d4f061785b722781912f571a3d07ce0208755fc5427c0",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"e202b3fe1da12b5e03ab7b81a1c39dcbfec4e5ac99911cf316294de95b53cee4": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "45918.75/(1-1/1.00375^216) = 82815.94814 \u2014 the claim 82815.95 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "4d1d2402902ff8ddca75d5b6b3052906e8e5141b40f18f259c51ca891232ac20",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"e5a263fccc26e2290fc9ee8b78ae4b2c0a5b0b972bbe5e9f4376b1f8ed442e90": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+3600000)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "fb7b27b8e8a830a665af50e9d477511627250faff28dacc287023f414c40dbc1",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"e6126bc140a16c05376390207d4297226b2ed7cdf3b1a4c4c2bb12918a04efec": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210577.5 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "bd5ec29b31a418b4b4b6cffe9cd2d2094a178da92a05b0a08f8154eec19a3137",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"e6bf7177ba3b9d5c94c239eb2dc44b73de33d9271fa527d7bec9cf93e2d7e61b": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "12245000*0.00375/(1-1/1.00375^216) = 82815.94814 \u2014 the claim 82815.948 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "4867c24897998531a317a43bee5d67867ecfb43d061507c9ce7579f2c4ed760b",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"f098beb4e313af973938b4726b078c2b9feb6c1b2c75a6e4aed68790d1460631": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "9000000*0.70 = 6300000 \u2014 the claim 6300000.0 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "47a3993c0df1ded1e0cf05bc67848bc9affd4813a28c52bdb0ae08812554d7bb",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"f4e7ecfc6b134fa7a42b1934d1763de7c9d65fd18116737ddfed70ff718144a1": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "(18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "dd8ec983305b9023fb7b1c51fb42ad09ee60bf4e7f3a8ffcaa97d8728ef1d6f9",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"f8f8860d84bc7a4e83970a4578c3d1aa0b64822385fa57aebabf4f03de6c8841": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "bring one claim, stated as a number with its unit",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": null,
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.",
+"domain": "mathematics",
+"id": "ar",
+"link_ok": true,
+"spec_hash": "f9352d8ecfb8c1f26c42e30ddd81563b7c8a49e20f104102b2e65b0638e3ce7c",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+}
+}

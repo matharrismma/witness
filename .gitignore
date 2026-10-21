@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+# per-run working artifacts the operator points the Scribe at (fixtures keep their own, committed)
+/run/

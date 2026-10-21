@@ -1,0 +1,438 @@
+{
+ "pass": 2,
+ "agents": [
+  "agentA",
+  "agentB",
+  "agentC",
+  "agentD",
+  "agentE"
+ ],
+ "spread": 4.79282044524017e-07,
+ "singular_values": [
+  9.313207632938115e-07,
+  4.6702923522120376e-07,
+  2.511574667937862e-07,
+  1.2834312865706907e-09,
+  2.2650681006441767e-23
+ ],
+ "top_axis_share": 0.7551726418719479,
+ "top_axis_claims": [
+  [
+   "dscr_amort",
+   0.6994184609319468
+  ],
+  [
+   "npv_abated",
+   0.6971796727637195
+  ],
+  [
+   "total_interest",
+   0.14702856363966385
+  ],
+  [
+   "monthly_pi",
+   0.05600823034802313
+  ]
+ ],
+ "broken": {
+  "agentA": [],
+  "agentB": [],
+  "agentC": [],
+  "agentD": [],
+  "agentE": []
+ },
+ "broken_total": 0,
+ "distance_to_center": {
+  "agentA": 3.269931683679006e-07,
+  "agentB": 7.684294435818727e-07,
+  "agentC": 4.104099816905963e-07,
+  "agentD": 4.4126321180484305e-07,
+  "agentE": 2.966453672808386e-07
+ },
+ "center_draft": "agentE",
+ "divergent": {},
+ "verdicts": {
+  "agentA": {
+   "par": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  [arith:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  "
+   },
+   "monthly_io": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.  [arith:CONFIRMED] 12245000*0.045/12 = 45918.75 \u2014 the claim 45918.75 is exact.  "
+   },
+   "monthly_pi": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.95 is exact.  [arith:CONFIRMED] 12245000*0.00375/(1-(1+0.00375)^(-216)) = 82815.94814 \u2014 the claim 82815.95 is exact.  "
+   },
+   "total_interest": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745295.2 is exact.  [arith:CONFIRMED] 24*45918.75+216*82815.95-12245000 = 6745295.2 \u2014 the claim 6745295.2 is exact.  "
+   },
+   "dscr_amort": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)  [arith:CONFIRMED] 1500000/(12*82815.95) = 1.509371081 \u2014 the claim 1.50937 is exact.  "
+   },
+   "equip_val_y3": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.  [arith:CONFIRMED] 9000000*0.7 = 6300000 \u2014 the claim 6300000.0 is exact.  "
+   },
+   "full_tax_y1": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.  [arith:CONFIRMED] (18000000+8100000)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.  "
+   },
+   "full_tax_y8": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.  [arith:CONFIRMED] (18000000+1800000)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.  "
+   },
+   "pilot_y6": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.  [arith:CONFIRMED] (18000000+3600000)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.  "
+   },
+   "total_abated_10": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.  [arith:CONFIRMED] 291276*1+281232*0.9+271188*0.8+261144*0.7+251100*0.6+246240*0.5+235980*0.4+225720*0.3+225720*0.2+225720*0.1 = 1447740 \u2014 the claim 1447740.0 is exact.  "
+   },
+   "npv_abated": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  [arith:CONFIRMED] 291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  "
+   },
+   "abated_per_job": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.  [arith:CONFIRMED] 1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.  "
+   }
+  },
+  "agentB": {
+   "par": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  [arith:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  "
+   },
+   "monthly_io": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.  [arith:CONFIRMED] 12245000*0.045/12 = 45918.75 \u2014 the claim 45918.75 is exact.  "
+   },
+   "monthly_pi": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.95 is exact.  [arith:CONFIRMED] 12245000*0.00375/(1-1.00375^(-216)) = 82815.94814 \u2014 the claim 82815.95 is exact.  "
+   },
+   "total_interest": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745295.2 is exact.  [arith:CONFIRMED] 24*45918.75+216*82815.95-12245000 = 6745295.2 \u2014 the claim 6745295.2 is exact.  "
+   },
+   "dscr_amort": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)  [arith:CONFIRMED] 1500000/(12*82815.95) = 1.509371081 \u2014 the claim 1.509371 is exact.  "
+   },
+   "equip_val_y3": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.  [arith:CONFIRMED] 9000000*0.7 = 6300000 \u2014 the claim 6300000.0 is exact.  "
+   },
+   "full_tax_y1": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.  [arith:CONFIRMED] (18000000+8100000)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.  "
+   },
+   "full_tax_y8": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.  [arith:CONFIRMED] (18000000+1800000)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.  "
+   },
+   "pilot_y6": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.  [arith:CONFIRMED] (18000000+3600000)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.  "
+   },
+   "total_abated_10": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.  [arith:CONFIRMED] 291276+253108.8+216950.4+182800.8+150660+123120+94392+67716+45144+22572 = 1447740 \u2014 the claim 1447740.0 is exact.  "
+   },
+   "npv_abated": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210577.5 is exact.  [arith:CONFIRMED] 291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210577.5 is exact.  "
+   },
+   "abated_per_job": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.  [arith:CONFIRMED] 1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.  "
+   }
+  },
+  "agentC": {
+   "par": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  [arith:CONFIRMED] 5000*2449 = 12245000 \u2014 the claim 12245000.0 is exact.  "
+   },
+   "monthly_io": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.  [arith:CONFIRMED] 12245000*0.00375 = 45918.75 \u2014 the claim 45918.75 is exact.  "
+   },
+   "monthly_pi": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.94 is exact.  [arith:CONFIRMED] 12245000*0.00375/(1-1/(1.00375^216)) = 82815.94814 \u2014 the claim 82815.94 is exact.  "
+   },
+   "total_interest": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745293.04 is exact.  [arith:CONFIRMED] 24*45918.75+216*82815.94-12245000 = 6745293.04 \u2014 the claim 6745293.04 is exact.  "
+   },
+   "dscr_amort": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)  [arith:CONFIRMED] 1500000/(12*82815.94) = 1.509371264 \u2014 the claim 1.50937 is exact.  "
+   },
+   "equip_val_y3": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.  [arith:CONFIRMED] 9000000*0.7 = 6300000 \u2014 the claim 6300000.0 is exact.  "
+   },
+   "full_tax_y1": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.  [arith:CONFIRMED] (18000000+9000000*0.9)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.  "
+   },
+   "full_tax_y8": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.  [arith:CONFIRMED] (18000000+9000000*0.2)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.  "
+   },
+   "pilot_y6": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.  [arith:CONFIRMED] (18000000+9000000*0.4)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.  "
+   },
+   "total_abated_10": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.  [arith:CONFIRMED] 291276+253108.8+216950.4+182800.8+150660+123120+94392+67716+45144+22572 = 1447740 \u2014 the claim 1447740.0 is exact.  "
+   },
+   "npv_abated": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  [arith:CONFIRMED] 291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  "
+   },
+   "abated_per_job": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.  [arith:CONFIRMED] 1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.  "
+   }
+  },
+  "agentD": {
+   "par": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  [arith:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  "
+   },
+   "monthly_io": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.  [arith:CONFIRMED] 12245000*0.045/12 = 45918.75 \u2014 the claim 45918.75 is exact.  "
+   },
+   "monthly_pi": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.95 is exact.  [arith:CONFIRMED] 45918.75/(1-1/1.00375^216) = 82815.94814 \u2014 the claim 82815.95 is exact.  "
+   },
+   "total_interest": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745295.2 is exact.  [arith:CONFIRMED] 24*45918.75+216*82815.95-12245000 = 6745295.2 \u2014 the claim 6745295.2 is exact.  "
+   },
+   "dscr_amort": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)  [arith:CONFIRMED] 1500000/(12*82815.95) = 1.509371081 \u2014 the claim 1.509371 is exact.  "
+   },
+   "equip_val_y3": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.  [arith:CONFIRMED] 9000000*0.70 = 6300000 \u2014 the claim 6300000.0 is exact.  "
+   },
+   "full_tax_y1": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.  [arith:CONFIRMED] (18000000+8100000)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.  "
+   },
+   "full_tax_y8": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.  [arith:CONFIRMED] (18000000+1800000)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.  "
+   },
+   "pilot_y6": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.  [arith:CONFIRMED] (18000000+3600000)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.  "
+   },
+   "total_abated_10": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.  [arith:CONFIRMED] 291276+253108.8+216950.4+182800.8+150660+123120+94392+67716+45144+22572 = 1447740 \u2014 the claim 1447740.0 is exact.  "
+   },
+   "npv_abated": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  [arith:CONFIRMED] 291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.5 is exact.  "
+   },
+   "abated_per_job": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.  [arith:CONFIRMED] 1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.  "
+   }
+  },
+  "agentE": {
+   "par": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000 = 12245000 \u2014 the claim 12245000.0 is exact.  [arith:CONFIRMED] 5000*2449 = 12245000 \u2014 the claim 12245000.0 is exact.  "
+   },
+   "monthly_io": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12) = 45918.75 \u2014 the claim 45918.75 is exact.  [arith:CONFIRMED] 12245000*0.045/12 = 45918.75 \u2014 the claim 45918.75 is exact.  "
+   },
+   "monthly_pi": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1) = 82815.94814 \u2014 the claim 82815.948 is exact.  [arith:CONFIRMED] 12245000*0.00375/(1-1/1.00375^216) = 82815.94814 \u2014 the claim 82815.948 is exact.  "
+   },
+   "total_interest": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 24*12245000*(0.045/12)+216*12245000*(0.045/12)*(1+(0.045/12))^216/((1+(0.045/12))^216-1)-12245000 = 6745294.798 \u2014 the claim 6745294.8 is exact.  [arith:CONFIRMED] (24*45918.75+216*12245000*0.00676324607)-12245000 = 6745294.795 \u2014 the claim 6745294.8 is exact.  "
+   },
+   "dscr_amort": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] real_estate.debt_service_cov: DSCR = 1.5094 (matches claim)  [arith:CONFIRMED] 1500000/(12*82815.99) = 1.509370352 \u2014 the claim 1.50937 is exact.  "
+   },
+   "equip_val_y3": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 6300000.0 = 6300000 \u2014 the claim 6300000.0 is exact.  [arith:CONFIRMED] 9000000*0.7 = 6300000 \u2014 the claim 6300000.0 is exact.  "
+   },
+   "full_tax_y1": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+8100000.0)*0.40*27.9/1000 = 291276 \u2014 the claim 291276.0 is exact.  [arith:CONFIRMED] (18000000+9000000*0.9)*0.4*0.0279 = 291276 \u2014 the claim 291276.0 is exact.  "
+   },
+   "full_tax_y8": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] (18000000+1800000)*0.40*28.5/1000 = 225720 \u2014 the claim 225720.0 is exact.  [arith:CONFIRMED] (18000000+1800000)*0.4*0.0285 = 225720 \u2014 the claim 225720.0 is exact.  "
+   },
+   "pilot_y6": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 246240.0*(1-0.5) = 123120 \u2014 the claim 123120.0 is exact.  [arith:CONFIRMED] (18000000+9000000*0.4)*0.4*0.0285*0.5 = 123120 \u2014 the claim 123120.0 is exact.  "
+   },
+   "total_abated_10": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0 = 1447740 \u2014 the claim 1447740.0 is exact.  [arith:CONFIRMED] 291276*1+281232*0.9+271188*0.8+261144*0.7+251100*0.6+246240*0.5+235980*0.4+225720*0.3+225720*0.2+225720*0.1 = 1447740 \u2014 the claim 1447740.0 is exact.  "
+   },
+   "npv_abated": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 291276.0/1.05^1+253108.80000000002/1.05^2+216950.40000000002/1.05^3+182800.8/1.05^4+150660.0/1.05^5+123120.0/1.05^6+94391.99999999999/1.05^7+67715.99999999999/1.05^8+45143.99999999999/1.05^9+22571.999999999996/1.05^10 = 1210576.493 \u2014 the claim 1210576.55 is exact.  [arith:CONFIRMED] 291276/1.05+253108.8/1.05^2+216950.4/1.05^3+182800.8/1.05^4+150660/1.05^5+123120/1.05^6+94392/1.05^7+67716/1.05^8+45144/1.05^9+22572/1.05^10 = 1210576.493 \u2014 the claim 1210576.55 is exact.  "
+   },
+   "abated_per_job": {
+    "recompute": "CONFIRMED",
+    "arith": "CONFIRMED",
+    "detail": "[recompute:CONFIRMED] 1447740.0/150 = 9651.6 \u2014 the claim 9651.6 is exact.  [arith:CONFIRMED] 1447740/150 = 9651.6 \u2014 the claim 9651.6 is exact.  "
+   }
+  }
+ },
+ "matrix": {
+  "agentA": {
+   "par": 12245000.0,
+   "monthly_io": 45918.75,
+   "monthly_pi": 82815.95,
+   "total_interest": 6745295.2,
+   "dscr_amort": 1.50937,
+   "equip_val_y3": 6300000.0,
+   "full_tax_y1": 291276.0,
+   "full_tax_y8": 225720.0,
+   "pilot_y6": 123120.0,
+   "total_abated_10": 1447740.0,
+   "npv_abated": 1210576.5,
+   "abated_per_job": 9651.6
+  },
+  "agentB": {
+   "par": 12245000.0,
+   "monthly_io": 45918.75,
+   "monthly_pi": 82815.95,
+   "total_interest": 6745295.2,
+   "dscr_amort": 1.509371,
+   "equip_val_y3": 6300000.0,
+   "full_tax_y1": 291276.0,
+   "full_tax_y8": 225720.0,
+   "pilot_y6": 123120.0,
+   "total_abated_10": 1447740.0,
+   "npv_abated": 1210577.5,
+   "abated_per_job": 9651.6
+  },
+  "agentC": {
+   "par": 12245000.0,
+   "monthly_io": 45918.75,
+   "monthly_pi": 82815.94,
+   "total_interest": 6745293.04,
+   "dscr_amort": 1.50937,
+   "equip_val_y3": 6300000.0,
+   "full_tax_y1": 291276.0,
+   "full_tax_y8": 225720.0,
+   "pilot_y6": 123120.0,
+   "total_abated_10": 1447740.0,
+   "npv_abated": 1210576.5,
+   "abated_per_job": 9651.6
+  },
+  "agentD": {
+   "par": 12245000.0,
+   "monthly_io": 45918.75,
+   "monthly_pi": 82815.95,
+   "total_interest": 6745295.2,
+   "dscr_amort": 1.509371,
+   "equip_val_y3": 6300000.0,
+   "full_tax_y1": 291276.0,
+   "full_tax_y8": 225720.0,
+   "pilot_y6": 123120.0,
+   "total_abated_10": 1447740.0,
+   "npv_abated": 1210576.5,
+   "abated_per_job": 9651.6
+  },
+  "agentE": {
+   "par": 12245000.0,
+   "monthly_io": 45918.75,
+   "monthly_pi": 82815.948,
+   "total_interest": 6745294.8,
+   "dscr_amort": 1.50937,
+   "equip_val_y3": 6300000.0,
+   "full_tax_y1": 291276.0,
+   "full_tax_y8": 225720.0,
+   "pilot_y6": 123120.0,
+   "total_abated_10": 1447740.0,
+   "npv_abated": 1210576.55,
+   "abated_per_job": 9651.6
+  }
+ }
+}
