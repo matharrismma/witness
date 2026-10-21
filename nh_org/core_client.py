@@ -23,6 +23,12 @@ from typing import Any, Dict, List, Optional
 
 DEFAULT_CORE = "https://api.narrowhighway.com"
 
+# The core doors the .org app is allowed to call. Each is a verification/retrieval primitive the
+# engine already exposes; the app COMPOSES them (e.g. the Console) but reimplements none. Adding a
+# door here is a reviewed decision (tests/test_boundary.py pins the set); a direct `import concordance`
+# is never allowed. Read-only doors (GET) carry no side effect; /verify?seal=1 is the only write.
+CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study")
+
 
 def request_key(path: str, body: Dict[str, Any], query: str = "") -> str:
     """A stable key for (path, body, query) so a recorder and a replayer agree byte-for-byte."""
@@ -117,6 +123,16 @@ class CoreClient:
     def verify_text(self, claim: str, *, seal: bool = False) -> Dict[str, Any]:
         """Hand the core a plain-language claim; it finds + verifies the checkable parts."""
         return self.t.post("/verify", {"claim": claim}, "seal=1" if seal else "seal=0")
+
+    def ask(self, text: str, *, thread_id: Optional[str] = None) -> Dict[str, Any]:
+        """The WALK door: a situation or question in, one next step out. The engine finds + verifies
+        + cites, never generates. Returns {kind, message, verify, house:{next_step}, gate_open, ...}.
+        This is the primitive the Console composes — the Console's experience lives in the app, the
+        finding and the verdict live in the core."""
+        body: Dict[str, Any] = {"text": text}
+        if thread_id:
+            body["thread_id"] = thread_id
+        return self.t.post("/ask", body)
 
     @staticmethod
     def seal_of(result: Dict[str, Any]) -> Dict[str, Any]:

@@ -1,0 +1,529 @@
+{
+"2b5349f17f9826d330682bd4dd3f6500b65aedcbe3275be50bee8be4907ee2a1": {
+"cloud": {
+"around": "Short Answer \u2014 Physics",
+"witnesses": [
+{
+"id": "card_spine_openstax",
+"shares": "a section of Physics, an OpenStax open textbook",
+"title": "OpenStax \u2014 the open textbooks"
+}
+]
+},
+"eldership": {
+"elders": 0,
+"means": "no enduring witness yet \u2014 this rests on recent testimony; weigh it as such",
+"witnesses": 1
+},
+"gate_open": false,
+"generated": false,
+"house": {
+"door": "WALK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "path",
+"next_step": {
+"do": "Open 'Short Answer \u2014 Physics' \u2014 it has the steps, in its source's own words.",
+"door": "WORD",
+"params": {
+"ref": "John 4:14"
+},
+"tool": "read_passage"
+},
+"seal": null,
+"trail": "path"
+},
+"inhibition": {
+"committed": "Short Answer \u2014 Physics",
+"inhibited": "Third law of thermodynamics",
+"means": "committed to the lead over a competing answer on a different subject \u2014 'Third law of thermodynamics' (cross-inhibition, the swarm's stop signal); if you meant that instead, ask for it by name"
+},
+"kind": "found",
+"lead": {
+"excerpt": "Short Answer 11.1 Temperature and Thermal Energy 31. What is absolute zero on the Fahrenheit scale? 0 \u00b0F 32 \u00b0F -273.15 \u00b0F -459.67 \u00b0F 32. What is absolute zero on the Celsius scale? 0 \u00b0C 273.15 \u00b0C -459.67 \u00b0C -273.15 \u00b0C 33 . A planet\u2019s atmospheric pressure is such that water there boils at a lower temperature than it does at sea level on Earth. If a Celsius scale is derived on this planet, will it be the same as that on Earth? The Celsius scale derived on the planet will be the same as that on Earth, because the Celsius scale is independent of the freezing and boiling points of water.",
+"id": "card_src_openstax_physics_short_answer_64c41382",
+"shelf": "physics",
+"source": {
+"authority_tier": "reference",
+"label": "OpenStax: Physics (CC-BY 4.0)",
+"url": "https://openstax.org/books/physics/pages/short-answer"
+},
+"title": "Short Answer \u2014 Physics"
+},
+"message": "Here's the clearest thing the keeping holds on this \u2014 in its own words, with its source:",
+"next": [
+{
+"label": "What connects to this?",
+"prompt": "what connects to boiling point water celsius"
+},
+{
+"label": "See it in the keeping",
+"prompt": "boiling point water celsius"
+}
+],
+"note": "This finds and verifies; it does not generate the answer. A window, not a wall \u2014 the wisdom is in Christ, not this tool.",
+"path": {
+"anchor": {
+"ref": "John 4:14",
+"text": "but whoever drinks of the water that I will give him will never thirst again; but the water that I will give him will become in him a well of water springing up to eternal life.\u201d"
+},
+"framing": "This is a practical need \u2014 something to do.",
+"step": "Open 'Short Answer \u2014 Physics' \u2014 it has the steps, in its source's own words.",
+"type": "resource"
+},
+"quorum": {
+"established": false,
+"means": "a single witness \u2014 hold this as one testimony, not settled; seek corroboration",
+"quorum": 2,
+"witnesses": 1
+},
+"resources": [
+{
+"label": "The free libraries & references",
+"ref": "/corpus.html"
+},
+{
+"label": "Check a specific claim, verified",
+"ref": "/check.html"
+}
+],
+"results": [
+{
+"call": "physics.openstax",
+"facets": {
+"subject": [
+"answer",
+"cc-by",
+"physics",
+"short",
+"textbook"
+]
+},
+"id": "card_src_openstax_physics_short_answer_64c41382",
+"shelf": "physics",
+"snippet": "Short Answer\n\n11.1\n\nTemperature and Thermal Energy\n\n31.\n\nWhat is absolute zero on the Fahrenheit scale?\n\n0 \u00b0F\n\n32 \u00b0F\n\n-273.15 \u00b0F\n\n-459.67 \u00b0F\n\n32.\n\nWhat is absolute zero on the Celsius scale?\n\n0 \u00b0C\n\n27",
+"surface": "secular",
+"title": "Short Answer \u2014 Physics"
+},
+{
+"call": "theories.theory",
+"facets": {
+"subject": [
+"calibration",
+"energy",
+"map-only",
+"physics",
+"thermodynamics"
+]
+},
+"id": "card_theory_third_law_of_thermodynamics",
+"shelf": "theories",
+"snippet": "Third law of thermodynamics \u2014 an engine domain that can touch it: thermodynamics. Calibration: map-only \u2014 a limiting statement, not a computation. As temperature approaches absolute zero, the entropy ",
+"surface": "secular",
+"title": "Third law of thermodynamics"
+},
+{
+"call": "physics.openstax",
+"facets": {
+"subject": [
+"cc-by",
+"key",
+"physics",
+"terms",
+"textbook"
+]
+},
+"id": "card_src_openstax_physics_key_terms_9ff03067",
+"shelf": "physics",
+"snippet": "Key Terms\n\nabsolute zero\nlowest possible temperature; the temperature at which all molecular motion ceases\n\nCelsius scale\ntemperature scale in which the freezing point of water is 0 and the boiling po",
+"surface": "secular",
+"title": "Key Terms \u2014 Physics"
+},
+{
+"call": "dictionary.c.ce.celsius_scale",
+"facets": {
+"dictionary": [],
+"subject": [
+"celsius scale",
+"noun",
+"word"
+]
+},
+"id": "card_src_word_celsius_scale",
+"shelf": "dictionary",
+"snippet": "celsius scale: (noun) a temperature scale that defines the freezing point of water as 0 degrees and the boiling point of water as 100 degrees \u2014 syn: international scale, centigrade scale",
+"surface": "secular",
+"title": "celsius scale"
+},
+{
+"call": "dictionary.c.ce.centigrade_scale",
+"facets": {
+"dictionary": [],
+"subject": [
+"centigrade scale",
+"noun",
+"word"
+]
+},
+"id": "card_src_word_centigrade_scale",
+"shelf": "dictionary",
+"snippet": "centigrade scale: (noun) a temperature scale that defines the freezing point of water as 0 degrees and the boiling point of water as 100 degrees \u2014 syn: Celsius scale, international scale",
+"surface": "secular",
+"title": "centigrade scale"
+},
+{
+"call": "dictionary.i.in.international_scale",
+"facets": {
+"dictionary": [],
+"subject": [
+"international scale",
+"noun",
+"word"
+]
+},
+"id": "card_src_word_international_scale",
+"shelf": "dictionary",
+"snippet": "international scale: (noun) a temperature scale that defines the freezing point of water as 0 degrees and the boiling point of water as 100 degrees \u2014 syn: Celsius scale, centigrade scale",
+"surface": "secular",
+"title": "international scale"
+}
+],
+"role": {
+"discern": {
+"authority": "proposed",
+"candidates": [
+{
+"id": "card_src_word_celsius_scale",
+"shelf": "dictionary",
+"title": "celsius scale"
+}
+],
+"claim": "what is the boiling point of water in celsius",
+"cloud": {
+"confirms": false,
+"mentors": {
+"confirms": false,
+"mentors": [
+{
+"discern": "the great defender of the Son; receive the doctrine, read under Scripture",
+"gift": "the Word became flesh that we might be remade \u2014 'he became what we are that he might make us what he is'; the full deity of Christ held against the age",
+"name": "Athanasius",
+"public_domain": true,
+"subjects": [
+"the incarnation",
+"doctrine"
+]
+},
+{
+"discern": "brilliant on the Word-tree; his Steiner-anthroposophy is the part the gate holds at arm's length",
+"gift": "the evolution of consciousness; participation; how meaning lives in language (the Life=Language tree)",
+"name": "Owen Barfield",
+"public_domain": false,
+"subjects": [
+"language",
+"consciousness"
+]
+},
+{
+"discern": "your homestead witness sharpened; a living author \u2014 his way of seeing, not his text",
+"gift": "membership, fidelity to place, the local and living against the abstract and extractive",
+"name": "Wendell Berry",
+"public_domain": false,
+"subjects": [
+"agriculture",
+"membership"
+]
+}
+],
+"note": "the wise men whose craft bears on this \u2014 their gift proposed, weighed against the Source, never confirmed past what it earned",
+"proposes": true
+},
+"note": "how the cloud of witnesses sees this \u2014 the wise men's craft and their verbatim public-domain words, weighed against the Source, never confirmed past what they earned",
+"proposes": true,
+"voice": {
+"confirms": false,
+"gathered": 385,
+"note": "the cloud proposes how these witnesses frame this \u2014 their verbatim words, attributed, public-domain, never a verdict",
+"proposes": true,
+"seeing": [
+{
+"id": "wit_32c70f871256a7c6",
+"ref": "p95",
+"source": "https://www.gutenberg.org/ebooks/60669",
+"text": "You live, perhaps, on the other side of the river, and you have to cross a bridge before you can get home. You have been so silly as to nurse the notion that you do not believe in bridges, nor in boats, nor in the existence of such a thing as water. You say, \"I am not going over any of your bridges, and I shall not get into any of your boats. I do not believe that there is a river, or that there is any such stuff as water.\" You are going home, and soon you come to the old bridge; but you will not cross it. Yonder is a boat; but you are determined that you will not get into it. There is the river, and you resolve that you will not cross it in the usual way; and yet you think it is very hard that you cannot get home. Surely something has destroyed your reasoning powers, for you would not think it so hard if you were in your senses. If a man will not do the thing that is necessary to a certain end, how can he expect to gain that end? You have taken poison, and the physician brings an antidote, and says, \"Take it quickly, or you will die; but if you take it quickly, I will guarantee that the poison will be neutralized.\" But you say, \"No, doctor, I do not believe in antidotes. Let everything take its course; let every tub stand on its own bottom; I will have nothing to do with your remedy. Besides, I do not believe that there is any remedy for the poison I have taken; and, what is more, I don't care whether there is or not.\"",
+"witness": "Charles Haddon Spurgeon",
+"work": "Around the Wicket Gate"
+},
+{
+"id": "wit_ebedc18aebf93a1c",
+"ref": "p65",
+"source": "https://www.gutenberg.org/ebooks/60669",
+"text": "Thus would I urge the reader to seek faith; but if he be unwilling, what more can I do? I have brought the horse to the water, but I cannot make him drink. This, however, be it remembered--_unbelief is wilful when evidence is put in a man's way, and he refuses carefully to examine it_. He that does not desire to know, and accept the truth, has himself to thank if he dies with a lie in his right hand. It is true that \"he that believeth and is baptized shall be saved\": it is equally true that \"he that believeth not shall be damned.\"",
+"witness": "Charles Haddon Spurgeon",
+"work": "Around the Wicket Gate"
+}
+]
+}
+},
+"confirms": false,
+"held": null,
+"input": "what is the boiling point of water in celsius",
+"kind": "question",
+"lens": null,
+"next": "retrieve",
+"proposes": true,
+"route": {
+"alternatives": [],
+"answered_here": false,
+"considered": [],
+"member": "search",
+"why": "no specialist signal \u2014 search the keeping"
+},
+"why": "discerned a retrieval; 1 kept card(s) genuinely name the subject"
+},
+"gathered": [
+{
+"call": "survival.water",
+"facets": {
+"subject": [
+"bleach",
+"boil",
+"bottle",
+"clean",
+"container",
+"contaminated",
+"dirty",
+"disinfect",
+"drink",
+"filter",
+"giardia",
+"how",
+"how to",
+"outdoors",
+"pot",
+"purification",
+"purify",
+"safe",
+"survival",
+"to",
+"treat"
+]
+},
+"id": "card_survival_purify_water",
+"shelf": "survival",
+"snippet": "Boiling is surest: bring clear water to a ROLLING boil for 1 minute (3 minutes above ~6,500 ft), let cool. No fire? Use unscented household bleach (5\u20139% sodium hypochlorite): 2 drops per quart/liter o",
+"surface": "secular",
+"title": "Making water safe to drink"
+},
+{
+"call": "sanitation.disease",
+"facets": {
+"subject": [
+"boil",
+"borne",
+"cholera",
+"clean",
+"diarrhea",
+"hands",
+"how to",
+"hygiene",
+"off grid",
+"outbreak",
+"prevent",
+"sanitation",
+"sick",
+"treat",
+"typhoid",
+"wash",
+"water"
+]
+},
+"id": "card_sanitation_water_borne",
+"shelf": "sanitation",
+"snippet": "Diarrheal disease (cholera, dysentery, typhoid) spreads through water and hands fouled by waste, and it kills fast by dehydration. Prevent it: make ALL drinking and cooking water safe (boil, filter, o",
+"surface": "secular",
+"title": "Water-borne disease \u2014 treat the water, wash the hands"
+},
+{
+"call": "sanitation.waste",
+"facets": {
+"subject": [
+"dishwater",
+"disperse",
+"disposal",
+"drain",
+"greywater",
+"how to",
+"hygiene",
+"laundry",
+"mosquito",
+"off grid",
+"pit",
+"pooling",
+"sanitation",
+"soak",
+"standing",
+"wash",
+"water"
+]
+},
+"id": "card_sanitation_greywater",
+"shelf": "sanitation",
+"snippet": "Used water from washing dishes, clothes, and bodies (greywater) shouldn't pool \u2014 standing water breeds mosquitoes and smells. Strain out food scraps first (they draw flies and rodents), then let greyw",
+"surface": "secular",
+"title": "Greywater \u2014 where the dishwater and wash water go"
+},
+{
+"call": "sanitation.waste",
+"facets": {
+"subject": [
+"30",
+"contaminate",
+"distance",
+"downhill",
+"drinking",
+"groundwater",
+"how to",
+"hygiene",
+"latrine",
+"meters",
+"off grid",
+"protect",
+"sanitation",
+"separation",
+"source",
+"water",
+"well"
+]
+},
+"id": "card_sanitation_waste_water_separation",
+"shelf": "sanitation",
+"snippet": "The commonest deadly mistake is putting waste near water. Site every latrine, animal pen, and waste pit DOWNHILL and at least 30 m (about 100 ft) from any well, spring, or water you drink \u2014 more in sa",
+"surface": "secular",
+"title": "Keep waste downhill and far from your water"
+},
+{
+"call": "survival.homestead",
+"facets": {
+"subject": [
+"acid",
+"bath",
+"botulism",
+"can",
+"canning",
+"food",
+"fruit",
+"how",
+"how to",
+"jars",
+"meat",
+"outdoors",
+"preserve",
+"pressure",
+"safe",
+"safely",
+"store",
+"survival",
+"to",
+"vegetables",
+"water"
+]
+},
+"id": "card_survival_canning",
+"shelf": "survival",
+"snippet": "Two methods, and choosing wrong can be deadly. HIGH-ACID foods (fruits, jams, pickles, properly acidified tomatoes) are safe by BOILING-WATER-BATH canning. LOW-ACID foods (vegetables, meats, beans, so",
+"surface": "secular",
+"title": "Preserving food: safe home canning"
+},
+{
+"call": "sanitation.principle",
+"facets": {
+"subject": [
+"cholera",
+"diarrhea",
+"disaster",
+"disease",
+"fecal",
+"how to",
+"hygiene",
+"important",
+"kills",
+"off grid",
+"oral",
+"prevention",
+"route",
+"sanitation",
+"why"
+]
+},
+"id": "card_sanitation_why",
+"shelf": "sanitation",
+"snippet": "After a disaster or off-grid, dirty water and human waste spread diarrhea, cholera, typhoid, and hepatitis \u2014 and these kill more people, especially children, than the event itself. Almost all of it tr",
+"surface": "secular",
+"title": "Why sanitation is a life-or-death skill"
+}
+],
+"id": "face_social_worker",
+"manner": "the social worker \u2014 meet the need first and in dignity; the next small, doable step, and the people and resources that can stand with you.",
+"means": "the same voice, in the role of the Social Worker \u2014 a harmonic of the one voice: found, verified, cited; never generated",
+"name": "the Social Worker",
+"shelves": [
+"comms",
+"firstaid",
+"food",
+"power",
+"sanitation",
+"survival",
+"water"
+],
+"verify": null
+},
+"thread_id": "504c6586a8b2caf332ef2f45e687baa5",
+"volume": {
+"id": "water-safe",
+"name": "When the water isn't safe to drink"
+}
+},
+"adad0e50bc7ebf0fadd5ab24f0a6bab3dc587435dff92d6bb1a331fd9dcfe689": {
+"gate_open": false,
+"generated": false,
+"house": {
+"door": "WALK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "path",
+"next_step": {
+"do": "name what you brought: a word, a question, a claim, a verse",
+"door": "WALK",
+"params": {
+"text": ""
+},
+"tool": "discern"
+},
+"seal": null,
+"trail": null
+},
+"kind": "compute",
+"message": "1 pound = 16 ounces",
+"note": "Computed exactly, and sealed so anyone can re-check it.",
+"thread_id": "c45066ac469c00479fe4f65422a5a378",
+"verify": {
+"confirmed_steps": 1,
+"detail": "1 pound = 16 ounces",
+"seal": {
+"cite_url": "https://narrowhighway.org/s/fbb2ce1b13f54560d692174919273cfcb65843d0e8bf438802c141e8ac9f5577",
+"content_hash": "fbb2ce1b13f54560d692174919273cfcb65843d0e8bf438802c141e8ac9f5577",
+"ledgered": true
+},
+"steps": 1,
+"trail": [
+{
+"claim": "1 pound = 16 ounces",
+"detail": "computed deterministically",
+"domain": "arithmetic",
+"id": "compute",
+"status": "PASS"
+}
+],
+"verdict": "HOLDS"
+}
+}
+}

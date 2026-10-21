@@ -16,12 +16,17 @@ def test_the_org_app_never_imports_the_core():
     assert not leaked, f"the .org app imported core modules directly: {leaked}"
 
 
-def test_the_only_core_door_is_verify():
-    """core_client talks to exactly one core path. A second path is a new coupling to review."""
+def test_core_doors_are_a_reviewed_allowlist():
+    """The app may call only the core doors on the reviewed allowlist, and reaches them only through
+    core_client (which posts to `self.t.post("/...")`). A new door is a deliberate addition here, not
+    a quiet new coupling; anything off the list — e.g. a write door like /attach — must not appear."""
     import inspect
+    import re
 
     from nh_org import core_client
     src = inspect.getsource(core_client)
-    paths = sorted(set(p for p in ("/verify",) if p in src))
-    assert paths == ["/verify"], paths
-    assert "/attach" not in src and "/seal" not in src, "sealing goes through /verify?seal=1, not a new path"
+    called = sorted(set(re.findall(r'\.post\(\s*"(/[a-z_]+)"', src)))
+    assert called, "core_client makes no core call — did the client change shape?"
+    off_list = [p for p in called if p not in core_client.CORE_DOORS]
+    assert not off_list, f"core_client calls doors not on the reviewed allowlist CORE_DOORS: {off_list}"
+    assert "/attach" not in src, "sealing goes through /verify?seal=1, never a separate write door"

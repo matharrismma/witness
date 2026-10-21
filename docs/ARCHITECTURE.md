@@ -55,8 +55,17 @@ they produce.
 
 `NH_CORE_URL` defaults to `https://api.narrowhighway.com`; point it at a local core to develop offline.
 
-## Status (first slice, 2026-10-20)
+## Status (2026-10-20)
 
-Boundary carved, app scaffolded, the Scribe landed as the first tool and proven against the core.
-Next: move the remaining ancillary surfaces (Console, community, witness record) behind the same
-client, and stand up the `.org` deployment that serves them.
+Boundary carved, app scaffolded. Landed and proven against the core:
+
+- **Scribe** — a loop over `/verify` (+ seal); consensus is not truth, the verifier is.
+- **Console spine** — a composition over `/ask` (`nh_org/console`). The Console was evaluated for the
+  core and did not fit: its spine is engine-shaped but it was welded to the ancillary voice/witness/
+  coach/scribe layer, so it moves here and composes the core doors instead. Its experience
+  enrichments (voice/RADIO, witness cloud, coach weave, book render, keep) are stubbed and land
+  incrementally — see [MIGRATION.md](MIGRATION.md).
+
+The `core_client` door allowlist (`CORE_DOORS`) is pinned by `tests/test_boundary.py`. Next: the
+Console enrichments, then the witness record and community, then the `.org` deployment. The order is
+in [MIGRATION.md](MIGRATION.md).
