@@ -28,7 +28,8 @@ DEFAULT_CORE = "https://api.narrowhighway.com"
 # door here is a reviewed decision (tests/test_boundary.py pins the set); a direct `import concordance`
 # is never allowed. Read-only doors (GET) carry no side effect; /verify?seal=1 is the only write.
 CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study", "/speak",
-              "/seal", "/seals", "/badges", "/mesh", "/mesh/map", "/groups")
+              "/seal", "/seals", "/badges", "/mesh", "/mesh/map", "/groups",
+              "/teachings", "/decks", "/coach/overview", "/coach/next", "/playbook")
 
 
 def request_key(path: str, body: Dict[str, Any], query: str = "") -> str:
@@ -244,6 +245,28 @@ class CoreClient:
     def groups(self) -> Dict[str, Any]:
         """The study groups — {groups, total} (public read)."""
         return self.t.get("/groups")
+
+    def teachings(self) -> Dict[str, Any]:
+        """The Words in Red — the teaching queue by group (Sermon, Discourses, I AM, Parables)."""
+        return self.t.get("/teachings")
+
+    def decks(self) -> Dict[str, Any]:
+        """The library decks."""
+        return self.t.get("/decks")
+
+    def coach_overview(self, subject: str = "") -> Dict[str, Any]:
+        """The shepherd's overview of a subject — its tracks and units."""
+        import urllib.parse
+        return self.t.get("/coach/overview", "subject=" + urllib.parse.quote(subject) if subject else "")
+
+    def coach_next(self, subject: str = "") -> Dict[str, Any]:
+        """The shepherd's one next unit on a subject."""
+        import urllib.parse
+        return self.t.get("/coach/next", "subject=" + urllib.parse.quote(subject) if subject else "")
+
+    def playbook(self) -> Dict[str, Any]:
+        """The playbook entries (read)."""
+        return self.t.get("/playbook")
 
     def badge(self, seal_hashes: List[str], *, title: str = "",
               subject_id: Optional[str] = None) -> Dict[str, Any]:

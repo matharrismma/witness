@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "witness",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "nh_org.serve"],
+      "port": 8010
+    }
+  ]
+}

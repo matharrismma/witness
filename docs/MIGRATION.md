@@ -27,7 +27,10 @@ primitive doors it composes.
 | 4w | Record **signed writes** | professions (`/mesh/node`), self-attest, bind-a-badge (`/attest`) — the holder's OWN signed request; the app never holds a key or signs | **seam** — docs/RECORD.md; identity model required |
 | 5 | **Community** (read) | `nh_org/community.py` — the mesh overview (`/mesh`), the map around a node / the gated invite (`/mesh/map`), the study groups (`/groups`) | **done** |
 | 5w | Community **writes** | join (`/mesh/node`), post (`/mesh/post`), a door blessing (`/mesh/door`), link/tend/invite/redeem, group join/contribute — the member's own authorized (mostly signed) act | **seam** — docs/COMMUNITY.md |
-| 6 | Study / coach | coach, trajectory, decks, playbook, teachings & parable surfaces | next |
+| 6 | **Study / coach** (read) | `nh_org/study.py` — the Words in Red (`/teachings`), the decks (`/decks`), the coach overview/next (`/coach/overview`, `/coach/next`), the playbook (`/playbook`) | **done** |
+| 6w | Study **writes** | mastery, create/export/import a study, save a trajectory, submit a playbook entry — the learner's own record | **seam** — docs/STUDY.md |
+| 7 | **Web server** | `nh_org/serve.py` — serves `.org`: the landing ask box, `/book?q=` (a still page), `/console` (JSON), `/health`, and the read surfaces | **done** |
+| 8 | **Deploy + cut over** | run the app beside the core, flip `narrowhighway.org`, remove dead core code per piece | runbook in docs/DEPLOY.md — **gated** (live-site, do with eyes on it) |
 
 ## How each piece moves (the safe cut-over)
 

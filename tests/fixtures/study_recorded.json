@@ -1,0 +1,1474 @@
+{
+"1c027e3c0981ac7c7b11a0d3450f18e8a6c64178b88115dd7e7475f77e78fe46": {
+"after": null,
+"generated": false,
+"house": {
+"door": "WALK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "unit",
+"next_step": {
+"do": "open the unit and do the one thing it asks",
+"door": "WALK",
+"params": {
+"id": "phonics_letter_sounds",
+"subject": "read"
+},
+"tool": "coach_unit"
+},
+"seal": null,
+"trail": "position"
+},
+"kind": "coach_next",
+"note": "Coach finds and presents the lesson; it never generates it, and never grades a child.",
+"of": 35,
+"position": 1,
+"subject": "read",
+"unit": {
+"axes": [
+"information_encoding",
+"authority_trust"
+],
+"check": {
+"answer": "The NAME of B is 'bee' (the word you hear when you sing the ABC song). The SOUND of B is /b/ \u2014 short, like the start of 'ball'. When you read, you use the SOUND, not the name. If you tried to read 'bag' by names, you'd say 'bee-ay-gee' \u2014 which doesn't sound like 'bag'. You read 'bag' by sounds: /b/ /\u00e6/ /g/ \u2014 that blends into 'bag'.",
+"prompt": "What's the difference between the NAME of a letter and the SOUND of a letter? Use B as an example.",
+"teaching_note": "This is the single most-missed concept at the start of phonics. Many children learn the alphabet song (names) before they learn sounds, then get stuck. Practice with letters they know names for: 'I know the NAME \u2014 what's the SOUND?' Until the sounds are automatic, every other phonics unit is harder."
+},
+"decodable_sentence": "Each letter has a sound. Say the sound, not the name.",
+"domains": [
+"linguistics",
+"phonics",
+"pedagogy"
+],
+"examples": [
+"B says /b/ \u2014 ball, bag, bed",
+"C says /k/ \u2014 cat, cup, cot (soft /s/ comes later, as in cent)",
+"D says /d/ \u2014 dog, doll, dig",
+"F says /f/ \u2014 fan, fish, fox",
+"G says /g/ \u2014 go, gum, gas (soft /j/ comes later, as in gem)",
+"H says /h/ \u2014 hat, hop, hen",
+"Vowels SHORT: A /\u00e6/ apple, E /\u025b/ egg, I /\u026a/ inch, O /\u0252/ octopus, U /\u028c/ umbrella",
+"M says /m/, N says /n/ \u2014 common but easy to confuse if quiet",
+"S says /s/ snake; Z says /z/ zip; the /s/ and /z/ are close \u2014 feel your throat",
+"Y is sometimes a consonant (yes) and sometimes a vowel (sky, baby)"
+],
+"generated": false,
+"id": "phonics_letter_sounds",
+"kind": "coach_unit",
+"modes": [
+{
+"id": "coach_reads",
+"instruction": "Adult shows a letter, says the sound (not the name), and gives an example word. 'B \u2014 /b/ \u2014 ball.' Run through all consonants and the five short vowels.",
+"label": "Coach says the sound",
+"script": "This is B. It says /b/. Like ball, bag, bed. Your turn: /b/."
+},
+{
+"id": "take_turns",
+"instruction": "Adult holds a letter card; child says the sound. Then swap \u2014 child shows a letter; adult says the sound (occasionally wrong on purpose so child corrects).",
+"label": "Take turns",
+"script": "What sound does this letter make? (Hold up D.) Now you pick a letter for me."
+},
+{
+"id": "i_say",
+"instruction": "Child sees a letter and says the sound. Stuck \u2192 Echo (adult says it first), then Phonics (give an example word starting with that letter), then Repeat.",
+"label": "I say",
+"script": "What sound? (Show letters one at a time.)"
+}
+],
+"next": "phonics_short_a",
+"note": "Coach finds and presents the lesson; it never generates it, and never grades a child.",
+"prerequisites": [],
+"rule": "Each letter of the alphabet stands for one or more SOUNDS, not just a name. Before you can read words, you need the letter-sound link. Consonants mostly say their main sound: B says /b/ as in 'ball'. Vowels (A, E, I, O, U, sometimes Y) have two main sounds each \u2014 short and long. Today we learn the consonants and the SHORT vowel sound for each vowel. Long vowels come later (with magic-e and vowel teams).",
+"subject": "read",
+"summary": "Letter-sound correspondence \u2014 the precursor to all decoding. Twenty-six consonants + five short vowel sounds. The check distinguishes letter NAME (bee) from letter SOUND (/b/) \u2014 the most-missed concept at the start of reading.",
+"title": "Letter sounds \u2014 every letter has a job",
+"track": "phonics_letter_sounds",
+"unit_seq": 1,
+"wedges": [
+"wedge_repeat",
+"wedge_echo",
+"wedge_phonics",
+"wedge_praise"
+]
+}
+},
+"69d04fe1361f4809f88c58f5b8d58d04357edfe9fcc16047b99a833eb982b552": {
+"groups": [
+{
+"count": 20,
+"group": "Sermon on the Mount",
+"teachings": [
+{
+"id": "som_01",
+"ref": "Matthew 5:3-12",
+"title": "The Beatitudes"
+},
+{
+"id": "som_02",
+"ref": "Matthew 5:13-16",
+"title": "Salt and Light"
+},
+{
+"id": "som_03",
+"ref": "Matthew 5:17-20",
+"title": "Christ and the Law"
+},
+{
+"id": "som_04",
+"ref": "Matthew 5:21-26",
+"title": "Anger and reconciliation"
+},
+{
+"id": "som_05",
+"ref": "Matthew 5:27-30",
+"title": "Lust and the heart"
+},
+{
+"id": "som_06",
+"ref": "Matthew 5:31-32",
+"title": "Divorce"
+},
+{
+"id": "som_07",
+"ref": "Matthew 5:33-37",
+"title": "Oaths \u2014 let your Yes be Yes"
+},
+{
+"id": "som_08",
+"ref": "Matthew 5:38-42",
+"title": "Turn the other cheek"
+},
+{
+"id": "som_09",
+"ref": "Matthew 5:43-48",
+"title": "Love your enemies"
+},
+{
+"id": "som_10",
+"ref": "Matthew 6:1-4",
+"title": "Giving to the needy"
+},
+{
+"id": "som_11",
+"ref": "Matthew 6:5-15",
+"title": "The Lord's Prayer"
+},
+{
+"id": "som_12",
+"ref": "Matthew 6:16-18",
+"title": "Fasting"
+},
+{
+"id": "som_13",
+"ref": "Matthew 6:19-24",
+"title": "Treasures in heaven"
+},
+{
+"id": "som_14",
+"ref": "Matthew 6:25-34",
+"title": "Do not worry"
+},
+{
+"id": "som_15",
+"ref": "Matthew 7:1-6",
+"title": "Judging others \u2014 the plank"
+},
+{
+"id": "som_16",
+"ref": "Matthew 7:7-12",
+"title": "Ask, Seek, Knock \u2014 the Golden Rule"
+},
+{
+"id": "som_17",
+"ref": "Matthew 7:13-14",
+"title": "The Narrow Gate"
+},
+{
+"id": "som_18",
+"ref": "Matthew 7:15-20",
+"title": "A tree and its fruit"
+},
+{
+"id": "som_19",
+"ref": "Matthew 7:21-23",
+"title": "I never knew you"
+},
+{
+"id": "som_20",
+"ref": "Matthew 7:24-27",
+"title": "Build on the Rock"
+}
+]
+},
+{
+"count": 6,
+"group": "The Discourses",
+"teachings": [
+{
+"id": "disc_vine",
+"ref": "John 15:1-17",
+"title": "The True Vine"
+},
+{
+"id": "disc_shepherd",
+"ref": "John 10:1-18",
+"title": "The Good Shepherd"
+},
+{
+"id": "disc_bread",
+"ref": "John 6:35-59",
+"title": "The Bread of Life"
+},
+{
+"id": "disc_paraclete",
+"ref": "John 14:1-31",
+"title": "The Farewell \u2014 the Paraclete"
+},
+{
+"id": "disc_prayer",
+"ref": "John 17:1-26",
+"title": "The High-Priestly Prayer"
+},
+{
+"id": "disc_olivet",
+"ref": "Matthew 24:1-51",
+"title": "The Olivet Discourse"
+}
+]
+},
+{
+"count": 8,
+"group": "The I AM Sayings",
+"teachings": [
+{
+"id": "iam_ground",
+"ref": "John 8:58",
+"title": "Before Abraham was, I AM"
+},
+{
+"id": "iam_bread",
+"ref": "John 6:35",
+"title": "I am the Bread of Life"
+},
+{
+"id": "iam_light",
+"ref": "John 8:12",
+"title": "I am the Light of the World"
+},
+{
+"id": "iam_door",
+"ref": "John 10:9",
+"title": "I am the Door"
+},
+{
+"id": "iam_shepherd",
+"ref": "John 10:11",
+"title": "I am the Good Shepherd"
+},
+{
+"id": "iam_resurrection",
+"ref": "John 11:25",
+"title": "I am the Resurrection and the Life"
+},
+{
+"id": "iam_way",
+"ref": "John 14:6",
+"title": "I am the Way, the Truth, and the Life"
+},
+{
+"id": "iam_vine",
+"ref": "John 15:1",
+"title": "I am the True Vine"
+}
+]
+},
+{
+"count": 39,
+"group": "The Parables",
+"teachings": [
+{
+"id": "par_sower",
+"ref": "Matthew 13:3-23",
+"title": "The Sower"
+},
+{
+"id": "par_weeds",
+"ref": "Matthew 13:24-30",
+"title": "The Wheat and the Weeds"
+},
+{
+"id": "par_mustard",
+"ref": "Matthew 13:31-32",
+"title": "The Mustard Seed"
+},
+{
+"id": "par_leaven",
+"ref": "Matthew 13:33",
+"title": "The Leaven"
+},
+{
+"id": "par_treasure",
+"ref": "Matthew 13:44-46",
+"title": "The Treasure and the Pearl"
+},
+{
+"id": "par_dragnet",
+"ref": "Matthew 13:47-50",
+"title": "The Dragnet"
+},
+{
+"id": "par_lost_sheep",
+"ref": "Luke 15:3-7",
+"title": "The Lost Sheep"
+},
+{
+"id": "par_prodigal",
+"ref": "Luke 15:11-32",
+"title": "The Prodigal Son"
+},
+{
+"id": "par_samaritan",
+"ref": "Luke 10:25-37",
+"title": "The Good Samaritan"
+},
+{
+"id": "par_talents",
+"ref": "Matthew 25:14-30",
+"title": "The Talents"
+},
+{
+"id": "par_unforgiving",
+"ref": "Matthew 18:23-35",
+"title": "The Unforgiving Servant"
+},
+{
+"id": "par_rich_fool",
+"ref": "Luke 12:16-21",
+"title": "The Rich Fool"
+},
+{
+"id": "par_lost_coin",
+"ref": "Luke 15:8-10",
+"title": "The Lost Coin"
+},
+{
+"id": "par_pharisee_tax_collector",
+"ref": "Luke 18:9-14",
+"title": "The Pharisee and the Tax Collector"
+},
+{
+"id": "par_persistent_widow",
+"ref": "Luke 18:1-8",
+"title": "The Persistent Widow"
+},
+{
+"id": "par_friend_midnight",
+"ref": "Luke 11:5-10",
+"title": "The Friend at Midnight"
+},
+{
+"id": "par_two_builders",
+"ref": "Matthew 7:24-27",
+"title": "The Two Builders"
+},
+{
+"id": "par_workers_vineyard",
+"ref": "Matthew 20:1-16",
+"title": "The Workers in the Vineyard"
+},
+{
+"id": "par_ten_virgins",
+"ref": "Matthew 25:1-13",
+"title": "The Ten Virgins"
+},
+{
+"id": "par_two_sons",
+"ref": "Matthew 21:28-32",
+"title": "The Two Sons"
+},
+{
+"id": "par_wicked_tenants",
+"ref": "Matthew 21:33-44",
+"title": "The Wicked Tenants"
+},
+{
+"id": "par_wedding_banquet",
+"ref": "Matthew 22:1-14",
+"title": "The Wedding Banquet"
+},
+{
+"id": "par_great_banquet",
+"ref": "Luke 14:16-24",
+"title": "The Great Banquet"
+},
+{
+"id": "par_faithful_servant",
+"ref": "Matthew 24:45-51",
+"title": "The Faithful and Wise Servant"
+},
+{
+"id": "par_unjust_steward",
+"ref": "Luke 16:1-13",
+"title": "The Shrewd Manager"
+},
+{
+"id": "par_rich_man_lazarus",
+"ref": "Luke 16:19-31",
+"title": "The Rich Man and Lazarus"
+},
+{
+"id": "par_two_debtors",
+"ref": "Luke 7:41-47",
+"title": "The Two Debtors"
+},
+{
+"id": "par_barren_fig",
+"ref": "Luke 13:6-9",
+"title": "The Barren Fig Tree"
+},
+{
+"id": "par_counting_cost",
+"ref": "Luke 14:28-33",
+"title": "Counting the Cost"
+},
+{
+"id": "par_lamp",
+"ref": "Matthew 5:14-16",
+"title": "The Lamp on a Stand"
+},
+{
+"id": "par_new_wine",
+"ref": "Luke 5:36-39",
+"title": "New Wine and Old Wineskins"
+},
+{
+"id": "par_seed_secretly",
+"ref": "Mark 4:26-29",
+"title": "The Seed Growing Secretly"
+},
+{
+"id": "par_sheep_goats",
+"ref": "Matthew 25:31-46",
+"title": "The Sheep and the Goats"
+},
+{
+"id": "par_good_shepherd",
+"ref": "John 10:11-16",
+"title": "The Good Shepherd"
+},
+{
+"id": "par_vine",
+"ref": "John 15:1-8",
+"title": "The Vine and the Branches"
+},
+{
+"id": "par_unworthy_servants",
+"ref": "Luke 17:7-10",
+"title": "The Unworthy Servants"
+},
+{
+"id": "par_children_market",
+"ref": "Matthew 11:16-19",
+"title": "The Children in the Marketplace"
+},
+{
+"id": "par_empty_house",
+"ref": "Matthew 12:43-45",
+"title": "The Empty House"
+},
+{
+"id": "par_speck_beam",
+"ref": "Matthew 7:3-5",
+"title": "The Speck and the Beam"
+}
+]
+}
+],
+"note": "God seeded wisdom across all of history; we only GATHER it and make its alignment to the Word visible. Nothing here is authored or generated \u2014 every fragment is FOUND across the body and ATTRIBUTED to its source. True wisdom always aligns to Scripture, because reality has one Source (Col 1:17); the concord is discovered, never imposed. Tier 1 (Words in Red) always wins; where a fragment carries error, the seed is kept and the error refused (the Areopagus method, Acts 17). The operator curates \u2014 keeps what aligns, refuses the idol \u2014 but never writes the wisdom.",
+"total": 73
+},
+"9de2e5c5fe569e595a194b8161e45454e76362a2959defb75e7fc242c97697e3": {
+"count": 0,
+"entries": [],
+"note": "The Playbook remembers faithful obedience \u2014 testimony, not doctrine. Canon commands.",
+"ok": true
+},
+"b4216c8bcad3efcdebbd65eb8363cdf51317be7069ed5417fb79523048cd90ff": {
+"decks": [
+{
+"cards": 31140,
+"desc": "The whole Bible in the languages it was given in: the Greek New Testament (SBLGNT) and the Hebrew Bible (Leningrad), one verse at a time, each with its Strong's numbers.",
+"id": "scripture-original",
+"name": "Scripture in the Original Tongues \u2014 verse by verse",
+"need": false,
+"shelves": [
+"greek_nt",
+"hebrew_ot"
+]
+},
+{
+"cards": 19570,
+"desc": "The lexicon: every Strong's word, its transliteration and lexical range \u2014 the plumb-line.",
+"id": "tongues",
+"name": "The Original Tongues \u2014 Hebrew & Greek",
+"need": false,
+"shelves": [
+"lexicon"
+]
+},
+{
+"cards": 274657,
+"desc": "Every word: what it means, how it is said, and the words that stand with it.",
+"id": "word",
+"name": "The Dictionary & Thesaurus",
+"need": false,
+"shelves": [
+"dictionary",
+"pronunciation"
+]
+},
+{
+"cards": 93952,
+"desc": "The Bible, the fathers, the confessions, the hymns \u2014 the Word and its witnesses.",
+"id": "scripture",
+"name": "Scripture & the Word",
+"need": false,
+"shelves": [
+"codex",
+"commentary",
+"connections",
+"doctrine",
+"encyclopedia",
+"hymns",
+"patristics",
+"scripture",
+"sermons",
+"topical"
+]
+},
+{
+"cards": 30347,
+"desc": "Medicines and their class, and foods and their nourishment \u2014 for the keeping of the body.",
+"id": "body",
+"name": "The Medicines & the Body",
+"need": false,
+"shelves": [
+"activities",
+"exercise_science",
+"medicine",
+"nutrition"
+]
+},
+{
+"cards": 794,
+"desc": "Named and naked-eye stars: position, distance, brightness, spectral type.",
+"id": "heavens",
+"name": "The Heavens",
+"need": false,
+"shelves": [
+"astronomy"
+]
+},
+{
+"cards": 7700,
+"desc": "The nuclides, the elements and the physical laws.",
+"id": "matter",
+"name": "Matter & the Atom",
+"need": false,
+"shelves": [
+"atomic",
+"chemistry",
+"molecular_geometry",
+"nuclear_physics",
+"periodic_table",
+"physical_constants",
+"physics"
+]
+},
+{
+"cards": 69135,
+"desc": "Named places of the earth \u2014 country, coordinates, population.",
+"id": "earth",
+"name": "The Earth & its Places",
+"need": false,
+"shelves": [
+"geography"
+]
+},
+{
+"cards": 21332,
+"desc": "The IANA registry of service names and port numbers.",
+"id": "networks",
+"name": "Networks & Machines",
+"need": false,
+"shelves": [
+"cryptography",
+"cybersecurity",
+"networking",
+"quantum_computing",
+"rfcs"
+]
+},
+{
+"cards": 8022,
+"desc": "World Bank open indicators \u2014 economies across countries and years.",
+"id": "nations",
+"name": "Money & the Nations",
+"need": false,
+"shelves": [
+"economics",
+"finance",
+"labor",
+"law",
+"real_estate",
+"regulation"
+]
+},
+{
+"cards": 4435,
+"desc": "Real worked demonstrations of mathematics, science and engineering, each sealed.",
+"id": "works",
+"name": "The Works \u2014 worked & sealed",
+"need": false,
+"shelves": [
+"calendar_time",
+"chess",
+"combinatorics",
+"formal_logic",
+"geometry",
+"information_theory",
+"linear_algebra",
+"mathematics",
+"number_theory",
+"operations_research",
+"probability",
+"sports_analytics",
+"statistics",
+"the-works",
+"timekeeping",
+"unit_conversion"
+]
+},
+{
+"cards": 217,
+"desc": "The Floor: the foundational theories, laws and principles every domain rests on \u2014 proven, credited, and held as the math floor beneath the whole keeping (Bellman at the base).",
+"id": "floor",
+"name": "The Floor of Discovery \u2014 the proven theories",
+"need": false,
+"shelves": [
+"theories"
+]
+},
+{
+"cards": 1222,
+"desc": "Crops, soil, recipes and maker knowledge \u2014 the practical arts.",
+"id": "land",
+"name": "The Land \u2014 grow, make, keep",
+"need": false,
+"shelves": [
+"agriculture",
+"maker",
+"recipes"
+]
+},
+{
+"cards": 8617,
+"desc": "Battles, wars, treaties, disasters and turning points, each with its date and a link to the full record \u2014 for the LORD is Lord of history (Daniel 2:21).",
+"id": "history",
+"name": "History \u2014 the dated events of the world",
+"need": false,
+"shelves": [
+"history",
+"history_chronology"
+]
+},
+{
+"cards": 79120,
+"desc": "The great literature of the world, in the public domain \u2014 some 77,000 works from Project Gutenberg, each a click from its full text.",
+"id": "books",
+"name": "The Great Books",
+"need": false,
+"shelves": [
+"classics",
+"gutenberg"
+]
+},
+{
+"cards": 8620,
+"desc": "The world's languages by family and region, each with its phonological inventory \u2014 the consonants, vowels and tones it is spoken with.",
+"id": "languages",
+"name": "The Languages of the Earth",
+"need": false,
+"shelves": [
+"languages",
+"linguistics"
+]
+},
+{
+"cards": 196416,
+"desc": "Every creature with a common name \u2014 mammals, birds, fish, plants, the microbes we know by name \u2014 with its scientific name, rank and place in the tree of life.",
+"id": "life",
+"name": "The Tree of Life \u2014 the living kinds",
+"need": false,
+"shelves": [
+"biology",
+"genetics",
+"taxonomy"
+]
+},
+{
+"cards": 28,
+"desc": "The foundational integer sequences the whole of number theory keeps returning to \u2014 the primes, Fibonacci, Catalan, the partitions and more \u2014 each COMPUTED from its classical definition (public domain), not copied from any database.",
+"id": "sequences",
+"name": "Integer Sequences \u2014 the foundational forms",
+"need": false,
+"shelves": [
+"sequences"
+]
+},
+{
+"cards": 31,
+"desc": "Every major tradition of the Church, gathered from its own confession and measured against the one plumb-line \u2014 calibrated, not judged; each tradition's gift, and the creeds held in common.",
+"id": "churches",
+"name": "The Churches \u2014 one Lord, many traditions (calibrated)",
+"need": false,
+"shelves": [
+"churches"
+]
+},
+{
+"cards": 35,
+"desc": "The historians, scientists and mathematicians who mapped the Floor of Discovery \u2014 each credited magnanimously for the truth they kept, their shortfalls named honestly, all held with love. Many were worshippers thinking God's thoughts after Him.",
+"id": "builders",
+"name": "The Builders of the Floor \u2014 credited with love",
+"need": false,
+"shelves": [
+"builders"
+]
+},
+{
+"cards": 144,
+"desc": "The faiths that came before Christ, credited magnanimously where they contributed \u2014 the seeds and shadows scattered among the nations (Acts 17), the fulfillment named plainly. What arose after is measured by the test of the spirits (1 John 4:2-3), always in love.",
+"id": "foreshadows",
+"name": "The Nations' Foreshadows \u2014 seeds of the Word, fulfilled in Christ",
+"need": false,
+"shelves": [
+"foreshadows",
+"philosophy",
+"rhetoric"
+]
+},
+{
+"cards": 8,
+"desc": "The Body's memory of faithful obedience: the atomic Playbook Entry (Confession, Anchors, Action, Outcome, Witness, Wait, Status) and the Four Gates \u2014 RED, FLOOR, BROTHERS, GOD.",
+"id": "playbook",
+"name": "The Fractal Playbook \u2014 obedience, confirmed",
+"need": false,
+"shelves": [
+"playbook"
+]
+},
+{
+"cards": 65,
+"desc": "Where to get books, textbooks, research and media FREE and legally \u2014 public libraries, open textbooks, open access, the public domain, and the tools that won in court. Everything up to the line, nothing on it.",
+"id": "free-access",
+"name": "Free Tools \u2014 the connection to lawful free access",
+"need": false,
+"shelves": [
+"access"
+]
+},
+{
+"cards": 16,
+"desc": "Electrical, fluid, thermal, mechanical, control, wave \u2014 the same effort-and-flow form, the same equations, recurring across every domain. To learn one is to learn them all.",
+"id": "systems",
+"name": "The Systems of the World \u2014 one design, many planes",
+"need": false,
+"shelves": [
+"systems"
+]
+},
+{
+"cards": 2798,
+"desc": "Voltage and current, resistance, capacitance, inductance \u2014 the clearest window onto the effort-flow form.",
+"id": "electronics",
+"name": "Electronics & Electrical Systems",
+"need": false,
+"shelves": [
+"electrical",
+"physics",
+"systems"
+]
+},
+{
+"cards": 2793,
+"desc": "Pressure and flow, viscosity, pumps and pipes \u2014 the fluid face of the one design.",
+"id": "fluids",
+"name": "Hydrodynamics & Fluid Systems",
+"need": false,
+"shelves": [
+"physics",
+"systems"
+]
+},
+{
+"cards": 2796,
+"desc": "Temperature and heat-flow, conduction, thermal resistance and capacitance \u2014 the heat face of the form.",
+"id": "thermal",
+"name": "Thermal Systems",
+"need": false,
+"shelves": [
+"physics",
+"systems",
+"thermodynamics"
+]
+},
+{
+"cards": 2793,
+"desc": "Force and velocity, springs, dampers, masses, gears \u2014 an RLC circuit in different clothes.",
+"id": "mechanical",
+"name": "Mechanical Systems",
+"need": false,
+"shelves": [
+"physics",
+"systems"
+]
+},
+{
+"cards": 16,
+"desc": "Feedback \u2014 the universal regulator, from thermostat to governor to homeostasis, one loop, one math.",
+"id": "control",
+"name": "Control Systems",
+"need": false,
+"shelves": [
+"systems"
+]
+},
+{
+"cards": 2810,
+"desc": "The one wave equation and the one harmonic oscillator \u2014 sound, light, water, string, all rhyming.",
+"id": "waves",
+"name": "Waves & Oscillation",
+"need": false,
+"shelves": [
+"acoustics",
+"music_theory",
+"optics",
+"photography",
+"physics",
+"systems"
+]
+},
+{
+"cards": 30,
+"desc": "An authored deck: 30 protocol cards from the Sermon on the Mount and the Epistles \u2014 each an anchor Scripture, a floor, and a seven-day practice. Hearing plus doing.",
+"id": "fieldkit",
+"name": "The Field Kit \u2014 Scripture protocols to practice",
+"need": false,
+"shelves": [
+"fieldkit"
+]
+},
+{
+"cards": 24973,
+"desc": "Light, heat, keeping food, staying in touch, and caring for the sick when the grid is down \u2014 what a household reaches for first in a blackout.",
+"id": "power-out",
+"name": "When the power goes out",
+"need": true,
+"shelves": [
+"communications",
+"energy",
+"medicine",
+"practical"
+]
+},
+{
+"cards": 21757,
+"desc": "Make water safe to drink, store it, and find it \u2014 boiling, filtering, disinfecting, and the sicknesses bad water brings, for when the tap can't be trusted.",
+"id": "water-safe",
+"name": "When the water isn't safe to drink",
+"need": true,
+"shelves": [
+"first_aid",
+"medicine",
+"sanitation",
+"survival",
+"water"
+]
+},
+{
+"cards": 21748,
+"desc": "Stop the bleeding, treat the wound, splint the break, cool the burn, and know the signs of shock and infection \u2014 first aid for when the hospital is hours off.",
+"id": "first-aid-far",
+"name": "Someone's hurt and help is far away",
+"need": true,
+"shelves": [
+"apothecary",
+"first_aid",
+"medicine",
+"survival"
+]
+},
+{
+"cards": 1680,
+"desc": "Plant a garden, tend the soil, save seed, and put food up for the year \u2014 canning, drying, and the root cellar, so the harvest lasts.",
+"id": "grow-food",
+"name": "Growing and keeping your own food",
+"need": true,
+"shelves": [
+"agriculture",
+"almanac",
+"ecology"
+]
+},
+{
+"cards": 35,
+"desc": "Two-way radio, antennas, and signaling \u2014 how to call for help and stay in touch when the phone network is gone.",
+"id": "offgrid-comms",
+"name": "Reaching the world off the grid",
+"need": true,
+"shelves": [
+"communications",
+"navigation"
+]
+},
+{
+"cards": 21719,
+"desc": "Handle human waste, wash safely, and keep sickness from spreading when there's no running water or sewer \u2014 latrines, hygiene, and disease prevention.",
+"id": "sanitation",
+"name": "Staying clean and healthy without plumbing",
+"need": true,
+"shelves": [
+"medicine",
+"sanitation",
+"water"
+]
+},
+{
+"cards": 4516,
+"desc": "Heat without the grid, hold in the warmth, and stock the pantry \u2014 wood heat, insulation, and food storage for the cold months.",
+"id": "stay-warm",
+"name": "Keeping warm and fed through winter",
+"need": true,
+"shelves": [
+"agriculture",
+"almanac",
+"energy",
+"practical",
+"survival"
+]
+},
+{
+"cards": 4397,
+"desc": "Repair what breaks and build what you need \u2014 carpentry, plumbing, wiring, and the old trade handbooks, so you don't have to call anyone.",
+"id": "handyman",
+"name": "Fixing and building it yourself",
+"need": true,
+"shelves": [
+"practical",
+"trades"
+]
+},
+{
+"cards": 36,
+"desc": "Read a map, hold a bearing, and find north by compass or stars \u2014 wayfinding when the phone can't help and you can't get lost.",
+"id": "navigate",
+"name": "Finding your way",
+"need": true,
+"shelves": [
+"navigation",
+"survival"
+]
+},
+{
+"cards": 4549,
+"desc": "The whole off-grid life in one hand \u2014 water, power, food, animals, and waste \u2014 for a family setting out to provide for itself on the land.",
+"id": "homestead",
+"name": "Starting a homestead from scratch",
+"need": true,
+"shelves": [
+"agriculture",
+"almanac",
+"apothecary",
+"energy",
+"practical",
+"sanitation",
+"survival",
+"water"
+]
+},
+{
+"cards": 52614,
+"desc": "The Word for fear \u2014 'fear not' from Genesis to Revelation, with commentary and a practice to walk it out. The most-spoken command in Scripture.",
+"id": "be-not-afraid",
+"name": "When you're afraid",
+"need": true,
+"shelves": [
+"codex",
+"commentary",
+"fieldkit"
+]
+},
+{
+"cards": 52614,
+"desc": "Comfort for mourning \u2014 the Word's promises to those who weep, with commentary, and the hope of the resurrection.",
+"id": "grieving",
+"name": "When you're grieving a loss",
+"need": true,
+"shelves": [
+"codex",
+"commentary",
+"fieldkit"
+]
+},
+{
+"cards": 12550,
+"desc": "Provision when there's not enough \u2014 daily bread and contentment from the Word, sound stewardship, and where to find help and resources for free.",
+"id": "money-tight",
+"name": "When money is tight",
+"need": true,
+"shelves": [
+"access",
+"codex",
+"economics",
+"practical"
+]
+},
+{
+"cards": 354109,
+"desc": "For the homeschooling family \u2014 reading and arithmetic, the dictionary, the living world, history, and worked math, gathered for teaching your own.",
+"id": "teach-kids",
+"name": "Teaching your children at home",
+"need": true,
+"shelves": [
+"codex",
+"curriculum",
+"dictionary",
+"history",
+"taxonomy",
+"the-works"
+]
+},
+{
+"cards": 4467,
+"desc": "The practical library for living without the grid: survival skills, the trade and handyman handbooks, and the Field Kit protocols \u2014 self-reliance, gathered.",
+"id": "field",
+"name": "The Field Library \u2014 survival & self-reliance",
+"need": false,
+"shelves": [
+"architecture",
+"construction",
+"fieldkit",
+"manufacturing",
+"materials_science",
+"practical",
+"survival",
+"trades"
+]
+},
+{
+"cards": 1504,
+"desc": "The public-domain science of the earth: geology and minerals, forests and watersheds, and the federal technical surveys \u2014 the ground beneath the homestead.",
+"id": "earth-sciences",
+"name": "The Earth \u2014 geology, forests & the sciences",
+"need": false,
+"shelves": [
+"ecology",
+"geology",
+"hydrology",
+"meteorology",
+"oceanography",
+"science",
+"soil_science"
+]
+}
+],
+"house": {
+"door": "KEEP",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "cards",
+"next_step": {
+"do": "open a deck",
+"door": "KEEP",
+"params": {
+"id": "scripture-original"
+},
+"tool": "deck_open"
+},
+"seal": null,
+"trail": "decks"
+}
+},
+"fe1513a0fd9aeec81e419d6fce77e4c16b2b9aaa93044027238d64f80cd8e9d4": {
+"count": 35,
+"generated": false,
+"kind": "coach_overview",
+"note": "Coach finds and presents the lesson; it never generates it, and never grades a child.",
+"source": "Read-school curriculum (offline), ported verbatim.",
+"subject": "read",
+"subject_title": "Learn to Read (phonics)",
+"tracks": [
+"phonics_letter_sounds",
+"phonics_sight_words",
+"phonics_vowels",
+"phonics_blends",
+"phonics_digraphs",
+"phonics_magic_e",
+"phonics_vowel_teams",
+"phonics_r_controlled",
+"phonics_diphthongs",
+"phonics_soft_letters",
+"phonics_syllables",
+"phonics_affixes"
+],
+"units": [
+{
+"id": "phonics_letter_sounds",
+"next": "phonics_short_a",
+"prerequisites": [],
+"title": "Letter sounds \u2014 every letter has a job",
+"track": "phonics_letter_sounds",
+"unit_seq": 1
+},
+{
+"id": "sight_words_set_1",
+"next": "sight_words_set_2",
+"prerequisites": [
+"phonics_letter_sounds"
+],
+"title": "Heart words, set 1 -- the, a, I, to, and",
+"track": "phonics_sight_words",
+"unit_seq": 1
+},
+{
+"id": "phonics_short_a",
+"next": "phonics_short_e",
+"prerequisites": [
+"phonics_letter_sounds"
+],
+"title": "Short A \u2014 the cat sat",
+"track": "phonics_vowels",
+"unit_seq": 2
+},
+{
+"id": "sight_words_set_2",
+"next": "sight_words_set_3",
+"prerequisites": [
+"sight_words_set_1"
+],
+"title": "Heart words, set 2 -- is, it, in, on, at",
+"track": "phonics_sight_words",
+"unit_seq": 2
+},
+{
+"id": "phonics_short_e",
+"next": "phonics_short_i",
+"prerequisites": [
+"phonics_short_a"
+],
+"title": "Short E \u2014 Ben fed the hen",
+"track": "phonics_vowels",
+"unit_seq": 3
+},
+{
+"id": "sight_words_set_3",
+"next": "sight_words_set_4",
+"prerequisites": [
+"sight_words_set_2"
+],
+"title": "Heart words, set 3 -- of, you, was, for, are",
+"track": "phonics_sight_words",
+"unit_seq": 3
+},
+{
+"id": "phonics_short_i",
+"next": "phonics_short_o",
+"prerequisites": [
+"phonics_short_e"
+],
+"title": "Short I \u2014 the big pig",
+"track": "phonics_vowels",
+"unit_seq": 4
+},
+{
+"id": "sight_words_set_4",
+"next": "sight_words_set_5",
+"prerequisites": [
+"sight_words_set_3"
+],
+"title": "Not heart words at all -- he, she, we, me, be",
+"track": "phonics_sight_words",
+"unit_seq": 4
+},
+{
+"id": "phonics_short_o",
+"next": "phonics_short_u",
+"prerequisites": [
+"phonics_short_i"
+],
+"title": "Short O \u2014 the hot dog",
+"track": "phonics_vowels",
+"unit_seq": 5
+},
+{
+"id": "sight_words_set_5",
+"next": null,
+"prerequisites": [
+"sight_words_set_4"
+],
+"title": "Heart words, set 5 -- this, that, then, with, them",
+"track": "phonics_sight_words",
+"unit_seq": 5
+},
+{
+"id": "phonics_short_u",
+"next": "phonics_blends_l",
+"prerequisites": [
+"phonics_short_o"
+],
+"title": "Short U \u2014 the sun and the bug",
+"track": "phonics_vowels",
+"unit_seq": 6
+},
+{
+"id": "phonics_blends_l",
+"next": "phonics_blends_r",
+"prerequisites": [
+"phonics_short_u"
+],
+"title": "L-blends \u2014 bl, cl, fl, gl, pl, sl",
+"track": "phonics_blends",
+"unit_seq": 7
+},
+{
+"id": "phonics_blends_r",
+"next": "phonics_blends_st",
+"prerequisites": [
+"phonics_blends_l"
+],
+"title": "R-blends \u2014 br, cr, dr, fr, gr, pr, tr",
+"track": "phonics_blends",
+"unit_seq": 8
+},
+{
+"id": "phonics_blends_st",
+"next": "phonics_blends_final",
+"prerequisites": [
+"phonics_blends_r"
+],
+"title": "S-blends \u2014 st, sp, sk, sn, sm, sw",
+"track": "phonics_blends",
+"unit_seq": 9
+},
+{
+"id": "phonics_blends_final",
+"next": "phonics_digraph_sh_th",
+"prerequisites": [
+"phonics_blends_st"
+],
+"title": "Final blends \u2014 at the end of the word",
+"track": "phonics_blends",
+"unit_seq": 10
+},
+{
+"id": "phonics_digraph_sh_th",
+"next": "phonics_digraph_wh_ph",
+"prerequisites": [
+"phonics_blends_final"
+],
+"title": "Digraphs \u2014 sh, th, ch",
+"track": "phonics_digraphs",
+"unit_seq": 11
+},
+{
+"id": "phonics_digraph_wh_ph",
+"next": "phonics_digraph_ck_ng",
+"prerequisites": [
+"phonics_digraph_sh_th"
+],
+"title": "Digraphs \u2014 wh and ph",
+"track": "phonics_digraphs",
+"unit_seq": 12
+},
+{
+"id": "phonics_digraph_ck_ng",
+"next": "phonics_cvce_a",
+"prerequisites": [
+"phonics_digraph_wh_ph"
+],
+"title": "Digraphs \u2014 ck and ng",
+"track": "phonics_digraphs",
+"unit_seq": 13
+},
+{
+"id": "phonics_cvce_a",
+"next": "phonics_cvce_i",
+"prerequisites": [
+"phonics_digraph_ck_ng"
+],
+"title": "Magic-e with A \u2014 make, late, cake",
+"track": "phonics_magic_e",
+"unit_seq": 14
+},
+{
+"id": "phonics_cvce_i",
+"next": "phonics_cvce_o",
+"prerequisites": [
+"phonics_cvce_a"
+],
+"title": "Magic-e with I \u2014 bike, ride, time",
+"track": "phonics_magic_e",
+"unit_seq": 15
+},
+{
+"id": "phonics_cvce_o",
+"next": "phonics_cvce_ue",
+"prerequisites": [
+"phonics_cvce_i"
+],
+"title": "Magic-e with O \u2014 hope, rope, stone",
+"track": "phonics_magic_e",
+"unit_seq": 16
+},
+{
+"id": "phonics_cvce_ue",
+"next": "phonics_vowel_team_ai_ay",
+"prerequisites": [
+"phonics_cvce_o"
+],
+"title": "Magic-e with U and E \u2014 cube, use, here",
+"track": "phonics_magic_e",
+"unit_seq": 17
+},
+{
+"id": "phonics_vowel_team_ai_ay",
+"next": "phonics_vowel_team_ee_ea",
+"prerequisites": [
+"phonics_cvce_ue"
+],
+"title": "Vowel teams \u2014 long A: ai and ay",
+"track": "phonics_vowel_teams",
+"unit_seq": 18
+},
+{
+"id": "phonics_vowel_team_ee_ea",
+"next": "phonics_vowel_team_oa_ow",
+"prerequisites": [
+"phonics_vowel_team_ai_ay"
+],
+"title": "Vowel teams \u2014 long E: ee and ea",
+"track": "phonics_vowel_teams",
+"unit_seq": 19
+},
+{
+"id": "phonics_vowel_team_oa_ow",
+"next": "phonics_vowel_team_igh_ie",
+"prerequisites": [
+"phonics_vowel_team_ee_ea"
+],
+"title": "Vowel teams \u2014 long O: oa and ow",
+"track": "phonics_vowel_teams",
+"unit_seq": 20
+},
+{
+"id": "phonics_vowel_team_igh_ie",
+"next": "phonics_vowel_team_oo",
+"prerequisites": [
+"phonics_vowel_team_oa_ow"
+],
+"title": "Vowel teams \u2014 long I: igh and ie",
+"track": "phonics_vowel_teams",
+"unit_seq": 21
+},
+{
+"id": "phonics_vowel_team_oo",
+"next": "phonics_r_controlled_ar_or",
+"prerequisites": [
+"phonics_vowel_team_igh_ie"
+],
+"title": "Vowel team OO \u2014 book vs moon",
+"track": "phonics_vowel_teams",
+"unit_seq": 22
+},
+{
+"id": "phonics_r_controlled_ar_or",
+"next": "phonics_r_controlled_er_ir_ur",
+"prerequisites": [
+"phonics_vowel_team_oo"
+],
+"title": "R-controlled \u2014 ar and or",
+"track": "phonics_r_controlled",
+"unit_seq": 23
+},
+{
+"id": "phonics_r_controlled_er_ir_ur",
+"next": "phonics_diphthong_oi_oy",
+"prerequisites": [
+"phonics_r_controlled_ar_or"
+],
+"title": "R-controlled \u2014 er, ir, ur all say /\u025cr/",
+"track": "phonics_r_controlled",
+"unit_seq": 24
+},
+{
+"id": "phonics_diphthong_oi_oy",
+"next": "phonics_diphthong_ou_ow",
+"prerequisites": [
+"phonics_r_controlled_er_ir_ur"
+],
+"title": "Diphthongs \u2014 oi and oy",
+"track": "phonics_diphthongs",
+"unit_seq": 25
+},
+{
+"id": "phonics_diphthong_ou_ow",
+"next": "phonics_soft_c_g",
+"prerequisites": [
+"phonics_diphthong_oi_oy"
+],
+"title": "Diphthongs \u2014 ou and ow",
+"track": "phonics_diphthongs",
+"unit_seq": 26
+},
+{
+"id": "phonics_soft_c_g",
+"next": "phonics_syllable_types",
+"prerequisites": [
+"phonics_diphthong_ou_ow"
+],
+"title": "Soft C and soft G",
+"track": "phonics_soft_letters",
+"unit_seq": 27
+},
+{
+"id": "phonics_syllable_types",
+"next": "phonics_suffixes",
+"prerequisites": [
+"phonics_soft_c_g"
+],
+"title": "Six syllable types \u2014 the bridge to long words",
+"track": "phonics_syllables",
+"unit_seq": 28
+},
+{
+"id": "phonics_suffixes",
+"next": "phonics_prefixes",
+"prerequisites": [
+"phonics_syllable_types"
+],
+"title": "Suffixes \u2014 s, ed, ing",
+"track": "phonics_affixes",
+"unit_seq": 29
+},
+{
+"id": "phonics_prefixes",
+"next": "phonics_capstone",
+"prerequisites": [
+"phonics_suffixes"
+],
+"title": "Prefixes \u2014 un, re, pre, dis",
+"track": "phonics_affixes",
+"unit_seq": 30
+}
+]
+}
+}
