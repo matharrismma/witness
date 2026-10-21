@@ -23,8 +23,9 @@ primitive doors it composes.
 | 3v | Console **voice** (RADIO) | `console.speak()` over the core `/speak` ceiling; audio/mpeg with credits, the 503 floor without — never fabricated | **wired** (floor until credits) |
 | 3b | Console **keep** | the **Palace** (`nh_org/palace.py`): a memory palace — exchanges at `(room, position)` loci on a tensor, recall by a sort; `dispatch(keep=True, palace=…)` files each exchange | **done** |
 | 3r | Console **book render** | `nh_org/console/book.py` — a still, standalone E-Ink page of the answer (the Word, a static trail, the cloud, one next step); escaped, themed, no script | **done** |
-| 4 | Witness **record** | professions, self-attest, witnesses, badges — compose the core's seal/record doors | next |
-| 5 | **Community** | mesh, groups, formation, flock, push, lighthouse node | planned |
+| 4 | Witness **record** (read) | `nh_org/record.py` — fetch a sealed receipt (`/seal`), the ledger tally (`/seals`), compose an unsigned evidence badge (`/badges`) | **done** |
+| 4w | Record **signed writes** | professions (`/mesh/node`), self-attest, bind-a-badge (`/attest`) — the holder's OWN signed request; the app never holds a key or signs | **seam** — docs/RECORD.md; identity model required |
+| 5 | **Community** | mesh, groups, formation, flock, push, lighthouse node | next |
 | 6 | Study / coach | coach, trajectory, decks, playbook, teachings & parable surfaces | planned |
 
 ## How each piece moves (the safe cut-over)

@@ -69,8 +69,12 @@ Boundary carved, app scaffolded. Landed and proven against the core:
   keep are app-side UI still to come — see [MIGRATION.md](MIGRATION.md).
 
 The `core_client` door allowlist (`CORE_DOORS`) is pinned by `tests/test_boundary.py`. Next: the
-the witness record and community, then the `.org` deployment. The order is in
-[MIGRATION.md](MIGRATION.md).
+community, then the `.org` deployment. The order is in [MIGRATION.md](MIGRATION.md).
+
+The **Record** surface (`nh_org/record.py`) reads the testimony — fetch a sealed receipt, the ledger
+tally, compose an unsigned evidence badge — composing the core's `/seal`, `/seals`, `/badges` doors.
+The signed writes (professions, self-attest, binding a badge) are a declared seam the holder signs on
+their own device; the app never holds a key or signs. See [RECORD.md](RECORD.md).
 
 The Console now also **speaks** (`console.speak()` over the core `/speak` ceiling — audio with
 ElevenLabs credits, the honest 503 floor without) and **keeps** every exchange in the **Palace**

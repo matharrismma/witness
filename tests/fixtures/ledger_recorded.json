@@ -1,0 +1,136 @@
+{
+"minted_hash": "84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"recording": {
+"7e40073a880f8e23e89660d3d8387924dab03b0e7c7302ca62ca7d4f5b416cbd": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "verdict",
+"next_step": {
+"do": "cite the seal; anyone can re-check it",
+"door": "CHECK",
+"params": {
+"hash": "84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc"
+},
+"tool": "seal_fetch"
+},
+"seal": "https://narrowhighway.org/s/84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"trail": "trail"
+},
+"note": "The trail is the trust: each step is machine-verified and may build only on confirmed prior steps. The engine verifies a provided derivation; it does not generate the answer.",
+"seal": {
+"cite_url": "https://narrowhighway.org/s/84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"content_hash": "84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"ledgered": true
+},
+"steps": 1,
+"trail": [
+{
+"claim": "",
+"detail": "16 = 16 \u2014 the claim 16.0 is exact.",
+"domain": "mathematics",
+"id": "re",
+"link_ok": true,
+"spec_hash": "b532c7fcaf7abd1d51a2b873eaf6ed1a684d951b6adfbf119c27cd299536b079",
+"status": "CONFIRMED",
+"uses": []
+}
+],
+"verdict": "HOLDS"
+},
+"97fb5fc60112d099668d9c5e71d191882e81a1844100aaf313b3f92458d6d22a": {
+"checks": 1,
+"cite_url": "https://narrowhighway.org/b/320a748465040cf669040845e7ad8f4bf8d780a0f6669784ebc9d0a79682c8d2",
+"copy": "1 verifications sealed",
+"hash": "320a748465040cf669040845e7ad8f4bf8d780a0f6669784ebc9d0a79682c8d2",
+"ledgered": true,
+"ok": true,
+"sealed_checks": [
+"84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc"
+],
+"signed": false
+},
+"ca38156152d3df1ee436dc00f59f3b36e7854d187ea2d6d0d2635d15008da0e1": {
+"anchors": [],
+"axis_coords": {
+"axis": "mathematics",
+"dimensions": [
+"reasoning"
+]
+},
+"content_hash": "84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"gate_results": [
+{
+"details": {
+"broken_at": null,
+"confirmed_steps": 1,
+"error_at": null,
+"gap_at": null,
+"steps": 1,
+"verdict": "HOLDS"
+},
+"gate": "RED",
+"reasons": [
+"derivation verdict: HOLDS"
+],
+"status": "PASS"
+}
+],
+"house": {
+"door": "CHECK",
+"ends": "a verdict or a card \u00b7 the trail \u00b7 a seal \u00b7 one next step",
+"kind": "record",
+"next_step": {
+"do": "re-run the sealed derivation yourself; a seal is only a claim until re-checked",
+"door": "CHECK",
+"tool": "verify"
+},
+"seal": "84d1fa3bd1c46f31242f3b8765a7d07c30d576146e67ecf637da9177a20b2adc",
+"trail": "verifier_results"
+},
+"overall": "PASS",
+"schema_version": "2.0",
+"verifier_results": [
+{
+"data": {
+"claim": "",
+"domain": "mathematics",
+"link_ok": true,
+"spec_hash": "b532c7fcaf7abd1d51a2b873eaf6ed1a684d951b6adfbf119c27cd299536b079",
+"uses": []
+},
+"detail": "16 = 16 \u2014 the claim 16.0 is exact.",
+"name": "re",
+"status": "CONFIRMED"
+}
+]
+},
+"f15bc088e5619e0a751e4bf5b44ac2944f2bcdbe5f7e6c6e8af41c6830902f55": {
+"note": "Every seal is permanent and re-checkable by its content hash (GET the cite_url). The chain is re-verified every hour by tools/integrity_check.py \u2014 recompute every content hash, confirm every prev_hash link, re-verify every bound CAS record; this reports that last check and counts the chain now. Numbers are computed at request time, never hardcoded.",
+"seals": {
+"broken_links": 0,
+"cas_bad": 0,
+"cas_records": 2967,
+"cite_url": "https://narrowhighway.org/s/<content_hash>",
+"minted": 1714,
+"newest": "2026-10-21T11:54:41+00:00",
+"ok": true,
+"oldest": "2026-06-28T13:09:03+00:00",
+"re_verified_at": "2026-10-21T11:00:02+00:00",
+"receipt_cards": 2243,
+"tampered": 0,
+"total_checksum": {
+"count": 2968,
+"means": "sha256 over every sealed content hash, sorted \u2014 one checksum of the whole keeping. Each seal is the math at the beginning; this root is the math at the end.",
+"root": "2f7cf25c2e0268b6c9321c0aa0d1f7f8898f9242396f1e96e66921a683d669cb"
+},
+"verified": 1713,
+"verified_of": 1713
+}
+}
+}
+}

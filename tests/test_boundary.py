@@ -25,7 +25,7 @@ def test_core_doors_are_a_reviewed_allowlist():
 
     from nh_org import core_client
     src = inspect.getsource(core_client)
-    called = sorted(set(re.findall(r'\.post(?:_raw)?\(\s*"(/[a-z_]+)"', src)))
+    called = sorted(set(re.findall(r'\.(?:post|post_raw|get)\(\s*"(/[a-z_]+)"', src)))
     assert called, "core_client makes no core call — did the client change shape?"
     off_list = [p for p in called if p not in core_client.CORE_DOORS]
     assert not off_list, f"core_client calls doors not on the reviewed allowlist CORE_DOORS: {off_list}"

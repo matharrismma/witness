@@ -27,7 +27,8 @@ DEFAULT_CORE = "https://api.narrowhighway.com"
 # engine already exposes; the app COMPOSES them (e.g. the Console) but reimplements none. Adding a
 # door here is a reviewed decision (tests/test_boundary.py pins the set); a direct `import concordance`
 # is never allowed. Read-only doors (GET) carry no side effect; /verify?seal=1 is the only write.
-CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study", "/speak")
+CORE_DOORS = ("/verify", "/ask", "/search", "/read", "/resolve", "/word_study", "/speak",
+              "/seal", "/seals", "/badges")
 
 
 def request_key(path: str, body: Dict[str, Any], query: str = "") -> str:
@@ -74,6 +75,26 @@ class HttpTransport:
                 raise CoreUnavailable(f"{url}: {e}") from e
         raise CoreUnavailable(f"{url}: {last}")
 
+    def get(self, path: str, query: str = "") -> Dict[str, Any]:
+        """GET a read-only core door (the record: /seal, /seals, …). Same backoff as post."""
+        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        req = urllib.request.Request(url, method="GET")
+        for attempt in range(self.retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    return json.loads(resp.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                if e.code in (429, 503) and attempt < self.retries:
+                    time.sleep(min(float(e.headers.get("Retry-After") or 0) or (2 ** attempt), 30.0))
+                    continue
+                raise CoreUnavailable(f"{url}: {e}") from e
+            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                if attempt < self.retries:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise CoreUnavailable(f"{url}: {e}") from e
+        raise CoreUnavailable(url)
+
     def post_raw(self, path: str, body: Dict[str, Any], query: str = ""):
         """POST expecting a raw (possibly binary) response. Returns (status, bytes, content_type).
         Used by the voice door (/speak returns audio/mpeg, or 503 when the ceiling is unavailable —
@@ -112,6 +133,12 @@ class RecordedTransport:
         self.seen: List[str] = []
 
     def post(self, path: str, body: Dict[str, Any], query: str = "") -> Dict[str, Any]:
+        return self._replay(path, body, query)
+
+    def get(self, path: str, query: str = "") -> Dict[str, Any]:
+        return self._replay(path, {}, query)
+
+    def _replay(self, path: str, body: Dict[str, Any], query: str = "") -> Dict[str, Any]:
         k = request_key(path, body, query)
         self.seen.append(k)
         if k not in self.recording:
@@ -131,6 +158,13 @@ class RecordingTransport:
     def post(self, path: str, body: Dict[str, Any], query: str = "") -> Dict[str, Any]:
         out = self.inner.post(path, body, query)
         self.recording[request_key(path, body, query)] = out
+        if self.delay:
+            time.sleep(self.delay)
+        return out
+
+    def get(self, path: str, query: str = "") -> Dict[str, Any]:
+        out = self.inner.get(path, query)
+        self.recording[request_key(path, {}, query)] = out
         if self.delay:
             time.sleep(self.delay)
         return out
@@ -178,6 +212,31 @@ class CoreClient:
         if status == 200 and audio:
             return {"spoken": True, "floor": False, "mime": mime or "audio/mpeg", "audio": audio}
         return {"spoken": False, "floor": True, "mime": None, "audio": None}
+
+    def seal(self, content_hash: str) -> Optional[Dict[str, Any]]:
+        """Fetch a sealed record (the receipt) by its content hash — re-check the testimony. The
+        record lives on .org; this is how the witness app reads it. Returns None if not found."""
+        import urllib.parse
+        try:
+            return self.t.get("/seal", "hash=" + urllib.parse.quote(content_hash))
+        except CoreUnavailable as e:
+            if "404" in str(e):
+                return None
+            raise
+
+    def seals(self, *, limit: int = 20) -> Dict[str, Any]:
+        """The ledger of sealed records — {note, seals:[...]}."""
+        return self.t.get("/seals", f"limit={int(limit)}")
+
+    def badge(self, seal_hashes: List[str], *, title: str = "",
+              subject_id: Optional[str] = None) -> Dict[str, Any]:
+        """Compose sealed checks into a badge — the EVIDENCE, issued UNSIGNED (the core's contract:
+        'the evidence, not the signature, is the badge'). Binding it to an identity is a separate,
+        signed step the holder does on their own device; this app does not sign on their behalf."""
+        body: Dict[str, Any] = {"seal_hashes": list(seal_hashes), "title": title}
+        if subject_id:
+            body["subject_id"] = subject_id
+        return self.t.post("/badges", body)
 
     @staticmethod
     def seal_of(result: Dict[str, Any]) -> Dict[str, Any]:
