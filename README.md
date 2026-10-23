@@ -7,7 +7,9 @@ This is an **application**. It holds surfaces and orchestration and calls the Na
 engine** over HTTP for every verification and every seal. It never imports the core, holds no
 verifier and no corpus of its own. One engine, one corpus, two surfaces:
 
-- **narrowhighway.com** — the core engine (the library, the corpus, the proof). A separate repo.
+- **narrowhighway.com** — the v2 app engine (the library, the corpus, the Console's doors). A separate repo.
+- **Concordance-V3** — the verification engine: `/verify`, `/s/<hash>`, `/scribe`, packet schemas. The
+  receipts the record shows are minted there (`NH_VERIFY_URL`).
 - **narrowhighway.org** — this app (the record, the witness, the Console, the Scribe). Calls the core.
 
 The one link to the core is [`nh_org/core_client.py`](nh_org/core_client.py): a stdlib HTTP client
@@ -34,8 +36,10 @@ not see; zero broken after one feedback pass. Consensus is not truth; the verifi
 
 ```bash
 pip install -e ".[dev]"                 # numpy + pytest
-# point at a core (default https://api.narrowhighway.com; or a local core)
+# the v2 app engine (ask/search/read/mesh/coach …) and the V3 verification engine
 export NH_CORE_URL=https://api.narrowhighway.com
+export NH_VERIFY_URL=http://127.0.0.1:8000     # github.com/matharrismma/Concordance-V3: `python -m concordance serve`
+# (unset NH_VERIFY_URL and verification falls back to NH_CORE_URL)
 
 # score a pass of drafts (writes report.json + feedback.md next to the drafts)
 python -m nh_org.scribe.orchestrate pass 1 --root tests/fixtures

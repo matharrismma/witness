@@ -45,13 +45,25 @@ class CoreUnavailable(RuntimeError):
 class HttpTransport:
     """The real door: one POST to the core over HTTP. stdlib only — no third-party client."""
 
-    def __init__(self, base_url: Optional[str] = None, timeout: float = 30.0, retries: int = 5):
+    # V3 (2026-10-23): verification and seals go to the lean engine (github.com/matharrismma/Concordance-V3),
+    # which serves exactly these doors; everything else (/ask, /search, /read, the mesh, coach, …) stays
+    # with the v2 app engine at NH_CORE_URL. Set NH_VERIFY_URL to the v3 engine; unset, it falls back to
+    # NH_CORE_URL so a single-engine deployment keeps working.
+    VERIFY_DOORS = ("/verify", "/seal", "/seals", "/s/", "/discern", "/audit", "/scribe", "/schema/",
+                    "/find", "/capabilities", "/ledger/verify")
+
+    def __init__(self, base_url: Optional[str] = None, timeout: float = 30.0, retries: int = 5,
+                 verify_url: Optional[str] = None):
         self.base = (base_url or os.environ.get("NH_CORE_URL") or DEFAULT_CORE).rstrip("/")
+        self.verify_base = (verify_url or os.environ.get("NH_VERIFY_URL") or self.base).rstrip("/")
         self.timeout = timeout
         self.retries = retries
 
+    def _base_for(self, path: str) -> str:
+        return self.verify_base if path.startswith(self.VERIFY_DOORS) else self.base
+
     def post(self, path: str, body: Dict[str, Any], query: str = "") -> Dict[str, Any]:
-        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
         data = json.dumps(body).encode("utf-8")
         req = urllib.request.Request(
             url, data=data, headers={"content-type": "application/json"}, method="POST")
@@ -78,7 +90,7 @@ class HttpTransport:
 
     def get(self, path: str, query: str = "") -> Dict[str, Any]:
         """GET a read-only core door (the record: /seal, /seals, …). Same backoff as post."""
-        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
         req = urllib.request.Request(url, method="GET")
         for attempt in range(self.retries + 1):
             try:
@@ -104,7 +116,7 @@ class HttpTransport:
         EVERYTHING ELSE to the core — the full witness site and its endpoints (/bible, /passage,
         /search, …) — so .org stays whole. The core's own status (incl. 404) is returned as-is, never
         raised. This is a transparent proxy, not a composed door, so it carries no fixed path."""
-        url = f"{self.base}{path}" + (f"?{query}" if query else "")
+        url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
         data = None
         headers = {}
         if method == "POST":
