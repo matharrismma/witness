@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "canon"
+version = "0.1.0"
+description = "The canon as a hash table, a scripture verifier for Concordance, and a small cite-only model trained on it."
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+engine = ["concordance>=3.0.0a0"]
+train = ["torch", "transformers>=4.45", "peft>=0.13", "trl>=0.12", "datasets", "accelerate"]
+dev = ["pytest>=8"]
+
+# the engine discovers this: verify(steps=[{"domain": "scripture", ...}]) routes here
+[project.entry-points."concordance.verifiers"]
+scripture = "canon.verifier"
+
+[tool.setuptools]
+packages = ["canon"]

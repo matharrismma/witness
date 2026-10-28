@@ -1,0 +1,8 @@
+{
+ "translation": "WEB",
+ "verses": 31098,
+ "books": 66,
+ "xref_sources": 28752,
+ "root": "dd645c66778e2f6b6071275e1d170e2fbb348a36bd79ef171954fa06e4f7ed3b",
+ "means": "root = sha256 of every verse key in canonical order; the whole canon is one commitment"
+}

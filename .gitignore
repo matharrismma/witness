@@ -9,3 +9,8 @@ dist/
 venv/
 # per-run working artifacts the operator points the Scribe at (fixtures keep their own, committed)
 /run/
+# canon: built from public-domain sources by `python -m canon build`; large, regenerable
+canon/data/web.jsonl
+canon/data/xrefs.tsv
+canon/data/train.jsonl
+canon/data/eval.jsonl
