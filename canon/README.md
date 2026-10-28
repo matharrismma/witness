@@ -13,6 +13,7 @@ model's weights, and a model trained here learns one skill — look up, then cit
 | `canon/evaluate.py` | the inverted eval: counterexample kinds (misquote, misattribution, uncited scripture, cited without retrieval, answered the unanswerable) with Beta posteriors; an oracle (must score clean) and a scrambler (must be caught) prove the harness |
 | `canon/train.py` | LoRA SFT, default base `microsoft/bitnet-b1.58-2B-4T-bf16` (ternary at serve time via bitnet.cpp); refuses data without the verifier's stamp |
 | `canon/serve.py` | the four tools over HTTP — what the model calls at inference |
+| `go/` | the same table and tools as one static Go binary; recomputes every key at startup and refuses to run if any differs from the Python table |
 
 ```bash
 pip install -e .                       # + "[engine]" to verify through Concordance, "[train]" on a GPU box

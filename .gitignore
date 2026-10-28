@@ -14,3 +14,4 @@ canon/data/web.jsonl
 canon/data/xrefs.tsv
 canon/data/train.jsonl
 canon/data/eval.jsonl
+canon/go/canon
