@@ -56,10 +56,13 @@ def _query(query: str) -> Dict[str, str]:
 
 
 def handle(method: str, path: str, query: str = "", body: Optional[Dict[str, Any]] = None, *,
-           client: Optional[CoreClient] = None, gate_open: bool = True) -> Tuple[int, str, bytes]:
+           client: Optional[CoreClient] = None, gate_open: bool = True,
+           forwarded_for: Optional[str] = None) -> Tuple[int, str, bytes]:
     """Route one request. Pure: returns (status, content_type, body_bytes). Never raises on a core
-    outage — it answers with an honest 503, never a fabricated page."""
-    client = client or CoreClient()
+    outage — it answers with an honest 503, never a fabricated page. `forwarded_for` is the client's
+    address as this app received it (X-Forwarded-For, verbatim from Caddy); the core meets the real
+    client through it, not this app — one rate-limit bucket per visitor, not one for all of .org."""
+    client = client or CoreClient(forwarded_for=forwarded_for)
     q = _query(query)
     try:
         if method == "GET" and path in ("/", "/index.html"):
@@ -115,7 +118,8 @@ def main() -> int:
                     body = json.loads(raw or b"{}")
                 except (ValueError, TypeError):
                     body = {}
-            status, ctype, data = handle(method, u.path, u.query, body, gate_open=gate)
+            status, ctype, data = handle(method, u.path, u.query, body, gate_open=gate,
+                                         forwarded_for=self.headers.get("x-forwarded-for"))
             self.send_response(status)
             self.send_header("content-type", ctype)
             self.send_header("content-length", str(len(data)))

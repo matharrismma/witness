@@ -53,20 +53,33 @@ class HttpTransport:
                     "/find", "/capabilities", "/ledger/verify")
 
     def __init__(self, base_url: Optional[str] = None, timeout: float = 30.0, retries: int = 5,
-                 verify_url: Optional[str] = None):
+                 verify_url: Optional[str] = None, forwarded_for: Optional[str] = None):
         self.base = (base_url or os.environ.get("NH_CORE_URL") or DEFAULT_CORE).rstrip("/")
         self.verify_base = (verify_url or os.environ.get("NH_VERIFY_URL") or self.base).rstrip("/")
         self.timeout = timeout
         self.retries = retries
+        self.forwarded_for = (forwarded_for or "").strip() or None
 
     def _base_for(self, path: str) -> str:
         return self.verify_base if path.startswith(self.VERIFY_DOORS) else self.base
+
+    def _headers(self, extra: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+        """Every request to the core carries the CLIENT's address as X-Forwarded-For — verbatim as Caddy
+        handed it to this app (its LAST hop is the real client), never with this app's own peer appended.
+        The engine keys its rate limiter on that last hop and trusts the header only from loopback, which
+        this app is. Without it every narrowhighway.org visitor shared ONE 127.0.0.1 bucket — 120 writes a
+        minute — with the deploy gate itself (measured 2026-11-01). A request that reached this app with
+        no such header (a local call) sends none, and the engine keys the peer as before."""
+        h = dict(extra or {})
+        if self.forwarded_for:
+            h["X-Forwarded-For"] = self.forwarded_for
+        return h
 
     def post(self, path: str, body: Dict[str, Any], query: str = "") -> Dict[str, Any]:
         url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
         data = json.dumps(body).encode("utf-8")
         req = urllib.request.Request(
-            url, data=data, headers={"content-type": "application/json"}, method="POST")
+            url, data=data, headers=self._headers({"content-type": "application/json"}), method="POST")
         last = None
         for attempt in range(self.retries + 1):
             try:
@@ -91,7 +104,7 @@ class HttpTransport:
     def get(self, path: str, query: str = "") -> Dict[str, Any]:
         """GET a read-only core door (the record: /seal, /seals, …). Same backoff as post."""
         url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
-        req = urllib.request.Request(url, method="GET")
+        req = urllib.request.Request(url, headers=self._headers(), method="GET")
         for attempt in range(self.retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
@@ -122,7 +135,7 @@ class HttpTransport:
         if method == "POST":
             data = json.dumps(body or {}).encode("utf-8")
             headers["content-type"] = "application/json"
-        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        req = urllib.request.Request(url, data=data, headers=self._headers(headers), method=method)
         for attempt in range(self.retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
@@ -146,7 +159,7 @@ class HttpTransport:
         url = f"{self.base}{path}" + (f"?{query}" if query else "")
         data = json.dumps(body).encode("utf-8")
         req = urllib.request.Request(
-            url, data=data, headers={"content-type": "application/json"}, method="POST")
+            url, data=data, headers=self._headers({"content-type": "application/json"}), method="POST")
         for attempt in range(self.retries + 1):
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
@@ -217,8 +230,10 @@ class RecordingTransport:
 class CoreClient:
     """The engine, as the .org app sees it: verify (read-only) and seal (opt-in, a write)."""
 
-    def __init__(self, transport: Optional[Any] = None):
-        self.t = transport or HttpTransport()
+    def __init__(self, transport: Optional[Any] = None, forwarded_for: Optional[str] = None):
+        # `forwarded_for`: the client's address as this app received it (X-Forwarded-For from Caddy), so
+        # the core meets the real client, not this app — see HttpTransport._headers.
+        self.t = transport or HttpTransport(forwarded_for=forwarded_for)
 
     def verify(self, steps: List[Dict[str, Any]], *, seal: bool = False) -> Dict[str, Any]:
         """Run a structured derivation through the core. Returns {verdict, trail:[...], house:{...}}."""

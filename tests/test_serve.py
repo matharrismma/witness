@@ -47,6 +47,69 @@ def test_unowned_paths_pass_through_to_the_core():
     assert t.seen == ("GET", "/bible.html", "")
 
 
+class _Wire:
+    """Stands in for urllib's opener: records every Request and answers with a small JSON body."""
+
+    def __init__(self):
+        self.requests = []
+
+    def __call__(self, req, timeout=None):
+        self.requests.append(req)
+        return self
+
+    status = 200
+    headers = {"content-type": "application/json"}
+
+    def read(self):
+        return b'{"ok": true}'
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+def test_the_client_address_rides_to_the_core_as_x_forwarded_for(monkeypatch):
+    """Every request this app makes to the core carries the visitor's address, verbatim as Caddy handed it
+    here (its last hop is the real client) — never this app's own peer appended. Without it every
+    narrowhighway.org visitor shared one 127.0.0.1 rate-limit bucket at the core with the deploy gate
+    itself (measured 2026-11-01). A call that arrived with no such header sends none."""
+    from nh_org import core_client
+    wire = _Wire()
+    monkeypatch.setattr(core_client.urllib.request, "urlopen", wire)
+    t = core_client.HttpTransport(base_url="http://core.test", forwarded_for="203.0.113.9, 198.51.100.7")
+    t.post("/ask", {"text": "x"})
+    t.get("/seals")
+    t.passthrough("GET", "/search", "q=x")
+    t.passthrough("POST", "/ask", body={"text": "y"})
+    t.post_raw("/speak", {"text": "z"})
+    assert len(wire.requests) == 5
+    for req in wire.requests:
+        assert req.get_header("X-forwarded-for") == "203.0.113.9, 198.51.100.7"
+    assert wire.requests[0].get_header("Content-type") == "application/json"   # the other headers stand
+    plain = _Wire()
+    monkeypatch.setattr(core_client.urllib.request, "urlopen", plain)
+    core_client.HttpTransport(base_url="http://core.test").passthrough("GET", "/bible.html")
+    core_client.HttpTransport(base_url="http://core.test", forwarded_for="  ").get("/seals")
+    assert all(r.get_header("X-forwarded-for") is None for r in plain.requests)
+
+
+def test_handle_threads_the_forwarded_address_into_the_client(monkeypatch):
+    """The server hands the header it received to the client it builds for that one request."""
+    built = {}
+
+    class _Client:
+        def __init__(self, transport=None, forwarded_for=None):
+            built["forwarded_for"] = forwarded_for
+
+        def passthrough(self, method, path, query="", body=None):
+            return 200, "text/html", b"<core>"
+    monkeypatch.setattr(serve, "CoreClient", _Client)
+    status, _c, data = serve.handle("GET", "/bible.html", forwarded_for="198.51.100.7")
+    assert status == 200 and built["forwarded_for"] == "198.51.100.7"
+
+
 def test_console_requires_text():
     status, _c, data = serve.handle("POST", "/console", body={})
     assert status == 400
