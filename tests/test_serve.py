@@ -95,10 +95,13 @@ def test_the_client_address_rides_to_the_core_as_x_forwarded_for(monkeypatch):
     assert all(r.get_header("X-forwarded-for") is None for r in plain.requests)
 
 
-def test_only_exact_verification_doors_and_the_two_directory_doors_go_to_v3(monkeypatch):
-    """A path goes to V3 only when it IS a verification door, or sits under one of the two directory
-    doors /s/ and /schema/. A prefix is not a door: /find_verifier, /audit.html and /seal.html belong to
-    the keeping's engine (on .org they answered V3's 404, measured 2026-11-02)."""
+def test_only_the_nine_doors_slashes_stripped_and_the_two_directory_doors_go_to_v3(monkeypatch):
+    """A path goes to V3 only when, with any trailing slashes stripped, it IS one of the nine verification
+    doors, or sits under one of the two directory doors /s/ and /schema/. A prefix is not a door:
+    /find_verifier, /audit.html and /seal.html belong to the keeping's engine (on .org they answered V3's
+    404, measured 2026-11-02). A door with trailing slashes stays with V3 for GET and POST alike: V3 strips
+    them for its POST doors (POST /verify/ is /verify there) and matches GET exactly, so GET /seals/ is
+    V3's 404 either way. The path is sent as given; only the choice of engine strips."""
     from urllib.parse import urlsplit
 
     from nh_org import core_client
@@ -106,15 +109,22 @@ def test_only_exact_verification_doors_and_the_two_directory_doors_go_to_v3(monk
     monkeypatch.setattr(core_client.urllib.request, "urlopen", wire)
     t = core_client.HttpTransport(base_url="http://keeping.test", verify_url="http://v3.test")
     h = "0" * 63 + "1"
-    v3 = ["/verify", "/seal", "/seals", "/discern", "/audit", "/scribe", "/find", "/capabilities",
-          "/ledger/verify", "/s/" + h, "/schema/verify"]
-    keeping = ["/find_verifier", "/audit.html", "/seal.html", "/verify.html", "/verify/", "/sealed",
-               "/seals.json", "/findx", "/scribe/x", "/capabilities.json", "/ledger/verify/x", "/ledger",
-               "/s", "/schema", "/ask", "/bible.html", "/"]
-    for p in v3 + keeping:
-        t.passthrough("GET", p, "q=x")
-    routed = {p: urlsplit(r.full_url).netloc for p, r in zip(v3 + keeping, wire.requests)}
-    assert routed == {**{p: "v3.test" for p in v3}, **{p: "keeping.test" for p in keeping}}
+    doors = ["/verify", "/seal", "/seals", "/discern", "/audit", "/scribe", "/find", "/capabilities",
+             "/ledger/verify"]
+    v3 = doors + [d + "/" for d in doors] + ["/verify//", "/s/" + h, "/schema/verify"]
+    keeping = ["/find_verifier", "/find_verifier/", "/audit.html", "/seal.html", "/seal.html/",
+               "/verify.html", "/sealed", "/seals.json", "/findx", "/scribe/x", "/capabilities.json",
+               "/ledger/verify/x", "/ledger", "/ledger/", "/s", "/schema", "/ask", "/ask/", "/bible.html",
+               "/", "//"]
+    want = {**{p: "v3.test" for p in v3}, **{p: "keeping.test" for p in keeping}}
+    for method in ("GET", "POST"):
+        wire.requests.clear()
+        for p in v3 + keeping:
+            t.passthrough(method, p, "q=x", {} if method == "POST" else None)
+        assert [r.get_method() for r in wire.requests] == [method] * len(want)
+        assert [urlsplit(r.full_url).path for r in wire.requests] == v3 + keeping
+        routed = {p: urlsplit(r.full_url).netloc for p, r in zip(v3 + keeping, wire.requests)}
+        assert routed == want, method
     # the composed doors take the same rule
     wire.requests.clear()
     t.post("/verify", {"claim": "x"}, "seal=0")
