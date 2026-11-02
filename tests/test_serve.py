@@ -95,6 +95,34 @@ def test_the_client_address_rides_to_the_core_as_x_forwarded_for(monkeypatch):
     assert all(r.get_header("X-forwarded-for") is None for r in plain.requests)
 
 
+def test_only_exact_verification_doors_and_the_two_directory_doors_go_to_v3(monkeypatch):
+    """A path goes to V3 only when it IS a verification door, or sits under one of the two directory
+    doors /s/ and /schema/. A prefix is not a door: /find_verifier, /audit.html and /seal.html belong to
+    the keeping's engine (on .org they answered V3's 404, measured 2026-11-02)."""
+    from urllib.parse import urlsplit
+
+    from nh_org import core_client
+    wire = _Wire()
+    monkeypatch.setattr(core_client.urllib.request, "urlopen", wire)
+    t = core_client.HttpTransport(base_url="http://keeping.test", verify_url="http://v3.test")
+    h = "0" * 63 + "1"
+    v3 = ["/verify", "/seal", "/seals", "/discern", "/audit", "/scribe", "/find", "/capabilities",
+          "/ledger/verify", "/s/" + h, "/schema/verify"]
+    keeping = ["/find_verifier", "/audit.html", "/seal.html", "/verify.html", "/verify/", "/sealed",
+               "/seals.json", "/findx", "/scribe/x", "/capabilities.json", "/ledger/verify/x", "/ledger",
+               "/s", "/schema", "/ask", "/bible.html", "/"]
+    for p in v3 + keeping:
+        t.passthrough("GET", p, "q=x")
+    routed = {p: urlsplit(r.full_url).netloc for p, r in zip(v3 + keeping, wire.requests)}
+    assert routed == {**{p: "v3.test" for p in v3}, **{p: "keeping.test" for p in keeping}}
+    # the composed doors take the same rule
+    wire.requests.clear()
+    t.post("/verify", {"claim": "x"}, "seal=0")
+    t.get("/seal", "hash=" + h)
+    t.get("/mesh")
+    assert [urlsplit(r.full_url).netloc for r in wire.requests] == ["v3.test", "v3.test", "keeping.test"]
+
+
 def test_handle_threads_the_forwarded_address_into_the_client(monkeypatch):
     """The server hands the header it received to the client it builds for that one request."""
     built = {}

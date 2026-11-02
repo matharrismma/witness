@@ -49,8 +49,12 @@ class HttpTransport:
     # which serves exactly these doors; everything else (/ask, /search, /read, the mesh, coach, …) stays
     # with the v2 app engine at NH_CORE_URL. Set NH_VERIFY_URL to the v3 engine; unset, it falls back to
     # NH_CORE_URL so a single-engine deployment keeps working.
-    VERIFY_DOORS = ("/verify", "/seal", "/seals", "/s/", "/discern", "/audit", "/scribe", "/schema/",
-                    "/find", "/capabilities", "/ledger/verify")
+    # A path goes to V3 only when it IS one of its doors, or sits under one of its two directory doors
+    # (V3's http_api.route matches exactly these). A prefix is not a door: /find_verifier, /audit.html and
+    # /seal.html are the keeping's, and as prefixes they reached V3's 404 (measured 2026-11-02).
+    VERIFY_DOORS = ("/verify", "/seal", "/seals", "/discern", "/audit", "/scribe", "/find",
+                    "/capabilities", "/ledger/verify")
+    VERIFY_DIRS = ("/s/", "/schema/")
 
     def __init__(self, base_url: Optional[str] = None, timeout: float = 30.0, retries: int = 5,
                  verify_url: Optional[str] = None, forwarded_for: Optional[str] = None):
@@ -61,7 +65,9 @@ class HttpTransport:
         self.forwarded_for = (forwarded_for or "").strip() or None
 
     def _base_for(self, path: str) -> str:
-        return self.verify_base if path.startswith(self.VERIFY_DOORS) else self.base
+        if path in self.VERIFY_DOORS or path.startswith(self.VERIFY_DIRS):
+            return self.verify_base
+        return self.base
 
     def _headers(self, extra: Optional[Dict[str, str]] = None) -> Dict[str, str]:
         """Every request to the core carries the CLIENT's address as X-Forwarded-For — verbatim as Caddy
