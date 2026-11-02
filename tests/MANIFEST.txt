@@ -10,5 +10,6 @@ test_probe_live.py
 test_record.py
 test_scribe_loop.py
 test_serve.py
+test_ship.py
 test_study.py
 test_voice.py

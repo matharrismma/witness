@@ -1,0 +1,3 @@
+# tools/ship.sh is run on the box through `bash -s`; a carriage return would break every line, so it is LF on
+# every checkout, Windows' included.
+tools/ship.sh text eol=lf

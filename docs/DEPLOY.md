@@ -17,21 +17,95 @@ Every step has a rollback.
 
 | env | default | meaning |
 |---|---|---|
-| `NH_CORE_URL` | `https://api.narrowhighway.com` | the core the app calls (on the box, `http://127.0.0.1:8002`) |
+| `NH_CORE_URL` | `https://api.narrowhighway.com` | the core the app calls (on the box, `http://127.0.0.1:8001`, the engine's witness face) |
 | `NH_ORG_HOST` / `NH_ORG_PORT` | `127.0.0.1` / `8010` | where the app listens |
 | `NH_ORG_GATE` | `1` | the `.org` face opens the Gate (the Word woven in) |
 
-## 1 — deploy alongside (non-breaking; nothing routed to it yet)
+## Ship: every release after the cutover
 
-On the box (`nh@5.78.186.55`), beside `/home/nh/concordance-2`:
+A release is a commit on `origin/main`. The lead ships it with [`tools/ship.sh`](../tools/ship.sh), run on the
+box from **outside** the checkout it rewrites (bash reads a script as it runs, so a script inside the checkout
+would be rewritten under its own feet; run as a file from inside the checkout, it refuses):
 
 ```sh
-git clone https://github.com/matharrismma/witness /home/nh/witness
-cd /home/nh/witness && python3 -m venv .venv && .venv/bin/pip install -e .
-# run it as a user service (survives logout/restart):
-#   ~/.config/systemd/user/nh-org.service  →  ExecStart=/home/nh/witness/.venv/bin/nh-serve
-#   Environment=NH_CORE_URL=http://127.0.0.1:8002 NH_ORG_PORT=8010
-systemctl --user daemon-reload && systemctl --user enable --now nh-org
+ssh <box> 'bash -s' < tools/ship.sh
+```
+
+| env | default | meaning |
+|---|---|---|
+| `WITNESS_DIR` | as set in `tools/ship.sh` | the checkout the app runs from |
+| `RESTART_CMD` | `sudo systemctl restart nh-org` | how the app is restarted |
+| `APP` | `http://127.0.0.1:8010` | where the app answers, for the checks |
+| `CURL` / `PYTHON` | `curl` / `python3` | the HTTP client, and what reads the JSON answers |
+| `WAIT_TRIES` / `WAIT_SECONDS` | `30` / `2` | how long to wait for `/health` after a restart |
+
+What it does, in order:
+
+0. Takes the lock: one ship at a time. It makes the directory `ship.lock` in the checkout's git directory
+   (`mkdir` is atomic) and writes its pid and start time there. If the lock is already there, it refuses
+   (exit 2) and changes nothing.
+1. Records HEAD.
+2. Refuses (exit 2) unless the checkout is on `main`, has no tracked changes (untracked runtime files are
+   allowed) and has not diverged from `origin/main`, checked before the fetch and again after it. A refusal
+   leaves HEAD, the index and the files as they were.
+3. Fetches, fast-forwards to `origin/main`, restarts and waits for `/health` to answer 200.
+4. Checks, against `APP`, doors that reach both engines and the fallback:
+   - `/health` names the new HEAD;
+   - `GET /s/045bc6ff…` (held only by the keeping's engine, reached through the fallback) answers 200 and names
+     the hash;
+   - `GET /s/75cf60e5…` (a V3 seal) answers 200;
+   - `POST /verify?seal=0` with the claim `1234+4321=5555` answers 200, HOLDS, and is not sealed;
+   - `POST /console` with "how many ounces in a pound" answers 200 and says 16 ounces;
+   - `GET /find_verifier?q=speed+of+light` answers 200.
+5. On any failure after the fast-forward, resets hard to the recorded commit, restarts, waits for `/health` to
+   name that commit, and exits 1. Exit 3 means the rollback itself failed and a human is needed.
+
+A dropped session cannot stop it halfway: it ignores HUP and PIPE, and no message it fails to write stops it.
+The whole script is one function run from its last line with stdin from `/dev/null`, so a stream cut short
+runs nothing, and nothing it starts (git, curl, the restart) can read the script as its input.
+
+**One ship at a time.** A ship removes its lock when it ends on one of its own exits (0, 1, 2 or 3), and only
+the lock it took. It never reclaims a lock left behind. So after a dropped session, the ship finishes on its own,
+unattended. Before running it again:
+
+1. Read public `/health` (`https://narrowhighway.org/health`), which names the commit the app runs.
+2. Check on the box for the lock, `ship.lock` in the checkout's git directory (`.git/ship.lock`).
+
+While the lock is there, a ship is running or one was killed: a second ship refuses. If no ship is running,
+the lock is a killed ship's. Confirm that, read public `/health` and the checkout's HEAD, then remove the lock by
+hand (`rm -r` it) and run again.
+
+Exit 0 means shipped and verified. Its only POSTs are `/verify?seal=0` (a read: V3 seals a `POST /verify` by
+default, and `?seal=0` keeps it a read) and `/console`, which reaches the keeping's `POST /ask`: that writes a
+conversation record each run and re-mints the existing unit seal `fbb2ce1b…` without a new ledger entry.
+`tests/test_ship.py` runs it against a throwaway origin and clone and proves each branch. Never run it from
+inside the checkout, and never edit files on the box: a tracked change there makes the next ship refuse.
+
+## 1 — deploy alongside (non-breaking; nothing routed to it yet)
+
+On the box (the lead's ssh target; this repo names no host, address or account), beside the concordance-2
+checkout, clone into the directory `WITNESS_DIR` names in `tools/ship.sh`:
+
+```sh
+git clone https://github.com/matharrismma/witness "$WITNESS_DIR"
+```
+
+`nh-org` is a **system** service (not a user one). Its unit sets `WorkingDirectory` and
+`Environment=PYTHONPATH` to that checkout and runs `ExecStart=/usr/bin/python3 -m nh_org.serve`, so the app
+imports straight from the checkout and `/health` names that checkout's commit. The unit's `Environment` also
+carries the app's settings, all on the box's own loopback:
+
+| key | value | why |
+|---|---|---|
+| `NH_CORE_URL` | `http://127.0.0.1:8001` | the keeping's engine (concordance-2) on its witness face, which `.org` must use (`:8002` is its secular face), for everything but verification |
+| `NH_VERIFY_URL` | `http://127.0.0.1:8020` | V3, the verification doors and seals (set in a drop-in for the unit; Concordance-V3 `deploy/README.md`); unset, verification falls back to `NH_CORE_URL` and the V3 boundary is lost |
+| `NH_ORG_HOST` / `NH_ORG_PORT` | `127.0.0.1` / `8010` | where the app listens (Caddy proxies `narrowhighway.org` here) |
+| `NH_ORG_GATE` | `1` | the `.org` face opens the Gate |
+
+Restart it with:
+
+```sh
+sudo systemctl restart nh-org
 ```
 
 Verify on the box (no public traffic yet):

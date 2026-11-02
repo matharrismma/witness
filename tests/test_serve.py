@@ -89,7 +89,8 @@ def test_commit_of_agrees_with_git_itself(tmp_path):
     if not shutil.which("git"):
         pytest.skip("git is not installed")
     (tmp_path / "gitconfig").write_text("", encoding="utf-8")
-    env = {**os.environ, "GIT_CONFIG_GLOBAL": str(tmp_path / "gitconfig"), "GIT_CONFIG_NOSYSTEM": "1",
+    inherited = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}   # no GIT_DIR from a caller
+    env = {**inherited, "GIT_CONFIG_GLOBAL": str(tmp_path / "gitconfig"), "GIT_CONFIG_NOSYSTEM": "1",
            "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
            "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid"}
     repo = tmp_path / "repo"
