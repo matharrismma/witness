@@ -16,6 +16,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -58,6 +59,11 @@ class HttpTransport:
     VERIFY_DOORS = ("/verify", "/seal", "/seals", "/discern", "/audit", "/scribe", "/find",
                     "/capabilities", "/ledger/verify")
     VERIFY_DIRS = ("/s/", "/schema/")
+    # The one fallback. A receipt the keeping's engine sealed lives in its own ledger, not V3's, so a
+    # seal V3 does not hold is asked of the keeping's engine: only these two requests, only GET, and only
+    # after V3 answers 404 (see _asks_the_keeping).
+    SEAL_PATH = re.compile(r"/s/[0-9a-f]{64}")
+    SEAL_QUERY = re.compile(r"hash=[0-9a-f]{64}")
 
     def __init__(self, base_url: Optional[str] = None, timeout: float = 30.0, retries: int = 5,
                  verify_url: Optional[str] = None, forwarded_for: Optional[str] = None):
@@ -71,6 +77,18 @@ class HttpTransport:
         if path.rstrip("/") in self.VERIFY_DOORS or path.startswith(self.VERIFY_DIRS):
             return self.verify_base
         return self.base
+
+    def _asks_the_keeping(self, method: str, path: str, query: str) -> bool:
+        """Whether V3's 404 to this request is asked again of the keeping's engine: only GET
+        /s/<64 lowercase hex> with no query and GET /seal?hash=<64 lowercase hex> with exactly that
+        query, and only when V3 and the keeping are different engines (one engine is asked once). Both
+        forms route to V3 first. The keeping's answer is then returned unchanged; any other V3 outcome
+        (200, any other 4xx, 5xx, no answer) stands, and the keeping is never asked."""
+        if method != "GET" or self.verify_base == self.base:
+            return False
+        if path == "/seal":
+            return self.SEAL_QUERY.fullmatch(query) is not None
+        return not query and self.SEAL_PATH.fullmatch(path) is not None
 
     def _headers(self, extra: Optional[Dict[str, str]] = None) -> Dict[str, str]:
         """Every request to the core carries the CLIENT's address as X-Forwarded-For — verbatim as Caddy
@@ -111,8 +129,19 @@ class HttpTransport:
         raise CoreUnavailable(f"{url}: {last}")
 
     def get(self, path: str, query: str = "") -> Dict[str, Any]:
-        """GET a read-only core door (the record: /seal, /seals, …). Same backoff as post."""
-        url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
+        """GET a read-only core door (the record: /seal, /seals, …). Same backoff as post. A seal V3
+        answers 404 for (/seal?hash=<64 lowercase hex>) is asked of the keeping's engine, and its answer
+        stands: its record, or its own error (see _asks_the_keeping)."""
+        try:
+            return self._get_at(self._base_for(path), path, query)
+        except CoreUnavailable as e:
+            v3_404 = isinstance(e.__cause__, urllib.error.HTTPError) and e.__cause__.code == 404
+            if not (v3_404 and self._asks_the_keeping("GET", path, query)):
+                raise
+        return self._get_at(self.base, path, query)
+
+    def _get_at(self, base: str, path: str, query: str = "") -> Dict[str, Any]:
+        url = f"{base}{path}" + (f"?{query}" if query else "")
         req = urllib.request.Request(url, headers=self._headers(), method="GET")
         for attempt in range(self.retries + 1):
             try:
@@ -137,8 +166,17 @@ class HttpTransport:
         The transparent .org front: the app owns a few enriched surfaces (the Console) and hands
         EVERYTHING ELSE to the core — the full witness site and its endpoints (/bible, /passage,
         /search, …) — so .org stays whole. The core's own status (incl. 404) is returned as-is, never
-        raised. This is a transparent proxy, not a composed door, so it carries no fixed path."""
-        url = f"{self._base_for(path)}{path}" + (f"?{query}" if query else "")
+        raised. This is a transparent proxy, not a composed door, so it carries no fixed path. One
+        fallback: a seal V3 answers 404 for (GET /s/<hash>, GET /seal?hash=<hash>) is asked of the
+        keeping's engine, whose answer is returned unchanged (see _asks_the_keeping)."""
+        status, ctype, data = self._passthrough_at(self._base_for(path), method, path, query, body)
+        if status == 404 and self._asks_the_keeping(method, path, query):
+            return self._passthrough_at(self.base, method, path, query, body)
+        return status, ctype, data
+
+    def _passthrough_at(self, base: str, method: str, path: str, query: str = "",
+                        body: Optional[Dict[str, Any]] = None):
+        url = f"{base}{path}" + (f"?{query}" if query else "")
         data = None
         headers = {}
         if method == "POST":

@@ -133,6 +133,170 @@ def test_only_the_nine_doors_slashes_stripped_and_the_two_directory_doors_go_to_
     assert [urlsplit(r.full_url).netloc for r in wire.requests] == ["v3.test", "v3.test", "keeping.test"]
 
 
+class _Answer:
+    """One stand-in response: what urlopen hands back for a 2xx."""
+
+    def __init__(self, status, ctype, body):
+        self.status, self.headers, self._body = status, {"content-type": ctype}, body
+
+    def read(self):
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+class _Engines(_Wire):
+    """The _Wire stand-in with two engines on the line. Each host answers as it is told: a (status,
+    content type, body), raised as urllib's HTTPError when it is a 4xx or 5xx, or None for no answer at
+    all. Every Request is recorded, so a test sees which engine was asked and in what order."""
+
+    def __init__(self, answers):
+        super().__init__()
+        self.answers = answers
+
+    def __call__(self, req, timeout=None):
+        import io
+        import urllib.error
+        from urllib.parse import urlsplit
+        self.requests.append(req)
+        answer = self.answers[urlsplit(req.full_url).netloc]
+        if answer is None:
+            raise urllib.error.URLError("no answer")
+        status, ctype, body = answer
+        if status >= 400:
+            raise urllib.error.HTTPError(req.full_url, status, "stand-in", {"content-type": ctype},
+                                         io.BytesIO(body))
+        return _Answer(status, ctype, body)
+
+
+H = "0123456789abcdef" * 4                      # a seal hash: 64 lowercase hex
+V3_NOT_HELD = (404, "application/json", b'{"error": "seal not found"}')
+HELD = (200, "text/html; charset=utf-8", b"<the keeping's receipt>")
+
+
+def _two_engines(monkeypatch, v3, keeping, verify_url="http://v3.test"):
+    """V3 at v3.test, the keeping's engine at keeping.test, each answering as told; no retries, so no
+    test waits on a backoff."""
+    from nh_org import core_client
+    wire = _Engines({"v3.test": v3, "keeping.test": keeping})
+    monkeypatch.setattr(core_client.urllib.request, "urlopen", wire)
+    t = core_client.HttpTransport(base_url="http://keeping.test", verify_url=verify_url, retries=0)
+    return wire, CoreClient(t)
+
+
+def _asked(wire):
+    """Every request the app made, in order: (method, engine, path, query)."""
+    from urllib.parse import urlsplit
+    return [(r.get_method(), *urlsplit(r.full_url)[1:4]) for r in wire.requests]
+
+
+def test_a_seal_v3_does_not_hold_is_asked_of_the_keeping_and_its_answer_passed_through(monkeypatch):
+    """GET /s/<64 lowercase hex> and GET /seal?hash=<64 lowercase hex> ask V3 first. Only V3's 404 sends
+    the same request to the keeping's engine, and its answer comes back unchanged, whatever it is: status,
+    content type, body (a receipt the keeping's engine sealed lives in its own ledger, not V3's; on .org
+    it answered V3's 404, measured 2026-11-02). If the keeping gives no answer the app says so (503), never V3's 404, which
+    would say that no engine holds it. Any other V3 outcome (200, any other 4xx, 5xx, no answer) is
+    returned exactly as before and the keeping is never asked; so is V3's 404 to any other request, and
+    one engine (NH_VERIFY_URL unset) is asked once."""
+    seals = [("/s/" + H, ""), ("/seal", "hash=" + H)]
+    # V3 does not hold it: the keeping's answer, whatever it is, comes back unchanged
+    for keeping in (HELD, (200, "application/json", b'{"content_hash": "' + H.encode() + b'"}'),
+                    (404, "text/plain", b"not held here either"), (500, "text/html", b"<keeping broke>")):
+        for path, query in seals:
+            wire, client = _two_engines(monkeypatch, V3_NOT_HELD, keeping)
+            assert serve.handle("GET", path, query, client=client) == keeping
+            assert _asked(wire) == [("GET", "v3.test", path, query), ("GET", "keeping.test", path, query)]
+    for path, query in seals:
+        wire, client = _two_engines(monkeypatch, V3_NOT_HELD, None)
+        status, _c, data = serve.handle("GET", path, query, client=client)
+        assert status == 503 and b"nothing was fabricated" in data and b"keeping.test" in data
+        assert _asked(wire) == [("GET", "v3.test", path, query), ("GET", "keeping.test", path, query)]
+    # any other V3 outcome stands, and the keeping is never asked
+    for v3 in ((200, "application/json", b'{"v3": "held"}'), (400, "application/json", b'{"error": "bad"}'),
+               (403, "text/plain", b"forbidden"), (410, "text/plain", b"gone"),
+               (429, "application/json", b'{"error": "slow down"}'), (500, "text/plain", b"v3 broke"),
+               (502, "text/html", b"<bad gateway>"), (503, "application/json", b'{"error": "busy"}')):
+        for path, query in seals:
+            wire, client = _two_engines(monkeypatch, v3, HELD)
+            assert serve.handle("GET", path, query, client=client) == v3
+            assert _asked(wire) == [("GET", "v3.test", path, query)]
+    for path, query in seals:
+        wire, client = _two_engines(monkeypatch, None, HELD)
+        status, _c, data = serve.handle("GET", path, query, client=client)
+        assert status == 503 and b"nothing was fabricated" in data and b"v3.test" in data
+        assert _asked(wire) == [("GET", "v3.test", path, query)]
+    # only those two requests: V3's 404 to anything else stands, and the keeping is never asked
+    not_the_form = [("GET", "/s/" + H.upper(), ""), ("GET", "/s/" + H[:-1], ""), ("GET", "/s/" + H + "0", ""),
+                    ("GET", "/s/" + H + "/", ""), ("GET", "/s/" + H + "/x", ""), ("GET", "/s/" + H, "format=json"),
+                    ("GET", "/seal", "hash=" + H.upper()), ("GET", "/seal", "hash=" + H[:-1]),
+                    ("GET", "/seal", "hash=" + H + "&x=1"), ("GET", "/seal", "x=1&hash=" + H), ("GET", "/seal", ""),
+                    ("GET", "/seal/", "hash=" + H), ("GET", "/seals", "hash=" + H), ("GET", "/schema/" + H, ""),
+                    ("GET", "/verify", "hash=" + H), ("POST", "/s/" + H, ""), ("POST", "/seal", "hash=" + H)]
+    for method, path, query in not_the_form:
+        wire, client = _two_engines(monkeypatch, V3_NOT_HELD, HELD)
+        body = {} if method == "POST" else None
+        assert serve.handle(method, path, query, body, client=client) == V3_NOT_HELD, (method, path, query)
+        assert _asked(wire) == [(method, "v3.test", path, query)]
+    # one engine: it is asked once, and its 404 stands
+    monkeypatch.delenv("NH_VERIFY_URL", raising=False)
+    for path, query in seals:
+        wire, client = _two_engines(monkeypatch, None, V3_NOT_HELD, verify_url=None)
+        assert serve.handle("GET", path, query, client=client) == V3_NOT_HELD
+        assert _asked(wire) == [("GET", "keeping.test", path, query)]
+
+
+def test_the_record_lookup_follows_the_same_seal_rule(monkeypatch):
+    """record.fetch (GET /seal?hash=<hash>) takes the same rule: only V3's 404 asks the keeping's engine,
+    whose answer stands: its record, None on its 404, or CoreUnavailable on its other error or no answer.
+    Any other V3 outcome is returned exactly as before (V3's record, or CoreUnavailable naming V3), the
+    keeping never asked; so is any other request, and one engine is asked once."""
+    from nh_org import record
+    from nh_org.core_client import CoreUnavailable
+    rec = {"content_hash": H, "kind": "the keeping's record"}
+    held = (200, "application/json", json.dumps(rec).encode())
+    v3_asked = [("GET", "v3.test", "/seal", "hash=" + H)]
+    both_asked = v3_asked + [("GET", "keeping.test", "/seal", "hash=" + H)]
+    # V3 does not hold it: the keeping's answer stands
+    wire, client = _two_engines(monkeypatch, V3_NOT_HELD, held)
+    assert record.fetch(H, client=client) == rec
+    assert _asked(wire) == both_asked
+    wire, client = _two_engines(monkeypatch, V3_NOT_HELD, (404, "application/json", b'{"error": "not found"}'))
+    assert record.fetch(H, client=client) is None
+    assert _asked(wire) == both_asked
+    for keeping in ((500, "text/html", b"<keeping broke>"), None):
+        wire, client = _two_engines(monkeypatch, V3_NOT_HELD, keeping)
+        with pytest.raises(CoreUnavailable, match="keeping.test"):
+            record.fetch(H, client=client)
+        assert _asked(wire) == both_asked
+    # any other V3 outcome stands, and the keeping is never asked
+    wire, client = _two_engines(monkeypatch, (200, "application/json", b'{"v3": "held"}'), held)
+    assert record.fetch(H, client=client) == {"v3": "held"}
+    assert _asked(wire) == v3_asked
+    for v3 in ((400, "application/json", b'{"error": "bad"}'), (429, "application/json", b"{}"),
+               (500, "text/plain", b"v3 broke"), (503, "application/json", b"{}"), None):
+        wire, client = _two_engines(monkeypatch, v3, held)
+        with pytest.raises(CoreUnavailable, match="v3.test"):
+            record.fetch(H, client=client)
+        assert _asked(wire) == v3_asked
+    # only the exact request: V3's 404 to anything else stands
+    wire, client = _two_engines(monkeypatch, V3_NOT_HELD, held)
+    assert record.fetch(H.upper(), client=client) is None
+    assert _asked(wire) == [("GET", "v3.test", "/seal", "hash=" + H.upper())]
+    wire, client = _two_engines(monkeypatch, V3_NOT_HELD, held)
+    with pytest.raises(CoreUnavailable, match="404"):
+        client.t.get("/seal", "hash=" + H + "&x=1")
+    assert _asked(wire) == [("GET", "v3.test", "/seal", "hash=" + H + "&x=1")]
+    # one engine: it is asked once, and its 404 stands
+    monkeypatch.delenv("NH_VERIFY_URL", raising=False)
+    wire, client = _two_engines(monkeypatch, None, V3_NOT_HELD, verify_url=None)
+    assert record.fetch(H, client=client) is None
+    assert _asked(wire) == [("GET", "keeping.test", "/seal", "hash=" + H)]
+
+
 def test_handle_threads_the_forwarded_address_into_the_client(monkeypatch):
     """The server hands the header it received to the client it builds for that one request."""
     built = {}
