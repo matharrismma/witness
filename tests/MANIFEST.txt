@@ -1,0 +1,13 @@
+# The suite, declared. The harness (concordance-2's tools/harness.py, run with HARNESS_ROOT
+# pointed here) fails a gate if any listed file is absent or any tests/test_*.py is unlisted.
+# Add a line when you add a test file; a step may add lines, never remove one.
+test_book.py
+test_boundary.py
+test_community.py
+test_console.py
+test_palace.py
+test_record.py
+test_scribe_loop.py
+test_serve.py
+test_study.py
+test_voice.py
