@@ -18,6 +18,128 @@ def test_health_lists_the_doors():
     assert body["ok"] and body["surface"] == "witness" and "/ask" in body["doors"]
 
 
+def _write(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def test_commit_of_reads_head_from_the_files_git_keeps(tmp_path):
+    """commit_of reads HEAD from the files git keeps: a detached id, or a refs/ ref from its loose file (in the git
+    directory, then the common directory a worktree's commondir names) or else packed-refs; .git may be the
+    directory or a file naming it. Anything else is "unknown", never a guess."""
+    a, b, c, d, e = ("a1" * 20, "b2" * 20, "c3" * 20, "d4" * 20, "e5" * 20)
+    repo = tmp_path / "repo"
+    _write(repo / ".git" / "HEAD", "ref: refs/heads/main\n")
+    _write(repo / ".git" / "refs" / "heads" / "main", a + "\n")
+    assert serve.commit_of(repo) == a                                            # a loose ref
+    packed = tmp_path / "packed"
+    _write(packed / ".git" / "HEAD", "ref: refs/heads/main\n")
+    _write(packed / ".git" / "packed-refs", f"# pack-refs with: peeled fully-peeled sorted\n{d} refs/heads/dev\n"
+                                            f"{b} refs/heads/main\n^{c}\n{e} refs/tags/v1\n")
+    assert serve.commit_of(packed) == b                                          # packed-refs, peeled line skipped
+    _write(packed / ".git" / "refs" / "heads" / "main", e + "\n")
+    assert serve.commit_of(packed) == e                                          # a loose ref wins over packed-refs
+    _write(repo / ".git" / "HEAD", c + "\n")
+    assert serve.commit_of(repo) == c                                            # detached
+    _write(repo / ".git" / "HEAD", "f6" * 32 + "\n")
+    assert serve.commit_of(repo) == "f6" * 32                                    # a sha-256 repository's id
+
+    common = tmp_path / "main" / ".git"
+    _write(common / "refs" / "heads" / "feature", d + "\n")
+    _write(common / "worktrees" / "w" / "HEAD", "ref: refs/heads/feature\n")
+    _write(common / "worktrees" / "w" / "commondir", "../..\n")
+    wt = tmp_path / "wt"
+    _write(wt / ".git", f"gitdir: {common / 'worktrees' / 'w'}\n")
+    assert serve.commit_of(wt) == d                                              # a worktree, its ref in commondir
+    rel = tmp_path / "rel"
+    _write(rel / ".git", "gitdir: ../main/.git/worktrees/w\n")
+    assert serve.commit_of(rel) == d                                             # a relative gitdir
+    _write(common / "worktrees" / "w" / "HEAD", a + "\n")
+    assert serve.commit_of(wt) == a                                              # a detached worktree, as the gate's
+
+    nothing = tmp_path / "nothing"
+    nothing.mkdir()
+    assert serve.commit_of(nothing) == "unknown"                                 # not a git checkout
+    assert serve.commit_of(tmp_path / "absent") == "unknown"
+    bad = tmp_path / "bad"
+    for head in ("hello\n", a.upper() + "\n", a[:-1] + "\n", a + "0\n", "ref: refs/heads/none\n", "ref: HEAD\n",
+                 "ref: refs/../../escape\n", "ref:\n", ""):
+        _write(bad / ".git" / "HEAD", head)
+        assert serve.commit_of(bad) == "unknown", head
+    _write(bad / "escape", a + "\n")                                             # where refs/../../escape lands
+    _write(bad / ".git" / "HEAD", "ref: refs/../../escape\n")
+    assert serve.commit_of(bad) == "unknown"                                     # a ref outside refs/ is refused
+    (bad / ".git" / "HEAD").write_bytes(b"\xff\xfe\x00")
+    assert serve.commit_of(bad) == "unknown"                                     # not text
+    filed = tmp_path / "filed"
+    _write(filed / ".git", "not a gitdir line\n")
+    assert serve.commit_of(filed) == "unknown"
+    _write(filed / ".git", "gitdir: ../nowhere\n")
+    assert serve.commit_of(filed) == "unknown"
+    empty = tmp_path / "empty"
+    _write(empty / ".git" / "HEAD", "ref: refs/heads/main\n")
+    assert serve.commit_of(empty) == "unknown"                                   # a repository with no commit yet
+
+
+def test_commit_of_agrees_with_git_itself(tmp_path):
+    """Against real git, isolated from this machine's configuration: commit_of equals `git rev-parse HEAD` on a
+    branch, after the refs are packed, detached, and in a branch worktree and a detached one."""
+    import shutil
+    import subprocess
+    if not shutil.which("git"):
+        pytest.skip("git is not installed")
+    (tmp_path / "gitconfig").write_text("", encoding="utf-8")
+    env = {**os.environ, "GIT_CONFIG_GLOBAL": str(tmp_path / "gitconfig"), "GIT_CONFIG_NOSYSTEM": "1",
+           "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
+           "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid"}
+    repo = tmp_path / "repo"
+    repo.mkdir()
+
+    def git(*args, cwd=repo):
+        return subprocess.run(["git", *args], cwd=cwd, env=env, check=True, capture_output=True,
+                              text=True).stdout.strip()
+    git("init", "-q")
+    git("symbolic-ref", "HEAD", "refs/heads/main")
+    assert serve.commit_of(repo) == "unknown"                                    # no commit yet
+    for n in ("one", "two"):
+        (repo / "f").write_text(n, encoding="utf-8")
+        git("add", "f")
+        git("commit", "-q", "-m", n)
+        assert serve.commit_of(repo) == git("rev-parse", "HEAD")
+    git("pack-refs", "--all")
+    assert not (repo / ".git" / "refs" / "heads" / "main").exists()
+    assert serve.commit_of(repo) == git("rev-parse", "HEAD")                    # read from packed-refs
+    git("worktree", "add", "-q", "--detach", str(tmp_path / "wt"), "HEAD~1")
+    assert serve.commit_of(tmp_path / "wt") == git("rev-parse", "HEAD", cwd=tmp_path / "wt") \
+        == git("rev-parse", "HEAD~1")
+    git("worktree", "add", "-q", "-b", "side", str(tmp_path / "side"))
+    (tmp_path / "side" / "f").write_text("three", encoding="utf-8")
+    git("commit", "-q", "-am", "three", cwd=tmp_path / "side")
+    assert serve.commit_of(tmp_path / "side") == git("rev-parse", "HEAD", cwd=tmp_path / "side")
+    git("checkout", "-q", "--detach", "HEAD~1")
+    assert serve.commit_of(repo) == git("rev-parse", "HEAD")
+
+
+def test_health_names_the_commit_read_once_at_startup(monkeypatch):
+    """/health names the commit of the checkout that holds nh_org, read once when the app starts (at import), not
+    per request; ok, surface and doors stand as before."""
+    from pathlib import Path
+    root = Path(serve.__file__).resolve().parent.parent
+    assert serve.COMMIT == serve.commit_of(root)
+    if (root / ".git").exists():                                                # a checkout, as here and in the gate
+        assert serve._COMMIT_ID.fullmatch(serve.COMMIT), serve.COMMIT
+    status, ctype, data = serve.handle("GET", "/health")
+    body = json.loads(data)
+    assert status == 200 and "json" in ctype and set(body) == {"ok", "surface", "commit", "doors"}
+    assert body["commit"] == serve.COMMIT and body["ok"] and body["surface"] == "witness" and "/ask" in body["doors"]
+
+    def read_again(*a):
+        raise AssertionError("/health read the commit per request")
+    monkeypatch.setattr(serve, "commit_of", read_again)
+    monkeypatch.setattr(serve, "COMMIT", "f" * 40)
+    assert json.loads(serve.handle("GET", "/health")[2])["commit"] == "f" * 40
+
+
 def test_landing_is_a_still_page_with_an_ask_box():
     status, ctype, data = serve.handle("GET", "/")
     h = data.decode()

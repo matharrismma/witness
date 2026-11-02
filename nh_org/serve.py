@@ -7,18 +7,74 @@ an HTTPServer for deployment. The .org face opens the Gate by default (the Word 
 
   GET  /                      the landing page (an ask box → /book)
   GET  /book?q=<ask>          the answer as a still E-Ink page (server-rendered)
-  GET  /health                {ok, surface, doors}
+  GET  /health                {ok, surface, commit, doors}
   POST /console  {text}       the Console payload as JSON (for agents)
   GET  /mesh | /groups | /teachings | /decks     a read surface, as JSON
 """
 from __future__ import annotations
 
 import json
+import re
+from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
 from . import community, study
 from .console import book, dispatch
 from .core_client import CORE_DOORS, CoreClient, CoreUnavailable
+
+_COMMIT_ID = re.compile(r"[0-9a-f]{40}(?:[0-9a-f]{24})?")   # a sha-1 or sha-256 commit id
+
+
+def _packed_ref(common: Path, ref: str) -> str:
+    """The id packed-refs gives `ref`, or "" when it gives none."""
+    p = common / "packed-refs"
+    if not p.is_file():
+        return ""
+    for line in p.read_text(encoding="utf-8").splitlines():
+        if line and line[0] not in "#^":
+            sha, _, name = line.partition(" ")
+            if name.strip() == ref:
+                return sha.strip()
+    return ""
+
+
+def commit_of(root: Path) -> str:
+    """The commit the git checkout at `root` is at: its HEAD, read from the files git keeps, never by running
+    git. `root/.git` is the git directory, or a file naming it ("gitdir: <path>", as in a worktree). A detached
+    HEAD holds the id itself; otherwise HEAD names a ref under refs/, read from its loose file (in the git
+    directory, then in the common directory a worktree's "commondir" names) or else from packed-refs. Returns
+    the 40 or 64 lowercase hex id, or "unknown" when `root` is not a git checkout or HEAD resolves to no id."""
+    try:
+        gitdir = Path(root) / ".git"
+        if gitdir.is_file():
+            line = gitdir.read_text(encoding="utf-8").strip()
+            if not line.startswith("gitdir:"):
+                return "unknown"
+            gitdir = Path(root) / line[len("gitdir:"):].strip()   # an absolute path stays absolute
+        head_file = gitdir / "HEAD"
+        if not head_file.is_file():
+            return "unknown"
+        head = head_file.read_text(encoding="utf-8").strip()
+        if head.startswith("ref:"):
+            ref = head[len("ref:"):].strip()
+            if not ref.startswith("refs/") or ".." in ref.split("/"):
+                return "unknown"
+            common = gitdir
+            if (gitdir / "commondir").is_file():
+                common = gitdir / (gitdir / "commondir").read_text(encoding="utf-8").strip()
+            for base in (gitdir, common):
+                if (base / ref).is_file():
+                    head = (base / ref).read_text(encoding="utf-8").strip()
+                    break
+            else:
+                head = _packed_ref(common, ref)
+        return head if _COMMIT_ID.fullmatch(head) else "unknown"
+    except (OSError, UnicodeDecodeError, ValueError):
+        return "unknown"
+
+
+# Read once, at startup: the commit of the checkout that holds this package (where the service runs from).
+COMMIT = commit_of(Path(__file__).resolve().parent.parent)
 
 _LANDING = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -68,7 +124,7 @@ def handle(method: str, path: str, query: str = "", body: Optional[Dict[str, Any
         if method == "GET" and path in ("/", "/index.html"):
             return _page(200, _LANDING)
         if method == "GET" and path == "/health":
-            return _json(200, {"ok": True, "surface": "witness", "doors": list(CORE_DOORS)})
+            return _json(200, {"ok": True, "surface": "witness", "commit": COMMIT, "doors": list(CORE_DOORS)})
         if method == "GET" and path == "/book":
             ask = (q.get("q") or "").strip()
             if not ask:
