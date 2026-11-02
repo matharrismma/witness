@@ -6,6 +6,7 @@ test_boundary.py
 test_community.py
 test_console.py
 test_palace.py
+test_probe_live.py
 test_record.py
 test_scribe_loop.py
 test_serve.py
